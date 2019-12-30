@@ -1,0 +1,15 @@
+set nu
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set cursorline
+set showmatch
+set hlsearch
+set incsearch
+set ignorecase
+set wildmenu
+set wildmode=list:longest
+set background=light
+set ruler
+syntax enable
+colo slate
