@@ -7,6 +7,10 @@ mkdir -p $HOME/.bin
 ln -s $HOME/git/dotfiles/.aliases $HOME/.aliases
 ln -s $HOME/git/dotfiles/.bashrc $HOME/.bashrc
 ln -s $HOME/git/dotfiles/.bash_profile $HOME/.bash_profile
+ln -s $HOME/git/dotfiles/.exports $HOME/.exports
+ln -s $HOME/git/dotfiles/.functions $HOME/.functions
+ln -s $HOME/git/dotfiles/.misc $HOME/.misc
+ln -s $HOME/git/dotfiles/.sqliterc $HOME/.sqliterc
 ln -s $HOME/git/dotfiles/.vimrc $HOME/.vimrc
 ln -s $HOME/git/dotfiles/.zshrc $HOME/.zshrc
 
