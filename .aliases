@@ -1,3 +1,5 @@
+# .aliases
+
 # profile
 alias vbp='vi ~/.bash_profile'
 alias vz='vi ~/.zshrc'
@@ -28,6 +30,7 @@ alias cie='conda info --envs'
 alias cl='conda list'
 alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi --colors="Linux"'
 alias jupyter-lab='jupyter-lab --ip=localhost'
+
 # git
 alias gita='git add'
 alias gitb='git branch'
@@ -38,14 +41,18 @@ alias gitss='git status --short'
 alias gitch='git checkout'
 alias giturl='git config --get remote.origin.url'
 alias gitpristine='git reset --hard && git clean -dfx'
+
 # docker
 alias di='docker image'
 alias dc='docker container'
 alias ds='docker service'
 alias dinfo='docker info'
+
 # bat - https://github.com/sharkdp/bat
-alias bat='bat -p'
 alias b='bat -p'
+alias bat='bat -p'
+alias batn='bat -n'
+
 # hadoop
 alias yal='yarn application -list'
 alias yas='yarn application -status'
@@ -63,3 +70,4 @@ alias hdf='hadoop fs -df'
 alias hdu='hadoop fs -du'
 alias hmv='hadoop fs -mv'
 
+# end

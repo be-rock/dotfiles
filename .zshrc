@@ -1,5 +1,13 @@
+# .zshrc
+
+for file in $HOME/.{aliases,exports,functions,misc}; do
+    if [[ -r "$file" ]] && [[ -f "$file" ]]; then
+        source "$file"
+    fi
+done
+unset file
+
 ZSH_THEME="duellj"
-HIST_STAMPS="yyyy-mm-dd"
 
 export KEYTIMEOUT=1
 bindkey -v
@@ -18,11 +26,4 @@ bindkey '^w' backward-kill-word
 # ctrl-r starts searching history backward
 bindkey '^r' history-incremental-search-backward
 
-# bat follow - https://github.com/sharkdp/bat
-function batf() {
-    tail -f "$1" | bat --paging=never;
-}
-
-export HISTSIZE=10000
-export HISTFILESIZE=10000
-source $HOME/config/.alias
+# end

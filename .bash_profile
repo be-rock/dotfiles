@@ -1,6 +1,6 @@
 # .bashrc
 
-for file in $HOME/.{aliases,functions}; do
+for file in $HOME/.{aliases,exports,functions,misc}; do
     if [[ -r "$file" ]] && [[ -f "$file" ]]; then
         source "$file"
     fi
