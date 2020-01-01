@@ -1,29 +1,28 @@
 #!/usr/bin/env bash
 
-# setup local bin
-mkdir -p $HOME/.bin
+# create symlinks if files dont already exist
+for file in .{aliases,exports,functions,misc,sqliterc,vimrc}; do
+    if [[ ! -r "$HOME/$file" ]] ; then
+        echo "Executing: ln -s $HOME/git/dotfiles/$file $HOME/$file ..."
+        ln -s $HOME/git/dotfiles/$file $HOME/$file
+        echo "Return code: $?"
+    fi
+done
+unset file
 
-# create symlinks
-ln -s $HOME/git/dotfiles/.aliases $HOME/.aliases
-ln -s $HOME/git/dotfiles/.bashrc $HOME/.bashrc
-ln -s $HOME/git/dotfiles/.bash_profile $HOME/.bash_profile
-ln -s $HOME/git/dotfiles/.exports $HOME/.exports
-ln -s $HOME/git/dotfiles/.functions $HOME/.functions
-ln -s $HOME/git/dotfiles/.misc $HOME/.misc
-ln -s $HOME/git/dotfiles/.sqliterc $HOME/.sqliterc
-ln -s $HOME/git/dotfiles/.vimrc $HOME/.vimrc
-ln -s $HOME/git/dotfiles/.zshrc $HOME/.zshrc
+cat << EOF
+Other installation considerations:
+  bat - https://github.com/sharkdp/bat
+  tree - sudo apt install tree | brew install tree | yum install tree 
+  oh-my-zsh - https://ohmyz.sh/
+EOF
 
-if [ $(uname -s) = 'Darwin' ]; then
-    echo $hostname
-    brew install bat
-    brew install tree
-elif [ $(uname -s) = 'Linux' ] && [ -a /etc/debian_version ]; then
-    echo $hostname
-    apt install bat
-    sudo apt-get install tree
-elif [ $(uname -s) = 'Linux' ] && [ -a /etc/redhat-release ]; then
-    echo $hostname
-fi
+#if [ $(uname -s) = 'Darwin' ]; then
+#    #
+#elif [ $(uname -s) = 'Linux' ] && [ -a /etc/debian_version ]; then
+#    #
+#elif [ $(uname -s) = 'Linux' ] && [ -a /etc/redhat-release ]; then
+#    #
+#fi
 
 #end
