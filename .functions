@@ -1,3 +1,4 @@
+# .functions
 # follow a file using bat
 batf() {
     tail -f "$1" | bat -p --paging=never

@@ -3,7 +3,7 @@
 export HISTSIZE=50000000
 export HISTFILESIZE=$HISTSIZE
 export HISTCONTROL=ignoredups
-export HISTTIMEFORMAT=%F %T %t
+export HISTTIMEFORMAT="%F %T %t"
 
 if [ $(uname -s) = 'Darwin' ]; then
     export LSCOLORS="Gxfxcxdxbxegedabagacad"

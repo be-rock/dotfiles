@@ -1,15 +1,40 @@
-set nu
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set cursorline
-set showmatch
-set hlsearch
-set incsearch
-set ignorecase
-set wildmenu
-set wildmode=list:longest
-set background=light
-set ruler
-syntax enable
-colo slate
+# .vimrc
+
+" Vim5 and later versions support syntax highlighting. Uncommenting the next
+" line enables syntax highlighting by default.
+if has("syntax")
+  syntax on
+endif
+
+if has("termguicolors")
+  colorscheme slate     " colorscheme slate
+  "colorscheme desert    " colorscheme desert
+endif
+
+filetype indent on    " activates indenting for files
+set autoindent        " auto indenting
+set background=light  " background color
+set backspace=2       " backspace in insert mode works like normal editor
+set cursorline        " show location of cursor using a horizontal line.
+set encoding=utf-8    "
+set expandtab         " Convert tabs to spaces
+set hlsearch          " highlight search terms (:noh to turn off temporarily)
+set ignorecase        " Do case insensitive matching
+set incsearch         " Incremental search
+set nobackup          " get rid of anoying ~file
+set nocompatible      " do not make vim compatible with vi.
+set number            " number the lines.
+set ruler             " Always show current position
+set scrolloff=999     " keep cursor in the middle of the screen while scrolling up and down.
+set shiftwidth=4      "
+set showcmd           " Show (partial) command in status line.
+set showmatch         " Show matching brackets.
+set smartcase         " Do smart case matching
+set tabstop=4         " <TAB> four spaces
+set wildmenu          " show auto complete menus.
+set wildmode=list:longest,full " Make wildmenu behave like bash completion. Finding commands are so easy now.
+
+inoremap jj <Esc>     " remap jj to escape in insert mode
+"syntax enable         "
+
+# end
