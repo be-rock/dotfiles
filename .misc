@@ -1,5 +1,7 @@
 # .misc
 
 set -o vi
+# allow multiple terminal sessions to write to the history at the same time
+shopt -s histappend
 
 # end

@@ -1,4 +1,4 @@
-# .vimrc
+" .vimrc
 
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
@@ -37,4 +37,4 @@ set wildmode=list:longest,full " Make wildmenu behave like bash completion. Find
 inoremap jj <Esc>     " remap jj to escape in insert mode
 "syntax enable         "
 
-# end
+" end
