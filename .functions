@@ -5,13 +5,18 @@ batf() {
     tail -f "$1" | bat -p --paging=never
 }
 
+# echo in colors
+red() { echo -e "\e[31m${1}\e[0m" }
+yellow() { echo -e "\e[33m${1}\e[0m" }
+green() { echo -e "\e[32m${1}\e[0m" }
+
 # check if uri is up
 isup() {
 	local uri=$1
 	if curl -s --head  --request GET "$uri" | grep "200 OK" > /dev/null ; then
-		notify-send --urgency=critical "$uri is down"
+		echo "$uri is $(red down)"
 	else
-		notify-send --urgency=low "$uri is up"
+		echo "$uri is $(green up)"
 	fi
 }
 
@@ -20,8 +25,8 @@ sbs() {
     du -b --max-depth 1 | sort -nr | perl -pe 's{([0-9]+)}{sprintf "%.1f%s", $1>=2**30? ($1/2**30, "G"): $1>=2**20? ($1/2**20, "M"): $1>=2**10? ($1/2**10, "K"): ($1, "")}e';
 }
 
-# backup a file: backup [file] will create [file].bkp.[CurrentDate] in the same directory
-backup() { cp "$1"{,.bkp.$(date +%Y%m%dT%H%M%S%z)}; }
+# backup a file: bkp [file] will create [file].bkp.[CurrentDate] in the directory that the file resides in
+bkp() { cp "$1"{,.bkp.$(date +%Y%m%dT%H%M%S%z)}; }
 
 # compute an md5sum and compare it with grep: md5check [file] [key]
 md5check() { md5sum "$1" | grep "$2";}
