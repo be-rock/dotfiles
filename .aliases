@@ -1,8 +1,9 @@
 # .aliases
 
 # profile
-alias vbp='vi ~/.bash_profile'
+alias vb='vi ~/.bashrc'
 alias vz='vi ~/.zshrc'
+alias vbp='vi ~/.bash_profile'
 alias reloadb='. ~/.bash_profile'
 alias reloadz='. ~/.zshrc'
 
@@ -14,10 +15,19 @@ alias jobs='jobs -l'
 alias h='history'
 alias hg='history | grep'
 alias ag='alias | grep'
-alias lla='ls -la'
-alias lltr='ls -ltr'
-alias lltrt='ls -ltr|tail'
-alias lld='ls -ld */'
+
+# list stuff
+alias l='ls -lFh'
+alias ltr='ls -lFhtr'
+alias ltrt='ls -lFhtr | tail'
+alias la='ls -lAFh'
+alias ld='ls -ldh */'
+#alias lla='ls -la'
+#alias lltr='ls -ltr'
+#alias lltrt='ls -ltr|tail'
+#alias lld='ls -ld */'
+
+#
 alias less='less -I'
 alias llast='less $(ls -1rt|tail -n1)'
 alias E='env|sort'
