@@ -4,17 +4,7 @@
 alias vb='vi ~/.bashrc'
 alias vz='vi ~/.zshrc'
 alias vbp='vi ~/.bash_profile'
-alias reloadb='. ~/.bash_profile'
-alias reloadz='. ~/.zshrc'
-
-# 
-alias grep='grep --color'
-alias G='grep'
-alias dt='date +%Y%m%dT%H%M%S%z'
-alias jobs='jobs -l'
-alias h='history'
-alias hg='history | grep'
-alias ag='alias | grep'
+alias reload="exec $SHELL -l"
 
 # list stuff
 alias l='ls -lFh'
@@ -27,15 +17,26 @@ alias ld='ls -ldh */'
 #alias lltrt='ls -ltr|tail'
 #alias lld='ls -ld */'
 
-#
+# 
+alias grep='grep --color'
+alias G='grep'
+alias dt='date +%Y%m%dT%H%M%S%z'
+alias jobs='jobs -l'
+alias h='history'
+alias hg='history | grep'
+alias ag='alias | grep'
 alias less='less -I'
 alias llast='less $(ls -1rt|tail -n1)'
-alias E='env|sort'
-alias env='env|sort'
+alias eg='env | sort | grep'
+alias env='env | sort'
 alias rm='rm -i'
 alias path='echo -e ${PATH//:/\\n}'
 alias port='netstat -tulanp'
 alias mem='free -m -t'
+
+# for when tree is not installed
+treea="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+treed="find . -type d-print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 
 # python
 alias ccn='conda create --name'
@@ -47,15 +48,14 @@ alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi --colors="Linu
 alias jupyter-lab='jupyter-lab --ip=localhost'
 
 # git
-#alias gita='git add'
-#alias gitb='git branch'
-#alias gb='git branch'
-#alias gitc='git commit'
-#alias gitch='git checkout'
 alias ga='git add'
 alias gb='git branch'
 alias gco='git checkout'
 alias gc='git commit'
+alias gd='git diff'
+alias gdca='git diff --cached'
+alias gdcw='git diff --cached --word-diff'
+alias gds='git diff --staged'
 alias gcm='git commit -m'
 alias gp='git push'
 alias gpo='git push origin'
@@ -63,6 +63,11 @@ alias gs='git status'
 alias gss='git status --short'
 alias gurl='git config --get remote.origin.url'
 alias gpristine='git reset --hard && git clean -dfx'
+#alias gita='git add'
+#alias gitb='git branch'
+#alias gb='git branch'
+#alias gitc='git commit'
+#alias gitch='git checkout'
 
 # docker
 alias di='docker image'
@@ -91,5 +96,8 @@ alias hgetfacl='hadoop fs -getfacl'
 alias hdf='hadoop fs -df'
 alias hdu='hadoop fs -du'
 alias hmv='hadoop fs -mv'
+
+# timer
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
 # end

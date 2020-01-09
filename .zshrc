@@ -1,6 +1,6 @@
 # .zshrc
 
-for file in $HOME/.{aliases,exports,functions,misc,sqliterc,vimrc}; do
+for file in $HOME/.{exports,aliases,functions,misc,sqliterc,vimrc}; do
     if [[ -r "$file" ]] && [[ -f "$file" ]]; then
         source "$file"
     fi
