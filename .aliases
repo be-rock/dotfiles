@@ -34,7 +34,7 @@ alias mem='free -m -t'
 
 # for when tree is not installed
 treea="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
-treed="find . -type d-print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+treed="find . -type d -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 
 # python
 alias ccn='conda create --name'
@@ -42,6 +42,7 @@ alias cea='conda activate'
 alias ced='conda deactivate'
 alias cie='conda info --envs'
 alias cl='conda list'
+alias ci='conda install'
 alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi --colors="Linux"'
 alias jupyter-lab='jupyter-lab --ip=localhost'
 
