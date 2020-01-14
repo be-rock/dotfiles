@@ -15,9 +15,9 @@ alias ld='ls -ldh */'
 
 # misc
 alias grep='grep --color'
-alias G='| grep'
-alias H='| head'
-alias L='| less'
+alias G='grep'
+alias H='head'
+alias L='less'
 alias dt='date +%Y%m%dT%H%M%S%z'
 alias jobs='jobs -l'
 alias h='history'
