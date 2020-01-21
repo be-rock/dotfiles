@@ -62,4 +62,28 @@ findit (){
    fi
 }
 
+def docker_python () {
+    #
+    # purpose:
+    #   quickly start a python repl in a docker container given a version, tag, and one or more python packages
+    # usage:
+    #   docker_python <python_ersion> <docker_tag> <python packages>
+    # example:
+    #   docker_python 3.8.1 my_tag requests pytest
+    #
+    
+    echo "python version        : $1";
+    echo "docker image tag name : $2";
+    echo "python packages       : ${@:3}";
+
+    echo -e "FROM python:$1-slim 
+        RUN python -m pip install \
+        --upgrade pip \
+        ${@:3}" > ./Dockerfile
+
+    echo -e "\nBuilding image from Dockerfile:\n$(cat ./Dockerfile)\n"
+    docker build . --tag $2
+    docker container run -it --rm $2
+}
+
 # end
