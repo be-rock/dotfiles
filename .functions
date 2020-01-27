@@ -83,6 +83,7 @@ docker_python () {
 
     echo -e "\nBuilding image from Dockerfile:\n$(cat ./Dockerfile)\n"
     docker build . --tag $2
+    rm -f Dockerfile
     docker container run -it --rm $2
 }
 
