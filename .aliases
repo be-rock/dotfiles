@@ -15,9 +15,9 @@ alias ld='ls -ldh */'
 
 # misc
 alias grep='grep --color'
-alias G='| grep'
-alias H='| head'
-alias L='| less'
+alias G='grep'
+alias H='head'
+alias L='less'
 alias dt='date +%Y%m%dT%H%M%S%z'
 alias jobs='jobs -l'
 alias h='history'
@@ -31,6 +31,7 @@ alias rm='rm -i'
 alias path='echo -e ${PATH//:/\\n}'
 alias port='netstat -tulanp'
 alias mem='free -m -t'
+alias dmesg='dmesg --color --ctime'
 
 # for when tree is not installed
 treea="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
@@ -42,7 +43,8 @@ alias cea='conda activate'
 alias ced='conda deactivate'
 alias cie='conda info --envs'
 alias cl='conda list'
-alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi --colors="Linux"'
+alias ci='conda install'
+alias ipy='ipython --TerminalInteractiveShell.editing_mode=vi --colors="Linux"'
 alias jupyter-lab='jupyter-lab --ip=localhost'
 
 # git
@@ -50,6 +52,7 @@ alias ga='git add'
 alias gb='git branch'
 alias gco='git checkout'
 alias gc='git commit'
+alias gcf='git config --list'
 alias gcm='git commit -m'
 alias gd='git diff'
 alias gdc='git diff --cached'
@@ -61,7 +64,8 @@ alias gps='git push'
 alias gpso='git push origin'
 alias gs='git status'
 alias gss='git status --short'
-alias gurl='git config --get remote.origin.url'
+alias gst='git stash'
+alias gsta='git stash --all'
 alias gpristine='git reset --hard && git clean -dfx'
 
 # docker
