@@ -1,0 +1,6 @@
+# .inputrc
+
+# enable vim key bindings in scala repl
+set editing-mode vi
+
+# end

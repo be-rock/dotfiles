@@ -35,7 +35,7 @@ alias dmesg='dmesg --color --ctime'
 
 # for when tree is not installed
 treea="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
-treed="find . -type d-print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+treed="find . -type d -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 
 # python
 alias ccn='conda create --name'
@@ -63,6 +63,7 @@ alias gpl='git pull origin'
 alias gps='git push'
 alias gpso='git push origin'
 alias gs='git status'
+alias gst='git stash --all'
 alias gss='git status --short'
 alias gst='git stash'
 alias gsta='git stash --all'
