@@ -75,6 +75,13 @@ alias dc='docker container'
 alias ds='docker service'
 alias dinfo='docker info'
 
+# k8s
+alias kd='kubectl describe'
+alias kdel='kubectl delete'
+alias kg='kubectl get'
+alias kl='kubectl logs'
+alias ks='kubectl stop'
+
 # bat - https://github.com/sharkdp/bat
 alias b='bat -p'
 alias bat='bat -p'
