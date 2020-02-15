@@ -92,7 +92,7 @@ byte_convert () {
     # purpose: 
     #   convert bytes from one unit to another
     # usage:
-    #   usage: byte_convert <num> <unit>. Valid units [b|kb|mb|gb|tb|pb|eb
+    #   usage: byte_convert <num> <unit>. Valid units [b|kb|mb|gb|tb|pb|eb]
     # example: 
     #   byte_convert 123456 gb 
     #
