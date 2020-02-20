@@ -6,11 +6,6 @@ if has("syntax")
   syntax on
 endif
 
-if has("termguicolors")
-  colorscheme slate     " colorscheme slate
-  "colorscheme desert    " colorscheme desert
-endif
-
 filetype indent on    " activates indenting for files
 set autoindent        " auto indenting
 set background=light  " background color
@@ -34,7 +29,7 @@ set tabstop=4         " <TAB> four spaces
 set wildmenu          " show auto complete menus.
 set wildmode=list:longest,full " Make wildmenu behave like bash completion. Finding commands are so easy now.
 
-inoremap jj <Esc>     " remap jj to escape in insert mode
-"syntax enable         "
+imap jj <Esc>
+colorscheme slate     " colorscheme slate
 
 " end
