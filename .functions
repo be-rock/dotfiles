@@ -75,7 +75,6 @@ docker_python() {
     echo -e "FROM python:$1-slim
         RUN python -m pip install \
         --upgrade pip \
-        --index-url https://artifactory.allstate.com/artifactory/api/pypi/pypi/simple \
         ${@:3}" > ./Dockerfile
 
     echo -e "\nBuilding image from Dockerfile:\n$(cat ./Dockerfile)\n"
