@@ -16,13 +16,8 @@ isup() {
     if curl -s --head  --request GET "$uri" | grep "200 OK" > /dev/null ; then
         echo "$uri is $(red down)"
     else
-	echo "$uri is $(green up)"
+    echo "$uri is $(green up)"
    fi
-}
-
-# "sort by size" to display in list the files in the current directory, sorted by their size (descending)
-sbs() { 
-    du -b --max-depth 1 | sort -nr | perl -pe 's{([0-9]+)}{sprintf "%.1f%s", $1>=2**30? ($1/2**30, "G"): $1>=2**20? ($1/2**20, "M"): $1>=2**10? ($1/2**10, "K"): ($1, "")}e';
 }
 
 # backup a file: bkp [file] will create [file].bkp.[CurrentDate] in the directory that the file resides in
@@ -62,7 +57,8 @@ findit (){
    fi
 }
 
-docker_python () {
+
+docker_python() {
     #
     # purpose:
     #   quickly start a python repl in a docker container given a version, tag, and one or more python packages
@@ -71,14 +67,15 @@ docker_python () {
     # example:
     #   docker_python 3.8.1 my_tag requests pytest
     #
-    
+
     echo "python version        : $1";
     echo "docker image tag name : $2";
     echo "python packages       : ${@:3}";
 
-    echo -e "FROM python:$1-slim 
+    echo -e "FROM python:$1-slim
         RUN python -m pip install \
         --upgrade pip \
+        --index-url https://artifactory.allstate.com/artifactory/api/pypi/pypi/simple \
         ${@:3}" > ./Dockerfile
 
     echo -e "\nBuilding image from Dockerfile:\n$(cat ./Dockerfile)\n"
@@ -87,17 +84,17 @@ docker_python () {
     docker container run -it --rm $2
 }
 
+
 byte_convert () {
     #
-    # purpose: 
+    # purpose:
     #   convert bytes from one unit to another
     # usage:
-    #   usage: byte_convert <num> <unit>. Valid units [b|kb|mb|gb|tb|pb|eb]
-    # example: 
-    #   byte_convert 123456 gb 
+    #   usage: byte_convert <num> <unit>. Valid units [b|kb|mb|gb|tb|pb|eb
+    # example:
+    #   byte_convert 123456 gb
     #
-    echo -e "import sys
-def converter(kind: str, num: int):
+    echo -e "def converter(kind: str, num: int):
     l = ['b', 'kb', 'mb', 'gb', 'tb', 'pb', 'eb']
     kind_pstn = l.index(kind)
     for item in l:
@@ -109,7 +106,7 @@ def converter(kind: str, num: int):
             print(int(num / (1024 ** offset)), item)
         else:
             print(num, item)
-    
+
 converter(kind='$2', num=int($1))" | python
 }
 
