@@ -1,0 +1,31 @@
+{
+    "window.zoomLevel": 1,
+    "workbench.iconTheme": "material-icon-theme",
+    "extensions.ignoreRecommendations": false,
+    "python.venvPath": "~/miniconda3/envs/",
+    "python.pythonPath": "~/miniconda3/envs/dev/bin/python",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "vim.disableExtension": true,
+      "vim.insertModeKeyBindings": [
+      {
+        "before": ["j", "j"],
+        "after": ["<Esc>"]
+      }
+    ],
+    "terminal.integrated.copyOnSelection": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "workbench.colorTheme": "Monokai",
+    "terminal.integrated.inheritEnv": false,
+    "python.dataScience.sendSelectionToInteractiveWindow": true,
+    "git.ignoreLegacyWarning": true,
+    "files.associations": {
+        ".exports": "shellscript",
+        ".functions": "shellscript",
+        ".aliases": "shellscript"
+    },
+}
