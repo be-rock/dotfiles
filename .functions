@@ -113,4 +113,17 @@ def converter(kind: str, num: int):
 converter(kind='$2', num=int($1))" | python
 }
 
+pyproject_setup_template () {
+    #
+    # purpose:
+    #   create files and directories to quickly setup python project starter template in the current directory
+    # usage:
+    #   project_setup_template_python
+    #
+    mkdir -p app tests/{integration,unit} && \
+    touch app/{__init__.py,main.py} tests/integration/__init__.py tests/unit/__init__.py \
+        tests/integration/__init__.py tests/unit/__init__.py tests/conftest.py
+}
+
+
 # end

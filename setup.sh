@@ -10,11 +10,13 @@ for file in .{aliases,exports,functions,inputrc,misc,sqliterc,vimrc}; do
 done
 unset file
 
+mkdir -p $HOME/.local/bin
+
 cat << EOF
 
 Other installation considerations:
   tree: sudo apt install tree | brew install tree | yum install tree
-  https://github.com/sharkdp/bat
+  bat: apt install bat | brew install bat | https://github.com/sharkdp/bat
   https://ohmyz.sh/
   https://sqlitebrowser.org/
   https://dbeaver.io

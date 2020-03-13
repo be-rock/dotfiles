@@ -30,6 +30,7 @@ alias llast='less $(ls -1rt|tail -n1)'
 alias rm='rm -i'
 alias path='echo -e ${PATH//:/\\n}'
 alias port='netstat -tulanp'
+alias rc='echo $?'
 alias mem='free -m -t'
 alias dmesg='dmesg --color --ctime'
 
@@ -44,7 +45,7 @@ alias ced='conda deactivate'
 alias cie='conda info --envs'
 alias cl='conda list'
 alias ci='conda install'
-alias ipy='ipython --TerminalInteractiveShell.editing_mode=vi --colors="Linux"'
+alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi --colors="Linux"'
 alias jupyter-lab='jupyter-lab --ip=localhost'
 
 # git

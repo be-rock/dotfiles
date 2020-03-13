@@ -16,4 +16,6 @@ elif [ $(uname -s) = 'Linux' ] && [ -f /etc/redhat-release ]; then
 fi
 export SYSTEM_TYPE
 
+export PATH="$HOME/.local/bin:$PATH"
+
 # end
