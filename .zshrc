@@ -1,6 +1,6 @@
 # .zshrc
 
-for file in $HOME/.{exports,aliases,functions,misc,sqliterc,vimrc}; do
+for file in $HOME/.{exports,aliases,functions,misc}; do
     if [[ -r "$file" ]] && [[ -f "$file" ]]; then
         source "$file"
     fi
@@ -25,5 +25,8 @@ bindkey '^w' backward-kill-word
 
 # ctrl-r starts searching history backward
 bindkey '^r' history-incremental-search-backward
+
+# k8s
+if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
 
 # end
