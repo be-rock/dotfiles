@@ -23,8 +23,29 @@ isup() {
 # backup a file: bkp [file] will create [file].bkp.[CurrentDate] in the directory that the file resides in
 bkp() { cp "$1"{,.bkp.$(date +%Y%m%dT%H%M%S%z)}; }
 
+
 # compute an md5sum and compare it with grep: md5check [file] [key]
 md5check() { md5sum "$1" | grep "$2";}
+
+
+# Create a new directory and enter it
+mkd() {
+    mkdir -p "$@"
+    cd "$@" || exit
+}
+
+
+# Make a temporary directory and enter it
+tmpd() {
+    local dir
+    if [ $# -eq 0 ]; then
+        dir=$(mktemp -d)
+    else
+        dir=$(mktemp -d -t "${1}.XXXXXXXXXX")
+    fi
+    cd "$dir" || exit
+}
+
 
 # extract any kind of archive: extract [archive file]
 extract() {
