@@ -143,4 +143,22 @@ pyproject_setup_template () {
 }
 
 
+function print_msg() {
+    #
+    # purpose:
+    #   print a message with a date and log level to stdout
+    # usage:
+    #   print_msg "custom message here" # <-- default log level is INFO
+    #   print_msg "custom message here" ERROR # <-- override default log level to ERROR
+    #
+    custom_msg=$1
+    level="INFO"
+    if [ -n "$2" ]; then
+        level="$2"
+    fi
+    full_msg="$(date +%FT%T%z) | $level | ${custom_msg}"
+    echo $full_msg
+}
+
+
 # end
