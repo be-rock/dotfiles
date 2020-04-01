@@ -34,9 +34,19 @@ alias rc='echo $?'
 alias mem='free -m -t'
 alias dmesg='dmesg --color --ctime'
 
+# shortcuts
+alias cmt='cd $HOME/tmp'
+alias cst='cd /tmp'
+
+# linux only
+if [ $(uname -s) = 'Linux' ]; then
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
+fi
+
 # for when tree is not installed
-treea="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
-treed="find . -type d -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+alias treea="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+alias treed="find . -type d -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 
 # python
 alias ccn='conda create --name'

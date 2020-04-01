@@ -22,7 +22,7 @@ fi
 if [ SYSTEM_TYPE="Linux (Debian)" ] && [ INITIAL_INSTALL="YES" ]; then
     sudo apt update
     sudo apt install gnome-tweaks
-    sudo apt install wget curl git zsh vim bat tree neofetch
+    sudo apt install bat curl git neofetch tree vim wget xclip zsh
     sudo apt install deja-dup snapd shotwell
     sudo apt install exfat-fuse exfat-utils
     sudo snap install hello-world
