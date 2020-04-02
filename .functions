@@ -36,7 +36,7 @@ mkd() {
 
 
 # Make a temporary directory and enter it
-tmpd() {
+mkdt() {
     local dir
     if [ $# -eq 0 ]; then
         dir=$(mktemp -d)
