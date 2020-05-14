@@ -130,6 +130,12 @@ byte_convert () {
 converter(kind='$2', num=int($1))" | python
 }
 
+
+abspath () {
+    # retrieve absolute path of file - platform independent
+    echo "$(cd $(dirname "$1");pwd)/$(basename "$1")"
+}
+
 pyproject_setup_template () {
     #
     # purpose:
