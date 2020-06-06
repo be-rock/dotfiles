@@ -20,8 +20,13 @@ isup() {
    fi
 }
 
-# backup a file: bkp [file] will create [file].bkp.[CurrentDate] in the directory that the file resides in
-bkp() { cp "$1"{,.bkp.$(date +%Y%m%dT%H%M%S%z)}; }
+# backup a file: bkp [file]
+# will create [file].bkp.[CurrentDateTime] in the directory that the file resides in
+bkp () {
+    dt=$(date +%Y%m%dT%H%M%S%z)
+    echo "copying $1 to $1.bkp.$dt"
+    cp "$1"{,.bkp.$dt}
+}
 
 
 # compute an md5sum and compare it with grep: md5check [file] [key]
