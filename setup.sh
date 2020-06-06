@@ -57,6 +57,7 @@ function mac_setup() {
 
     brew cask install \
         docker \
+        maccy \
         rectangle
 }
 
@@ -106,7 +107,6 @@ Other installation considerations:
   https://sqlitebrowser.org/
   https://dbeaver.io
   https://www.postman.com/downloads/
-  https://www.docker.com/products/docker-desktop
 
 EOF
 
