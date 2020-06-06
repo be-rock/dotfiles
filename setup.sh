@@ -52,6 +52,7 @@ function mac_setup() {
     brew install \
         bat \
         jq \
+        starship \
         tree \
         zsh
 
