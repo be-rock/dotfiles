@@ -65,7 +65,12 @@ function mac_setup() {
 
 function ohmyzsh_setup() {
     sudo chsh -s $(which zsh)
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    #sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+}
+
+function starship_setup() {
+    curl -fsSL https://starship.rs/install.sh | bash
 }
 
 function python_setup() {
@@ -96,20 +101,11 @@ function runner() {
         fi
 
         ohmyzsh_setup
+        starship_setup
         python_setup
     fi
 }
 
 runner
-
-
-cat << EOF
-
-Other installation considerations:
-  https://sqlitebrowser.org/
-  https://dbeaver.io
-  https://www.postman.com/downloads/
-
-EOF
 
 # end
