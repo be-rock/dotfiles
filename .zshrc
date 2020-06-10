@@ -29,4 +29,10 @@ bindkey '^r' history-incremental-search-backward
 # k8s
 if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
 
+# zsh autosuggest
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# starship
+eval "$(starship init zsh)"
+
 # end
