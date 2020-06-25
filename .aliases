@@ -92,7 +92,9 @@ alias dinfo='docker info'
 alias kd='kubectl describe'
 alias kdel='kubectl delete'
 alias kg='kubectl get'
+alias kgp='kubectl get pods'
 alias kl='kubectl logs'
+alias kl='kubectl logs -f' # follow
 alias ks='kubectl stop'
 
 # bat - https://github.com/sharkdp/bat
