@@ -66,7 +66,7 @@ function mac_setup() {
 function ohmyzsh_setup() {
     sudo chsh -s $(which zsh)
     #sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+    #git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 }
 
 function starship_setup() {
@@ -81,9 +81,9 @@ function python_setup() {
     exec /usr/bin/zsh -l
     $HOME/miniconda/bin/conda activate base
     
-    python -m venv $HOME/.venv/misc
-    $HOME/.venv/misc/bin/pip install \
-        airflow
+    #python -m venv $HOME/.venv/misc
+    #$HOME/.venv/misc/bin/pip install \
+    #    airflow
 }
 
 
