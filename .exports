@@ -5,6 +5,7 @@ export HISTFILESIZE=$HISTSIZE
 export HISTCONTROL=ignoredups
 export HISTTIMEFORMAT="%F %T %t"
 export STARSHIP_CONFIG=$HOME/.starship.toml
+export XDG_CONFIG_HOME=$HOME/.config
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # system type

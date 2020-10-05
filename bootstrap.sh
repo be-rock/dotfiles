@@ -1,18 +1,24 @@
 #!/usr/bin/env bash
 
-# create symlinks if files dont already exist
-for file in .{aliases,exports,functions,inputrc,misc,sqliterc,vimrc}; do
-    if [[ ! -r "$HOME/$file" ]] ; then
-        echo "Executing: ln -s $HOME/git/dotfiles/$file $HOME/$file ..."
-        ln -s $HOME/git/dotfiles/$file $HOME/$file
-        echo "Return code: $?"
-    fi
-done
-unset file
+function initial_setup() {
+    print_msg "create symlinks if files dont already exist..."
+    for file in .{aliases,exports,functions,inputrc,misc,sqliterc,vimrc}; do
+        if [[ ! -r "$HOME/$file" ]] ; then
+            print_msg "Executing: ln -s $PWD/$file $HOME/$file ..."
+            ln -s $PWD/$file $HOME/$file
+            print_msg "Return code: $?"
+        fi
+    done
 
+    file="starship.toml"
+    mkdir -p $HOME/.config
+    print_msg "Executing: ln -s $PWD/$file $HOME/.config/$file ..."
+    ln -s $PWD/$file $HOME/$file
 
-source $PWD/.exports
-source $PWD/.functions
+    unset file
+    source $PWD/.exports
+    source $PWD/.functions
+}
 
 function debian_base_setup () {
     print_msg "debian_base_setup..."
@@ -26,6 +32,7 @@ function debian_base_setup () {
         jq \
         git \
         neofetch \
+        tldr \
         tree \
         vim \
         wget \
@@ -43,7 +50,7 @@ function debian_gnome_setup () {
         gnome-tweaks \
         shotwell \
         snapd \
-        sqlitebrowser 
+        sqlitebrowser
 
     sudo snap install \
         hello-world \
@@ -97,14 +104,14 @@ function python_setup() {
 
 
 function runner() {
-    if [ "$INITIAL_INSTALL" = "YES" ]; then 
+    if [ "$INITIAL_INSTALL" = "YES" ]; then
         mkdir -p $HOME/.local/bin
         export PATH=$HOME/.local/bin:$PATH
 
-        if [ SYSTEM_TYPE="Linux (Debian)" ]; then 
+        if [ SYSTEM_TYPE="Linux (Debian)" ]; then
             debian_base_setup
             #debian_gnome_setup
-        elif [ SYSTEM_TYPE="macOS" ]; then 
+        elif [ SYSTEM_TYPE="macOS" ]; then
             mac_setup
         fi
 
@@ -113,6 +120,8 @@ function runner() {
         python_setup
     fi
 }
+
+initial_setup
 
 runner
 
