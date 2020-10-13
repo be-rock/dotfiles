@@ -2,18 +2,16 @@
 
 function initial_setup() {
     print_msg "create symlinks if files dont already exist..."
-    for file in .{aliases,exports,functions,inputrc,misc,sqliterc,vimrc}; do
+    for file in .{aliases,exports,functions,inputrc,misc,sqliterc,starship.toml,vimrc}; do
         if [[ ! -r "$HOME/$file" ]] ; then
             print_msg "Executing: ln -s $PWD/$file $HOME/$file ..."
+            print_msg "Executing: ln -s $PWD/$file $HOME/.config/$file ..."
             ln -s $PWD/$file $HOME/$file
             print_msg "Return code: $?"
         fi
     done
 
-    file="starship.toml"
-    mkdir -p $HOME/.config
-    print_msg "Executing: ln -s $PWD/$file $HOME/.config/$file ..."
-    ln -s $PWD/$file $HOME/$file
+    mkdir -p $HOME/{.config,.local/{bin,lib,.share},.cache}
 
     unset file
     source $PWD/.exports
