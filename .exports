@@ -8,7 +8,7 @@ export HISTTIMEFORMAT="%F %T %t"
 export STARSHIP_CONFIG=$HOME/.starship.toml
 export XDG_CACHE_HOME=$HOME/.cache # user-specific non-essential (cached) data (analogous to /var/cache)
 export XDG_CONFIG_HOME=$HOME/.config # user-specific configurations (analogous to /etc)
-export XDG_DATA_HOME=$HOME/.local/.share # user-specific data files (analogous to /usr/share)
+export XDG_DATA_HOME=$HOME/.local/share # user-specific data files (analogous to /usr/share)
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # system type

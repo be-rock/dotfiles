@@ -36,7 +36,9 @@ bkp () {
 
 
 # compute an md5sum and compare it with grep: md5check [file] [key]
-md5check() { md5sum "$1" | grep "$2";}
+md5check() { 
+    md5sum "$1" | grep "$2";
+}
 
 
 # Create a new directory and enter it
