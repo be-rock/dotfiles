@@ -16,6 +16,8 @@ alias ld='ls -ldh */'
 # misc
 alias grep='grep --color'
 alias dt='date +%FT%T%z' #iso 8601-compliant/platform agnostic
+alias dttz='echo -e "local : $(date +%FT%T%z)\nutc   : $(date -u +%FT%T%z)"'
+alias dud1='du -h -d 1 . 2>/dev/null | sort --human-numeric-sort'
 alias jobs='jobs -l'
 alias h='history'
 alias hg='history | grep'
