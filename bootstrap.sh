@@ -68,6 +68,7 @@ function mac_setup() {
     brew install \
         bat \
         jq \
+        pipx \
         starship \
         tree \
         zsh
@@ -100,6 +101,13 @@ function python_setup() {
     #ln -s $HOME/miniconda/bin/conda $HOME/.local/bin/conda
 }
 
+function pipx_setup() {
+    pipx install \
+        awscli \
+        black \
+        glances \
+        tldr
+}
 
 function runner() {
     if [ "$INITIAL_INSTALL" = "YES" ]; then
