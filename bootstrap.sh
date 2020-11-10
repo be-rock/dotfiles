@@ -101,6 +101,13 @@ function python_setup() {
     #ln -s $HOME/miniconda/bin/conda $HOME/.local/bin/conda
 }
 
+function pipx_setup() {
+    pipx install \
+        awscli \
+        black \
+        glances \
+        tldr
+}
 
 function pipx_setup() {
     pipx install \
