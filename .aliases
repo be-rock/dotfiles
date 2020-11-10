@@ -14,6 +14,7 @@ alias la='ls -lAFh'
 alias ld='ls -ldh */'
 
 # misc
+alias dud1='du -h -d 1 . 2>/dev/null | sort --human-numeric-sort'
 alias grep='grep --color'
 alias dt='date +%FT%T%z' #iso 8601-compliant/platform agnostic
 alias jobs='jobs -l'

@@ -68,6 +68,7 @@ function mac_setup() {
     brew install \
         bat \
         jq \
+        pipx \
         starship \
         tree \
         zsh
@@ -98,6 +99,15 @@ function python_setup() {
     exec /usr/bin/zsh -l
     $HOME/miniconda/bin/conda activate base
     #ln -s $HOME/miniconda/bin/conda $HOME/.local/bin/conda
+}
+
+
+function pipx_setup() {
+    pipx install \
+        awscli \
+        black \
+        glances \
+        tldr
 }
 
 
