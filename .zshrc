@@ -7,7 +7,7 @@ for file in $HOME/.{exports,aliases,functions,misc}; do
 done
 unset file
 
-ZSH_THEME="duellj"
+#ZSH_THEME="duellj"
 
 export KEYTIMEOUT=1
 bindkey -v
