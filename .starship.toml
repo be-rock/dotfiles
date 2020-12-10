@@ -2,7 +2,16 @@
 add_newline = true
 
 # overwrite the default_prompt_order and use custom prompt_order
-prompt_order=["directory","git_branch","conda","time","cmd_duration","line_break","character"]
+#prompt_order=["directory","git_branch","conda","time","cmd_duration","line_break","character"]
+format = """\
+  $directory\
+  $git_branch\
+  $conda\
+  $time\
+  $cmd_duration\
+  $line_break\
+  $character\
+  """
 
 [directory]
 truncation_length = 14
@@ -14,7 +23,7 @@ use_symbol_for_status = true
 
 [cmd_duration]
 min_time = 50
-prefix = "elapsed ⏳ "
+format = "elapsed ⏳ "
 style = "#9966ff"
 
 [conda]
@@ -31,6 +40,6 @@ truncation_symbol = ""
 
 [time]
 disabled = false
-format = "🕙 %Y-%m-%d %T"
+time_format = "🕙 %Y-%m-%d %T"
 utc_time_offset = "-5"
 style = "#8080ff"

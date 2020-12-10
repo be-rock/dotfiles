@@ -7,6 +7,7 @@ alias vz='vi ~/.zshrc'
 alias reload="exec $SHELL -l"
 
 # list stuff
+alias ls='ls --color'
 alias l='ls -lFh'
 alias ltr='ls -lFhtr'
 alias ltrt='ls -lFhtr | tail'

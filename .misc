@@ -4,8 +4,8 @@ set -o vi
 
 if [ $SYSTEM_TYPE='Linux (Debian)' ]; then
     # disable desktop icons
-    gsettings set org.gnome.shell.extensions.desktop-icons show-home false
-    gsettings set org.gnome.shell.extensions.desktop-icons show-trash false
+    #gsettings set org.gnome.shell.extensions.desktop-icons show-home false
+    #gsettings set org.gnome.shell.extensions.desktop-icons show-trash false
 fi
 
 # end

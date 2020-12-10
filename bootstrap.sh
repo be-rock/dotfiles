@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 function initial_setup() {
+    source $PWD/.exports
+    source $PWD/.functions
+
     print_msg "creating directories"
     mkdir -p $HOME/{.cache,.config,.local/{bin,lib,share}}
 
@@ -18,8 +21,6 @@ function initial_setup() {
 
 
     unset file
-    source $PWD/.exports
-    source $PWD/.functions
 }
 
 function debian_base_setup () {
@@ -41,11 +42,13 @@ function debian_base_setup () {
         xclip \
         zsh
 
+    ln -s /usr/bin/batcat ~/.local/bin/bat
+
 }
 
 function debian_gnome_setup () {
     print_msg "debian_gnome_setup..."
-    sudo apt update -y
+    sudo apt update
 
     sudo apt install -y \
         deja-dup \
@@ -87,6 +90,7 @@ function ohmyzsh_setup() {
     sudo chsh -s $(which zsh)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+    chsh -s $(which zsh)
 }
 
 function starship_setup() {
@@ -101,7 +105,6 @@ function python_setup() {
     $HOME/miniconda/bin/conda init zsh
     exec /usr/bin/zsh -l
     $HOME/miniconda/bin/conda activate base
-    #ln -s $HOME/miniconda/bin/conda $HOME/.local/bin/conda
 }
 
 function pipx_setup() {
@@ -120,18 +123,18 @@ function runner() {
 
         if [ SYSTEM_TYPE="Linux (Debian)" ]; then
             debian_base_setup
-            debian_gnome_setup
+            #debian_gnome_setup
         elif [ SYSTEM_TYPE="macOS" ]; then
             mac_setup
         fi
-
-        #ohmyzsh_setup
-        #starship_setup
-        #python_setup
     fi
+
+    #ohmyzsh_setup
+    #starship_setup
+    python_setup
 }
 
-initial_setup
+#initial_setup
 
 runner
 
