@@ -1,4 +1,14 @@
-# .zshrc
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# oh-my-zsh plugins
+plugins=(git 
+    z 
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
+
+source $ZSH/oh-my-zsh.sh
 
 for file in $HOME/.{exports,aliases,functions,misc}; do
     if [[ -r "$file" ]] && [[ -f "$file" ]]; then
@@ -6,8 +16,6 @@ for file in $HOME/.{exports,aliases,functions,misc}; do
     fi
 done
 unset file
-
-#ZSH_THEME="duellj"
 
 export KEYTIMEOUT=1
 bindkey -v
@@ -26,13 +34,32 @@ bindkey '^w' backward-kill-word
 # ctrl-r starts searching history backward
 bindkey '^r' history-incremental-search-backward
 
+# zsh auto suggestion
+bindkey '\t' end-of-line
+
 # k8s
 if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
 
 # zsh autosuggest
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # starship
 eval "$(starship init zsh)"
 
 # end
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/brock/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/brock/miniconda/etc/profile.d/conda.sh" ]; then
+        . "/home/brock/miniconda/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/brock/miniconda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

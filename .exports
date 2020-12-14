@@ -23,6 +23,6 @@ fi
 export SYSTEM_TYPE
 
 export EDITOR="vim"
-export PATH="$HOME/.local/bin:$HOME/.local/lib:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.local/lib:/usr/local/go/bin:$PATH"
 
 # end

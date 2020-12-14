@@ -23,7 +23,7 @@ use_symbol_for_status = true
 
 [cmd_duration]
 min_time = 50
-format = "elapsed ⏳ "
+format = "took ⏳ [$duration]($style) "
 style = "#9966ff"
 
 [conda]
