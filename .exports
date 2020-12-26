@@ -9,7 +9,9 @@ export STARSHIP_CONFIG=$HOME/.starship.toml
 export XDG_CACHE_HOME=$HOME/.cache      # user-specific non-essential (cached) data (analogous to /var/cache)
 export XDG_CONFIG_HOME=$HOME/.config    # user-specific configurations (analogous to /etc)
 export XDG_DATA_HOME=$HOME/.local/share # user-specific data files (analogous to /usr/share)
+
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
 # system type
 if [ $(uname -s) = 'Darwin' ]; then
@@ -23,6 +25,5 @@ fi
 export SYSTEM_TYPE
 
 export EDITOR="vim"
-export PATH="$HOME/.local/bin:$HOME/.local/lib:/usr/local/go/bin:$PATH"
 
 # end

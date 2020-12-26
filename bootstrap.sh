@@ -5,21 +5,21 @@ function initial_setup() {
     source $PWD/.functions
 
     print_msg "creating directories"
-    mkdir -p $HOME/{.cache,.config,.local/{bin,lib,share}}
+    mkdir -p $HOME/{.cache,.config,.local/{bin,lib,share},code/{git,python,sql},go}
+    ln -s $HOME/go $HOME/code/go
 
     print_msg "create symlinks if files dont already exist..."
     for file in .{aliases,exports,functions,inputrc,misc,sqliterc,starship.toml,vimrc}; do
         if [[ ! -r "$HOME/$file" ]] ; then
             print_msg "Executing: ln -s $PWD/$file $HOME/$file ..."
+            ln -s $PWD/$file $HOME/$file
+            print_msg "Return code: $?"
+
             print_msg "Executing: ln -s $PWD/$file $HOME/.config/$file ..."
             ln -s $PWD/$file $HOME/.config/$file
             print_msg "Return code: $?"
-            ln -s $PWD/$file $HOME/$file
-            print_msg "Return code: $?"
         fi
     done
-
-
     unset file
 }
 
@@ -35,6 +35,7 @@ function debian_base_setup () {
         jq \
         git \
         neofetch \
+        snapd \
         tldr \
         tree \
         vim \
@@ -64,6 +65,7 @@ function debian_gnome_setup () {
         pycharm-community --classic \
         intellij-idea-community --classic \
         vlc
+
 }
 
 function mac_setup() {
@@ -134,8 +136,8 @@ function runner() {
     python_setup
 }
 
-#initial_setup
+initial_setup
 
-runner
+#runner
 
 # end

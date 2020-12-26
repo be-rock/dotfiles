@@ -35,7 +35,8 @@ bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 
 # zsh auto suggestion
-bindkey '\t' end-of-line
+#bindkey '\t' end-of-line
+#bindkey '\t' autosuggest-accept
 
 # k8s
 if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
@@ -46,7 +47,7 @@ source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # starship
 eval "$(starship init zsh)"
 
-# end
+export PATH="$HOME/.local/bin:$HOME/.local/lib:/usr/local/go/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
