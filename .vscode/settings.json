@@ -1,6 +1,6 @@
 {
     "editor.detectIndentation": false,
-    "editor.fontSize": 12,
+    "editor.fontSize": 14,
     "editor.insertSpaces": true,
     "editor.minimap.enabled": true,
     "editor.multiCursorModifier": "alt",
@@ -42,7 +42,7 @@
             ]
         }
     ],
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 1.25,
     "workbench.colorTheme": "Monokai",
     "workbench.iconTheme": "material-icon-theme",
 }

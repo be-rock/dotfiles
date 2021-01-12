@@ -35,6 +35,8 @@ function debian_base_setup () {
         jq \
         git \
         neofetch \
+        pipx \
+        ripgrep \
         snapd \
         tldr \
         tree \
@@ -52,10 +54,12 @@ function debian_gnome_setup () {
     sudo apt update
 
     sudo apt install -y \
-        deja-dup \
+        chromium \
+        # deja-dup \
+        gnome-shell-pomodoro \
         gnome-tweaks \
-        shotwell \
-        snapd 
+        # shotwell \
+        snapd
 
     sudo snap install \
         hello-world \
@@ -113,6 +117,7 @@ function pipx_setup() {
     pipx install \
         awscli \
         black \
+        cookiecutter \
         bpytop \
         tldr
 }
@@ -133,10 +138,11 @@ function runner() {
 
     #ohmyzsh_setup
     #starship_setup
-    python_setup
+    #python_setup
+
 }
 
-initial_setup
+#initial_setup
 
 #runner
 

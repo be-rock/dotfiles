@@ -1,0 +1,30 @@
+#
+# install ref:
+#   https://help.resilio.com/hc/en-us/articles/206178924
+#
+# getting started ref:
+#   https://help.resilio.com/hc/en-us/articles/204762449-Guide-to-Linux
+#
+# http://localhost:8888/gui/
+#
+
+# setup
+#sudo dpkg -i <resilio-sync.deb>
+
+user_group=$(groups|awk '{print $1}')
+user_name=$USER
+synced_folder=~/resilio_sync
+
+sudo systemctl enable resilio-sync
+
+sudo usermod -aG $user_group rslsync
+sudo usermod -aG rslsync $user_name
+sudo chmod g+rw $synced_folder
+
+# status
+#systemctl status resilio-sync
+
+# uninstall
+#sudo systemctl stop resilio-sync
+#sudo apt-get remove resilio-sync
+#sudo apt-get purge resilio-sync
