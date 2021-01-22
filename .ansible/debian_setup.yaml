@@ -1,0 +1,35 @@
+- name: Setup dev environment
+  hosts: local
+
+  tasks:
+
+    - name: Create dirs
+      ansible.builtin.apt:
+        update_cache: yes
+        name: "{{ item }}"
+        state: present
+      loop:
+        - bat
+        - curl
+        - exfat-fuse
+        - exfat-utils
+        - jq
+        - git
+        - neofetch
+        - pipx
+        - ripgrep
+        - snapd
+        - tldr
+        - tree
+        - vim
+        - wget
+        - xclip
+        - zsh
+
+  tasks:
+    - name: Create symlink for bat
+      ignore_errors: yes
+      ansible.builtin.file:
+        src: /usr/bin/batcat
+        dest: ~/.local/bin/bat
+        state: link

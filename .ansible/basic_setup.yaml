@@ -1,0 +1,16 @@
+- name: Setup dev environment
+  hosts: local
+
+  tasks:
+
+    - name: Create dirs
+      ansible.builtin.file:
+        path: '~/{{ item }}'
+        state: directory
+      loop:
+        - .cache
+        - .config
+        - .local/bin
+        - .local/lib
+        - .local/share
+

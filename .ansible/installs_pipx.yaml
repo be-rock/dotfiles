@@ -1,0 +1,15 @@
+- name: Pipx install
+  hosts: local
+
+  tasks:
+    - name: Pipx install
+      command:
+        cmd: "pipx install {{ item }}"
+      tags:
+      - pipx
+      loop:
+        - awscli
+        - black
+        - bpytop
+        - httpie
+        - tldr

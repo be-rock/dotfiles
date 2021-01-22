@@ -1,0 +1,46 @@
+- name: Setup dev environment
+  hosts: local
+  vars:
+    dotfiles_dir: "~/code/git/PRN__dotfiles"
+    dotfiles:
+      - .aliases
+      - .bash_profile
+      - .bashrc
+      - .exports
+      - .functions
+      - .inputrc
+      - .misc
+      - .sqliterc
+      - .starship.toml
+      - .vimrc
+      - .zshrc
+
+  tasks:
+    - name: Create symlinks in home ~
+      ignore_errors: yes
+      ansible.builtin.file:
+        src: '{{ dotfiles_dir }}/{{ item }}'
+        dest: "~/{{ item }}"
+        state: link
+      with_items: "{{ dotfiles }}"
+
+    - name: Create symlinks in ~/.config
+      ignore_errors: yes
+      ansible.builtin.file:
+        src: '{{ dotfiles_dir }}/{{ item }}'
+        dest: "~/.config/{{ item }}"
+        state: link
+      with_items: "{{ dotfiles }}"
+
+    - name: Create dirs
+      ansible.builtin.file:
+        #path: '~/{{ item }}'
+        path: '/var/folders/zq/nrzz8yv95w336htyvxj7460dyyq3zx/T/tmp.djdel6QN/{{ item }}'
+        state: directory
+      loop:
+        - .cache
+        - .config
+        - .local/bin
+        - .local/lib
+        - .local/share
+

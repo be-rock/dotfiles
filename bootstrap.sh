@@ -9,7 +9,7 @@ function initial_setup() {
     ln -s $HOME/go $HOME/code/go
 
     print_msg "create symlinks if files dont already exist..."
-    for file in .{aliases,exports,functions,inputrc,misc,sqliterc,starship.toml,vimrc}; do
+    for file in .{aliases,ansible.cfg,exports,functions,inputrc,misc,sqliterc,starship.toml,vimrc}; do
         if [[ ! -r "$HOME/$file" ]] ; then
             print_msg "Executing: ln -s $PWD/$file $HOME/$file ..."
             ln -s $PWD/$file $HOME/$file
@@ -115,10 +115,12 @@ function python_setup() {
 
 function pipx_setup() {
     pipx install \
-        awscli \
+        ansible --include-deps
+        #awscli \
         black \
-        cookiecutter \
         bpytop \
+        #cookiecutter \
+        httpie \
         tldr
 }
 
