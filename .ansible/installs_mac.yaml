@@ -3,9 +3,10 @@
 
   tasks:
     - name: Install homebrew packages
-      homebrew:
+      community.general.homebrew:
         name: "{{ item }}"
         state: installed
+        update_homebrew: yes
       tags:
       - brew
       loop:
@@ -16,7 +17,7 @@
         - tree
 
     - name: Install homebrew cask packages
-      homebrew_cask:
+      community.general.homebrew_cask:
         name: '{{ item }}'
         state: installed
       tags:
@@ -32,4 +33,4 @@
         - postman
         - pycharm
         - rectangle
-        - visual-studio-code
+        #- visual-studio-code
