@@ -1,0 +1,17 @@
+- name: Install apt packages
+  become: true
+  ansible.builtin.apt:
+    update_cache: yes
+    name: "{{ apt_packages }}"
+    # pkg:
+      # - "{{ apt_packages }}"
+    state: present
+  when: ansible_os_family | lower == 'debian'
+
+- name: Create symlink for bat
+  ignore_errors: yes
+  ansible.builtin.file:
+    src: /usr/bin/batcat
+    dest: ~/.local/bin/bat
+    state: link
+  when: ansible_os_family | lower == 'debian'

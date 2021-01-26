@@ -1,0 +1,30 @@
+- name: Create symlinks in home ~
+  ignore_errors: true
+  ansible.builtin.file:
+    src: '{{ dotfiles_dir }}/{{ item }}'
+    dest: "~/{{ item }}"
+    state: link
+  loop: "{{ dotfiles }}"
+
+- name: Create symlinks in ~/.config
+  ignore_errors: true
+  ansible.builtin.file:
+    src: '{{ dotfiles_dir }}/{{ item }}'
+    dest: "~/.config/{{ item }}"
+    state: link
+  loop: "{{ dotfiles }}"
+
+- name: Create dirs
+  ansible.builtin.file:
+    path: '~/{{ item }}'
+    state: directory
+  loop:
+    - .cache
+    - .config
+    - .local/bin
+    - .local/lib
+    - .local/share
+    - code/git
+    - code/go
+    - code/python
+    - code/sql

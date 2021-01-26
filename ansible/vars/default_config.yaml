@@ -1,0 +1,65 @@
+---
+dotfiles_dir: ~/code/git/dotfiles
+
+dotfiles:
+- .aliases
+- .ansible.cfg
+- .bash_profile
+- .bashrc
+- .exports
+- .functions
+- .inputrc
+- .misc
+- .sqliterc
+- .starship.toml
+- .vimrc
+- .zshrc
+
+homebrew_packages:
+- bat
+- jq
+- pipx
+- starship
+- tree
+
+homebrew_cask_packages:
+- dbeaver-community
+- docker
+- firefox
+- intellij-idea
+- iterm2
+- joplin
+- maccy
+- postman
+- pycharm
+- rectangle
+- visual-studio-code
+
+apt_packages:
+- bat
+- curl
+- exfat-fuse
+- exfat-utils
+- jq
+- git
+- neofetch
+- pipx
+- ripgrep
+- snapd
+- tldr
+- tree
+- vim
+- wget
+- xclip
+
+snap_packages:
+- code --classic
+- docker
+- libreoffice
+- pycharm-community --classic
+#- intellij-idea-community --classic
+#- vlc
+
+python_versions:
+- { env_name: py38, ver: 3.8.7 }
+- { env_name: py39, ver: 3.9.1 }

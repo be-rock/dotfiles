@@ -1,0 +1,4 @@
+- name: Create conda envs
+  ansible.builtin.command:
+    conda create --name {{ item.env_name }} python=={{ item.ver }} --yes
+  loop: "{{ python_versions }}"

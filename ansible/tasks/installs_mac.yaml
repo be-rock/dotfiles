@@ -1,0 +1,18 @@
+- name: Install homebrew packages
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: installed
+    update_homebrew: yes
+  tags:
+    - brew
+  when: ansible_system == "Darwin"
+  loop: "{{ homebrew_packages }}"
+
+- name: Install homebrew cask packages
+  community.general.homebrew_cask:
+    name: '{{ item }}'
+    state: installed
+  tags:
+  - brew
+  when: ansible_system == "Darwin"
+  loop: "{{ homebrew_cask_packages }}"
