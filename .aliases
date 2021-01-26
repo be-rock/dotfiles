@@ -58,6 +58,7 @@ alias ced='conda deactivate'
 alias cie='conda info --envs'
 alias cl='conda list'
 alias ci='conda install'
+alias crn='conda remove --force --all --yes --name'
 alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi --colors="Linux"'
 alias jupyter-lab='jupyter-lab --ip=localhost'
 

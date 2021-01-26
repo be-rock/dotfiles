@@ -1,0 +1,19 @@
+---
+- hosts: all
+
+  vars_files:
+   - ansible/vars/default_config.yaml
+
+  #pre_tasks:
+  #  - include_vars: "{{ item }}"
+    #  with_fileglob:
+      #  - "{{ playbook_dir }}/config.yml"
+  #    tags: ['always']
+
+  tasks:
+    - include_tasks: ansible/tasks/installs_pipx.yaml
+    - include_tasks: ansible/tasks/basic_setup.yaml
+    - include_tasks: ansible/tasks/conda_env.yaml
+    - include_tasks: ansible/tasks/debian_setup.yaml
+    - include_tasks: ansible/tasks/installs_mac.yaml
+    # - include_tasks: ansible/tasks/installs_snap.yaml
