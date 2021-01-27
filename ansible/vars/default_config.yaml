@@ -15,6 +15,19 @@ dotfiles:
 - .vimrc
 - .zshrc
 
+base_directory_structure:
+- .cache
+- .config
+- .local/bin
+- .local/lib
+- .local/share
+- code/git
+- code/go
+- code/python
+- code/sql
+- tmp
+
+
 homebrew_packages:
 - bat
 - jq
@@ -43,6 +56,7 @@ apt_packages:
 - jq
 - git
 - neofetch
+- openjdk-11-jdk
 - pipx
 - ripgrep
 - snapd
@@ -61,5 +75,5 @@ snap_packages:
 #- vlc
 
 python_versions:
-- { env_name: py38, ver: 3.8.7 }
+- { env_name: py38, ver: 3.8.5 }
 - { env_name: py39, ver: 3.9.1 }

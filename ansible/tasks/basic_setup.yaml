@@ -18,13 +18,4 @@
   ansible.builtin.file:
     path: '~/{{ item }}'
     state: directory
-  loop:
-    - .cache
-    - .config
-    - .local/bin
-    - .local/lib
-    - .local/share
-    - code/git
-    - code/go
-    - code/python
-    - code/sql
+  loop: "{{ base_directory_structure }}"

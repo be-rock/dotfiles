@@ -2,10 +2,9 @@
   become: true
   ansible.builtin.apt:
     update_cache: yes
-    name: "{{ apt_packages }}"
-    # pkg:
-      # - "{{ apt_packages }}"
+    name: "{{ item }}"
     state: present
+  loop: "{{ apt_packages }}"
   when: ansible_os_family | lower == 'debian'
 
 - name: Create symlink for bat

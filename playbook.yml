@@ -11,8 +11,8 @@
   #    tags: ['always']
 
   tasks:
-    - include_tasks: ansible/tasks/installs_pipx.yaml
     - include_tasks: ansible/tasks/basic_setup.yaml
+    - include_tasks: ansible/tasks/installs_pipx.yaml
     - include_tasks: ansible/tasks/conda_env.yaml
     - include_tasks: ansible/tasks/debian_setup.yaml
     - include_tasks: ansible/tasks/installs_mac.yaml
