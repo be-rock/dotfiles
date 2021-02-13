@@ -1,0 +1,12 @@
+os:
+  #- linux
+  - osx
+
+install:
+  #- if [ "$TRAVIS_OS_NAME" = "linux" ]; then curl https://pyenv.run | bash; fi
+  - if [ "$TRAVIS_OS_NAME" = "osx" ];   then brew install pyenv; fi
+  - if [ "$TRAVIS_OS_NAME" = "osx" ];   then pyenv install 3.9; fi
+  - pip install ansible --include-deps
+
+script:
+  - ./bootstrap.sh

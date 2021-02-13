@@ -4,13 +4,15 @@
 
 ### Mac
 
-1. Install [homebrew](https://brew.sh/`)
-2. Install [miniconda](https://docs.conda.io/en/latest/miniconda.html) or use a pre-existing python environment
-3. `pip install ansible`
-4. Run the playbook via: `./bootstrap.sh`
+1. Clone or download this repo to the modifiable directory specified in `ansible/vars/default_config.yaml` key: `dotfiles_dir`
+2. Install [homebrew](https://brew.sh/`)
+3. Install [miniconda](https://docs.conda.io/en/latest/miniconda.html) or use a pre-existing python environment
+4. `pip install ansible`
+5. Run the playbook via: `./bootstrap.sh`
 
 ### Linux
 
-1. Install [miniconda](https://docs.conda.io/en/latest/miniconda.html) with the command from the site or use a pre-existing python environment
-2. `pip install ansible`
-3. Run the playbook via: `./bootstrap.sh`
+1. Clone or download this repo to the modifiable directory specified in `ansible/vars/default_config.yaml` key: `dotfiles_dir`
+2. Install [miniconda](https://docs.conda.io/en/latest/miniconda.html) or use a pre-existing python environment
+3. `pip install ansible`
+4. Run the playbook via: `./bootstrap.sh`

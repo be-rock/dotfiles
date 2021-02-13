@@ -41,10 +41,13 @@ alias dmesg='dmesg --color --ctime'
 alias cmt='cd $HOME/tmp'
 alias cst='cd /tmp'
 
-# linux only
+# platform-agnostic clipboard copy/paste
 if [ $(uname -s) = 'Linux' ]; then
-    alias pbcopy='xclip -selection clipboard'
-    alias pbpaste='xclip -selection clipboard -o'
+    alias cbc='xclip -selection clipboard'
+    alias cbp='xclip -selection clipboard -o'
+elif [ $(uname -s) = 'Darwin' ]; then
+    alias cbc='pbcopy'
+    alias cbp='pbpaste'
 fi
 
 # for when tree is not installed
