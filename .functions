@@ -36,7 +36,7 @@ bkp () {
 
 
 # compute an md5sum and compare it with grep: md5check [file] [key]
-md5check() { 
+md5check() {
     md5sum "$1" | grep "$2";
 }
 
@@ -192,6 +192,18 @@ function print_msg() {
     fi
     full_msg="$(date +%FT%T%z) | $level | ${custom_msg}"
     echo $full_msg
+}
+
+function source_env() {
+    #
+    # purpose:
+    #   source a .env (aka "dotenv") file containing key/value pairs
+    #   so that each key is reflected as an environment variable
+    #
+    # usage:
+    #   source_env <file> # <-- <file> can be a relative or abs path
+    #
+    export $(grep -v '^#' $1 | xargs)
 }
 
 # end
