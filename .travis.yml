@@ -1,13 +1,22 @@
 os:
-  #- linux
+  - linux
   - osx
 
+language: python
+
+python:
+  - "3.7"
+  - "3.8"
+  - "3.9"
+
+env:
+  - WORKING_DIR=~/code/git/dotfiles
+before_install:
+  - mkdir -p $WORKING_DIR
+  - cp -r . $WORKING_DIR
+
 install:
-  #- if [ "$TRAVIS_OS_NAME" = "linux" ]; then curl https://pyenv.run | bash; fi
-  # - if [ "$TRAVIS_OS_NAME" = "osx" ];   then pyenv install 3.9-dev; fi
   - pip install ansible
 
 script:
-  - mkdir -p ~/code/git/dotfiles
-  - cp -r . ~/code/git/dotfiles
-  - ~/code/git/dotfiles/bootstrap.sh
+  - $WORKING_DIR/bootstrap.sh
