@@ -10,4 +10,4 @@ install:
 script:
   - mkdir -p ~/code/git/dotfiles
   - cp -r . ~/code/git/dotfiles
-  - ./bootstrap.sh
+  - ~/code/git/dotfiles/bootstrap.sh
