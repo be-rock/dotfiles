@@ -19,4 +19,5 @@ install:
   - pip install ansible
 
 script:
-  - $WORKING_DIR/bootstrap.sh
+  - cd $WORKING_DIR
+  - ./bootstrap.sh
