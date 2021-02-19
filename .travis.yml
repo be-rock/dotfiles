@@ -5,7 +5,7 @@ os:
 install:
   #- if [ "$TRAVIS_OS_NAME" = "linux" ]; then curl https://pyenv.run | bash; fi
   # - if [ "$TRAVIS_OS_NAME" = "osx" ];   then pyenv install 3.9-dev; fi
-  - pip install ansible --include-deps
+  - pip install ansible
 
 script:
   - mkdir -p ~/code/git/dotfiles
