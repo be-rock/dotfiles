@@ -27,6 +27,7 @@
         "--verbose",
         "-s"
     ],
+    "telemetry.enableTelemetry", false,
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.fontSize": 14,
     "terminal.integrated.inheritEnv": false,
