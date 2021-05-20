@@ -6,6 +6,7 @@
     state: present
   loop: "{{ apt_packages }}"
   when: ansible_os_family | lower == 'debian'
+  ignore_errors: true
 
 - name: Change default bluetooth settings
   become: true
