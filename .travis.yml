@@ -1,0 +1,30 @@
+jobs:
+  include:
+    - os: linux
+      dist: focal
+    - os: osx
+      osx_image: xcode7.2
+# os:
+  # - linux
+  # - osx
+
+language: python
+
+python:
+  # - "3.7"
+  # - "3.8"
+  - "3.9"
+
+env:
+  - WORKING_DIR=~/code/git/dotfiles
+before_install:
+  - mkdir -p $WORKING_DIR
+  - cp -r . $WORKING_DIR
+
+install:
+  - pip install ansible
+  - pip install pipx
+
+script:
+  - cd $WORKING_DIR
+  - ./bootstrap.sh

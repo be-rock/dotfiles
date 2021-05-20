@@ -32,6 +32,7 @@ homebrew_packages:
 - bat
 - jq
 - pipx
+- ripgrep
 - starship
 - tree
 
@@ -57,10 +58,8 @@ apt_packages:
 - git
 - neofetch
 - openjdk-11-jdk
-- pipx
 - ripgrep
 - snapd
-- tldr
 - tree
 - vim
 - wget

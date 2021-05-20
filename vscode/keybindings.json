@@ -70,12 +70,12 @@
         "when": "textInputFocus && !editorReadonly"
     },
     {
-        "key": "alt+up",
+        "key": "ctrl+up",
         "command": "workbench.action.focusFirstEditorGroup",
         "when": "terminalFocus"
     },
     {
-        "key": "alt+down",
+        "key": "ctrl+down",
         "command": "workbench.action.terminal.focus",
         "when": "editorFocus"
     },
