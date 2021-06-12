@@ -1,3 +1,9 @@
+- name: Create dirs
+  ansible.builtin.file:
+    path: '~/{{ item }}'
+    state: directory
+  loop: "{{ base_directory_structure }}"
+
 - name: Create symlinks in home ~
   ignore_errors: true
   ansible.builtin.file:
@@ -14,8 +20,3 @@
     state: link
   loop: "{{ dotfiles }}"
 
-- name: Create dirs
-  ansible.builtin.file:
-    path: '~/{{ item }}'
-    state: directory
-  loop: "{{ base_directory_structure }}"
