@@ -7,6 +7,7 @@ dotfiles:
 - .bash_profile
 - .bashrc
 - .exports
+- .gitignore.global
 - .functions
 - .inputrc
 - .misc

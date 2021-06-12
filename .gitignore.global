@@ -1,0 +1,12 @@
+# environments
+.env
+.env.*
+.venv
+env/
+venv/
+ENV/
+env.bae/
+venv.bak/
+
+# terraform
+*.tfvars
