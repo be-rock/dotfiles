@@ -22,8 +22,5 @@ elif [ $(uname -s) = 'Linux' ] && [ -f /etc/debian_version ]; then
 elif [ $(uname -s) = 'Linux' ] && [ -f /etc/redhat-release ]; then
     export SYSTEM_TYPE="Linux (RedHat)"
 fi
-export SYSTEM_TYPE
 
 export EDITOR="vim"
-
-# end

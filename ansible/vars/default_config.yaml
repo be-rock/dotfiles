@@ -22,12 +22,9 @@ base_directory_structure:
 - .local/bin
 - .local/lib
 - .local/share
-- code/git
-- code/go
-- code/python
-- code/sql
+- code/{git,go,python,sql}
 - tmp
-
+- tools
 
 homebrew_packages:
 - bat
