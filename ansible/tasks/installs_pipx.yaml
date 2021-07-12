@@ -8,4 +8,5 @@
     - black
     - bpytop
     - httpie
+    - parquet-tools
     - tldr
