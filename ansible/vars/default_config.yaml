@@ -22,12 +22,9 @@ base_directory_structure:
 - .local/bin
 - .local/lib
 - .local/share
-- code/git
-- code/go
-- code/python
-- code/sql
+- code/{git,go,python,sql}
 - tmp
-
+- tools
 
 homebrew_packages:
 - bat
@@ -74,6 +71,16 @@ snap_packages:
 #- intellij-idea-community --classic
 #- vlc
 
+vscode_extensions:
+- CoenraadS.bracket-pair-colorizer-2
+- hashicorp.terraform
+- ms-python.python
+- ms-toolsai.jupyter
+- PKief.material-icon-theme
+- vscodevim.vim
+- yzhang.markdown-all-in-one
+
 python_versions:
 - { env_name: py38, ver: 3.8.5 }
 - { env_name: py39, ver: 3.9.1 }
+
