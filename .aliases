@@ -30,12 +30,16 @@ alias llast='less $(ls -1rt|tail -n1)'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias port='netstat -tulanp'
 alias rc='echo $?'
 alias mem='free -m -t'
 alias path='echo -e ${PATH//:/\\n}'
 alias dmesg='dmesg --color --ctime'
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+
+# network
+alias port='netstat -tulanp'
+#sudo systemd-resolve --statistics # view dns cache information (debian)
+#sudo systemd-resolve --flush-caches # flush dns cache
 
 # terraform
 alias tf='terraform'

@@ -66,6 +66,7 @@ apt_packages:
 snap_packages:
 - code --classic
 - docker
+- duf-utility
 - libreoffice
 - pycharm-community --classic
 #- intellij-idea-community --classic
