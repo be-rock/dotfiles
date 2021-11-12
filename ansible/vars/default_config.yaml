@@ -67,8 +67,8 @@ snap_packages:
 - code --classic
 - docker
 - duf-utility
-- libreoffice
-- pycharm-community --classic
+# - libreoffice
+# - pycharm-community --classic
 #- intellij-idea-community --classic
 #- vlc
 

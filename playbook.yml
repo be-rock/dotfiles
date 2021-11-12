@@ -15,5 +15,5 @@
     - include_tasks: ansible/tasks/debian_setup.yaml
     - include_tasks: ansible/tasks/installs_mac.yaml
     - include_tasks: ansible/tasks/installs_pipx.yaml
-    - include_tasks: ansible/tasks/conda_env.yaml
+    # - include_tasks: ansible/tasks/conda_env.yaml
     # - include_tasks: ansible/tasks/installs_snap.yaml
