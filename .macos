@@ -1,0 +1,29 @@
+# https://macos-defaults.com/#%F0%9F%99%8B-what-s-a-defaults-command
+
+# Makes the cpu history monitor the default
+defaults write com.apple.activitymonitor IconType 6
+
+# Autohides the Dock. You can toggle the Dock using ⌥ alt+⌘ cmd+d.
+defaults write com.apple.dock "autohide" -bool "true"
+
+# Show recently used apps in a separate section of the Dock.
+defaults write com.apple.dock "show-recents" -bool "false"
+
+# Set the icon size of Dock items in pixels.
+defaults write com.apple.dock "tilesize" -int "48" && killall Dock
+
+defaults write com.apple.finder ShowPathBar -bool true
+
+# When performing a search, search the current folder by default
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# Show hidden files in the Finder. You can toggle the value using ⌘ cmd+⇧ shift+.
+defaults write com.apple.finder "AppleShowAllFiles" -bool "true" && killall Finder
+
+# Show all file extensions in the Finder
+defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true" && killall Finder
+
+# This setting configures the time and date format for the menubar digital clock.
+# Accepted values depend on your Language & Region settings.
+# Thu 21:46:18
+defaults write com.apple.menuextra.clock "DateFormat" -string "\"EEE HH:mm:ss\""
