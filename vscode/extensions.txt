@@ -1,0 +1,10 @@
+# cat vs_code_extensions_list.txt | xargs -n 1 code --install-extension
+
+hashicorp.terraform
+ms-python.python
+ms-toolsai.jupyter
+ms-toolsai.jupyter-keymap
+ms-toolsai.jupyter-renderers
+PKief.material-icon-theme
+vscodevim.vim
+yzhang.markdown-all-in-one

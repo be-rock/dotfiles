@@ -84,4 +84,7 @@ vscode_extensions:
 python_versions:
 - { env_name: py38, ver: 3.8.5 }
 - { env_name: py39, ver: 3.9.1 }
+- { env_name: py10, ver: 3.10.0 }
 
+vim_plugins:
+- { plugin_git_source: https://github.com/preservim/nerdtree.git, plugin_target_path: ~/.vim/pack/vendor/start/nerdtree }
