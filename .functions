@@ -40,6 +40,11 @@ md5check() {
     md5sum "$1" | grep "$2";
 }
 
+# compute an sha256sum and compare it with grep: sha256sum [file] [key]
+shacheck() {
+    sha256sum "$1" | grep "$2"
+}
+
 
 # Create a new directory and enter it
 mkd() {
@@ -201,7 +206,8 @@ function source_env() {
     #   so that each key is reflected as an environment variable
     #
     # usage:
-    #   source_env <file> # <-- <file> can be a relative or abs path
+    #   source_env <file>
+    # <file> can be a relative or abs path
     #
     export $(grep -v '^#' $1 | xargs)
 }

@@ -1,6 +1,8 @@
 {
+    "editor.bracketPairColorization.enabled": true,
     "editor.detectIndentation": false,
     "editor.fontSize": 14,
+    "editor.guides.bracketPairs": "active",
     "editor.insertSpaces": true,
     "editor.minimap.enabled": true,
     "editor.multiCursorModifier": "alt",
@@ -28,6 +30,7 @@
         "-s"
     ],
     "telemetry.enableTelemetry": false,
+    "telemetry.telemetryLevel": "off",
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.fontSize": 14,
     "terminal.integrated.inheritEnv": false,
