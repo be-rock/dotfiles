@@ -93,4 +93,9 @@ python_versions:
 
 vim_plugins:
 - { plugin_git_source: https://github.com/preservim/nerdtree.git, plugin_target_path: ~/.vim/pack/vendor/start/nerdtree }
+- { plugin_git_source: https://github.com/itchyny/lightline.vim, plugin_target_path: ~/.vim/pack/plugins/start/lightline }
+
+git_repos:
+- { repo: https://github.com/zsh-users/zsh-autosuggestions, target_path: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions }
+- { repo: https://github.com/zsh-users/zsh-syntax-highlighting.git, target_path: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting }
 

@@ -55,10 +55,10 @@ __conda_setup="$('/home/brock/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/nu
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/brock/miniconda/etc/profile.d/conda.sh" ]; then
-        . "/home/brock/miniconda/etc/profile.d/conda.sh"
+    if [ -f "~/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "~/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/brock/miniconda/bin:$PATH"
+        export PATH="~/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
