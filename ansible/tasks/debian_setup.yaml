@@ -25,5 +25,5 @@
     state: link
   when: ansible_os_family | lower == 'debian'
 
-# - name: Enable firewall
-  # ansible.builtin.shell: sudo ufw enable
+- name: Enable firewall
+  ansible.builtin.shell: sudo ufw enable

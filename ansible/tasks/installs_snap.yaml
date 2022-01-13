@@ -1,5 +1,5 @@
 - name: Install snaps
-  become: true
   community.general.snap:
-    name: "{{ snap_packages }}"
+    name: "{{ item }}"
+  loop: "{{ snap_packages }}"
   when: ansible_os_family | lower == 'debian'

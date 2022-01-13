@@ -22,7 +22,11 @@ base_directory_structure:
 - .local/bin
 - .local/lib
 - .local/share
-- code/{git,go,python,sql}
+- code
+- code/git
+- code/go
+- code/python
+- code/sql
 - tmp
 - tools
 
@@ -62,10 +66,11 @@ apt_packages:
 - vim
 - wget
 - xclip
+- zsh
 
 snap_packages:
-- code --classic
-- docker
+#- code --classic
+#- docker
 - duf-utility
 # - libreoffice
 # - pycharm-community --classic
@@ -88,3 +93,4 @@ python_versions:
 
 vim_plugins:
 - { plugin_git_source: https://github.com/preservim/nerdtree.git, plugin_target_path: ~/.vim/pack/vendor/start/nerdtree }
+
