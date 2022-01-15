@@ -17,9 +17,9 @@ format = """\
 truncation_length = 14
 
 [character]
-symbol = "➜"
-error_symbol = "✗"
-use_symbol_for_status = true
+success_symbol = "[➜](bold green) "
+error_symbol = "[✗](bold red) "
+vicmd_symbol = "[V](bold green) "
 
 [cmd_duration]
 min_time = 50
@@ -37,6 +37,13 @@ disabled = false
 symbol = "🌱 "
 truncation_length = 20
 truncation_symbol = ""
+
+[status]
+style = "bg:blue"
+symbol = "🔴"
+format = '[\[$symbol $common_meaning$signal_name$maybe_int\]]($style) '
+map_symbol = true
+disabled = false
 
 [time]
 disabled = false

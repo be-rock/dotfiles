@@ -58,6 +58,7 @@ apt_packages:
 - exfat-utils
 - jq
 - git
+- gnome-tweaks
 - neofetch
 - openjdk-11-jdk
 - ripgrep
@@ -72,6 +73,7 @@ snap_packages:
 #- code --classic
 #- docker
 - duf-utility
+- procs
 # - libreoffice
 # - pycharm-community --classic
 #- intellij-idea-community --classic

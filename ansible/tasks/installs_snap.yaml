@@ -2,4 +2,5 @@
   community.general.snap:
     name: "{{ item }}"
   loop: "{{ snap_packages }}"
+  become: yes
   when: ansible_os_family | lower == 'debian'
