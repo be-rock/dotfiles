@@ -45,6 +45,15 @@ shacheck() {
     sha256sum "$1" | grep "$2"
 }
 
+# compute a sha256 checksum
+sha() {
+    if [ SYSTEM_TYPE=="macOS" ]; then
+        shasum -a 256 "$1"
+    elif
+        sha256sum "$1"
+    fi
+}
+
 
 # Create a new directory and enter it
 mkd() {

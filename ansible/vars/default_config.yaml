@@ -63,6 +63,7 @@ apt_packages:
 - openjdk-11-jdk
 - ripgrep
 - snapd
+- tlp # https://github.com/linrunner/TLP
 - tree
 - vim
 - wget
@@ -71,27 +72,17 @@ apt_packages:
 
 snap_packages:
 #- code --classic
-#- docker
 - duf-utility
 - procs
-# - libreoffice
+- superproductivity
 # - pycharm-community --classic
 #- intellij-idea-community --classic
 #- vlc
 
-vscode_extensions:
-- CoenraadS.bracket-pair-colorizer-2
-- hashicorp.terraform
-- ms-python.python
-- ms-toolsai.jupyter
-- PKief.material-icon-theme
-- vscodevim.vim
-- yzhang.markdown-all-in-one
-
 python_versions:
 - { env_name: py38, ver: 3.8.5 }
 - { env_name: py39, ver: 3.9.1 }
-- { env_name: py10, ver: 3.10.0 }
+- { env_name: py10, ver: 3.10.1 }
 
 vim_plugins:
 - { plugin_git_source: https://github.com/preservim/nerdtree.git, plugin_target_path: ~/.vim/pack/vendor/start/nerdtree }

@@ -1,14 +1,15 @@
 {
+    "editor.autoClosingBrackets": "always",
     "editor.bracketPairColorization.enabled": true,
     "editor.detectIndentation": false,
     "editor.fontSize": 14,
-    "editor.guides.bracketPairs": "active",
     "editor.insertSpaces": true,
+    "editor.matchBrackets": "always",
     "editor.minimap.enabled": true,
     "editor.multiCursorModifier": "alt",
     "editor.renderWhitespace": "all",
     "editor.tabSize": 4,
-    "extensions.ignoreRecommendations": false,
+    "extensions.ignoreRecommendations": true,
     "files.autoSave": "afterDelay",
     "files.associations": {
         ".exports": "shellscript",
@@ -18,11 +19,7 @@
     "files.trimTrailingWhitespace": true,
     "files.eol": "\n",
     "git.ignoreLegacyWarning": true,
-    "gitlens.advanced.messages": {
-        "suppressShowKeyBindingsNotice": true
-    },
-    "python.dataScience.sendSelectionToInteractiveWindow": false,
-    "python.formatting.blackPath": "~/miniconda3/envs/scratch/bin/black",
+    "python.formatting.blackPath": "~/.local/bin/black",
     "python.formatting.provider": "black",
     "python.testing.pytestEnabled": true,
     "python.testing.pytestArgs": [
@@ -34,19 +31,11 @@
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.fontSize": 14,
     "terminal.integrated.inheritEnv": false,
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.defaultProfile.osx": "zsh",
     "vim.disableExtension": false,
-    "vim.insertModeKeyBindings": [
-        {
-            "before": [
-                "j",
-                "j"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        }
-    ],
-    "window.zoomLevel": 1.25,
+    "window.zoomLevel": 1.5,
     "workbench.colorTheme": "Monokai",
     "workbench.iconTheme": "material-icon-theme"
 }
+
