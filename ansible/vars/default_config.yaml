@@ -7,7 +7,9 @@ dotfiles:
 - .bash_profile
 - .bashrc
 - .exports
+- .gitconfig
 - .gitignore.global
+- .gnome-terminal.conf
 - .functions
 - .inputrc
 - .misc
@@ -71,18 +73,13 @@ apt_packages:
 - zsh
 
 snap_packages:
-#- code --classic
 - duf-utility
 - procs
 - superproductivity
-# - pycharm-community --classic
-#- intellij-idea-community --classic
-#- vlc
 
 python_versions:
-- { env_name: py38, ver: 3.8.5 }
-- { env_name: py39, ver: 3.9.1 }
-- { env_name: py10, ver: 3.10.1 }
+- { env_name: py39, ver: 3.9.10 }
+- { env_name: py10, ver: 3.10.2 }
 
 vim_plugins:
 - { plugin_git_source: https://github.com/preservim/nerdtree.git, plugin_target_path: ~/.vim/pack/vendor/start/nerdtree }
