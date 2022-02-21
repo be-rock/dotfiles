@@ -27,3 +27,8 @@
 
 - name: Enable firewall
   ansible.builtin.shell: sudo ufw enable
+  when: ansible_os_family | lower == 'debian'
+
+- name: Setup gnome terminal settings
+  ansible.builtin.shell: cat ~/.gnome-terminal.conf | dconf load /org/gnome/terminal/legacy/profiles:/
+  when: ansible_os_family | lower == 'debian'

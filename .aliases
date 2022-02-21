@@ -104,6 +104,14 @@ alias di='docker image'
 alias dc='docker container'
 alias ds='docker service'
 alias dinfo='docker info'
+alias sdi='sudo docker image'
+alias sdc='sudo docker container'
+alias sds='sudo docker service'
+alias sdinfo='sudo docker info'
+# aws cli / non-interactive
+alias daws='sudo docker run --rm -it -v ~/.aws:/root/.aws amazon/aws-cli --no-cli-auto-prompt'
+# aws cli / interactive
+alias dawsint='sudo docker run --rm -it -v ~/.aws:/root/.aws amazon/aws-cli --cli-auto-prompt'
 
 # k8s
 alias k='kubectl'
@@ -139,4 +147,3 @@ alias hmv='hadoop fs -mv'
 # start spark shell
 alias start_ps='spark_version=3.1.2 && hadoop_version=3.2 && install_dir=~/tools && export SPARK_HOME=${install_dir}/spark-${spark_version}-bin-hadoop${hadoop_version} && $SPARK_HOME/bin/pyspark' # pyspark shell
 alias start_ss='spark_version=3.1.2 && hadoop_version=3.2 && install_dir=~/tools && export SPARK_HOME=${install_dir}/spark-${spark_version}-bin-hadoop${hadoop_version} && $SPARK_HOME/bin/spark-shell' # spark (scala) shell
-

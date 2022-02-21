@@ -41,13 +41,13 @@ homebrew_packages:
 - tree
 
 homebrew_cask_packages:
-- dbeaver-community
+# - dbeaver-community
 - docker
 - firefox
 - intellij-idea
 - iterm2
-- joplin
-- maccy
+# - joplin
+# - maccy
 - postman
 - pycharm
 - rectangle
@@ -55,6 +55,7 @@ homebrew_cask_packages:
 
 apt_packages:
 - bat
+- code # vscode
 - curl
 - exfat-fuse
 - exfat-utils
@@ -73,9 +74,10 @@ apt_packages:
 - zsh
 
 snap_packages:
-- duf-utility
-- procs
-- superproductivity
+- auto-cpufreq      # https://github.com/AdnanHodzic/auto-cpufreq
+- duf-utility       # https://github.com/muesli/duf
+- procs             # https://github.com/dalance/procs
+- superproductivity # https://github.com/johannesjo/super-productivity
 
 python_versions:
 - { env_name: py39, ver: 3.9.10 }
