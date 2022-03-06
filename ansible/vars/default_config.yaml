@@ -64,9 +64,10 @@ apt_packages:
 - gnome-tweaks
 - neofetch
 - openjdk-11-jdk
+- powertop # https://github.com/fenrus75/powertop
 - ripgrep
 - snapd
-- tlp # https://github.com/linrunner/TLP
+#- tlp # https://github.com/linrunner/TLP
 - tree
 - vim
 - wget
@@ -90,4 +91,3 @@ vim_plugins:
 git_repos:
 - { repo: https://github.com/zsh-users/zsh-autosuggestions, target_path: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions }
 - { repo: https://github.com/zsh-users/zsh-syntax-highlighting.git, target_path: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting }
-

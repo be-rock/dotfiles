@@ -5,10 +5,3 @@
     clone: yes
     #update: yes
   loop: "{{ git_repos }}"
-
-      # name: Install snaps
-      #  community.general.snap:
-      #    name: "{{ item }}"
-      #  loop: "{{ snap_packages }}"
-      #  when: ansible_os_family | lower == 'debian'
-

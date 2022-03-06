@@ -2,8 +2,8 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # oh-my-zsh plugins
-plugins=(git 
-    z 
+plugins=(git
+    z
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
@@ -51,7 +51,7 @@ export PATH="$HOME/.local/bin:$HOME/.local/lib:/usr/local/go/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/brock/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('$HOME/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
@@ -63,4 +63,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
