@@ -11,20 +11,21 @@
 # setup
 #sudo dpkg -i <resilio-sync.deb>
 
-user_group=$(groups|awk '{print $1}')
-user_name=$USER
-synced_folder=~/resilio_sync
-
 sudo systemctl enable resilio-sync
+
+user_group=$(groups|awk '{print $1}')
+user_name=rslsync
+synced_folder=~$user_name/resilio_sync
 
 sudo usermod -aG $user_group rslsync
 sudo usermod -aG rslsync $user_name
+sudo mkdir -p $synced_folder
 sudo chmod g+rw $synced_folder
 
 # status
 #systemctl status resilio-sync
 
 # uninstall
-#sudo systemctl stop resilio-sync
-#sudo apt-get remove resilio-sync
-#sudo apt-get purge resilio-sync
+# sudo systemctl stop resilio-sync
+# sudo apt-get remove resilio-sync
+# sudo apt-get purge resilio-sync
