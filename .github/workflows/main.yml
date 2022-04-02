@@ -11,7 +11,10 @@ jobs:
         with:
           python-version: '3.10'
       - run: |
+          pwd
           mkdir -p $WORKING_DIR
+          pwd
           cp -r . $WORKING_DIR
+          pwd
           pip install --upgrade pip ansible pipx
           source $WORKING_DIR/bootstrap.sh
