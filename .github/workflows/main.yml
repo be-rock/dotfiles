@@ -15,6 +15,6 @@ jobs:
           ls -a
           mkdir -p $WORKING_DIR
           ls -1 $WORKING_DIR
-          cp -r . $WORKING_DIR
+          #cp -r . $WORKING_DIR
           pip install --upgrade pip ansible pipx
           DOTFILES_DIR=. && source bootstrap.sh
