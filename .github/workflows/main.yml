@@ -1,0 +1,17 @@
+name: main
+env:
+  - WORKING_DIR=~/code/git/dotfiles
+on: [push]
+jobs:
+  setup-environment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+        with:
+          python-version: '3.10'
+      - run: |
+          mkdir -p $WORKING_DIR
+          cp -r . $WORKING_DIR
+          pip install --upgrade pip ansible pipx
+          source $WORKING_DIR/bootstrap.sh
