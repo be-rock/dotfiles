@@ -1,6 +1,6 @@
 name: main
 env:
-  - WORKING_DIR=~/code/git/dotfiles
+  WORKING_DIR=~/code/git/dotfiles
 on: [push]
 jobs:
   setup-environment:
