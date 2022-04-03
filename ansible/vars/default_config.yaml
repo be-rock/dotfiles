@@ -7,7 +7,7 @@ dotfiles:
 - .bash_profile
 - .bashrc
 - .exports
-- .gitconfig
+# - .gitconfig
 - .gitignore.global
 - .gnome-terminal.conf
 - .functions
@@ -55,7 +55,7 @@ homebrew_cask_packages:
 
 apt_packages:
 - bat
-- code # vscode
+# - code # vscode
 - curl
 - exfat-fuse
 - exfat-utils
