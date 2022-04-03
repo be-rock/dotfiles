@@ -1,12 +1,12 @@
 name: main
 env:
   WORKING_DIR: ~/code/git/dotfiles
-strategy:
-  matrix:
-    os: [ubuntu-latest, macos-latest]
 on: [push]
 jobs:
   setup-environment:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
