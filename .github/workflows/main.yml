@@ -1,20 +1,18 @@
 name: main
 env:
   WORKING_DIR: ~/code/git/dotfiles
+strategy:
+  matrix:
+    os: [ubuntu-latest, macos-latest]
 on: [push]
 jobs:
   setup-environment:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
         with:
           python-version: '3.10'
       - run: |
-          pwd
-          ls -a
-          mkdir -p $WORKING_DIR
-          ls -1 $WORKING_DIR
-          #cp -r . $WORKING_DIR
           pip install --upgrade pip ansible pipx
           DOTFILES_DIR=. && source bootstrap.sh
