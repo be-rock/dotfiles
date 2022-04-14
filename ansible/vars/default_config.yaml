@@ -7,7 +7,7 @@ dotfiles:
 - .bash_profile
 - .bashrc
 - .exports
-- .gitconfig
+# - .gitconfig
 - .gitignore.global
 - .gnome-terminal.conf
 - .functions
@@ -55,7 +55,7 @@ homebrew_cask_packages:
 
 apt_packages:
 - bat
-- code # vscode
+# - code # vscode
 - curl
 - exfat-fuse
 - exfat-utils
@@ -65,7 +65,7 @@ apt_packages:
 - neofetch
 - openjdk-11-jdk
 - powertop # https://github.com/fenrus75/powertop
-- ripgrep
+# - ripgrep
 - snapd
 #- tlp # https://github.com/linrunner/TLP
 - tree
@@ -76,7 +76,7 @@ apt_packages:
 
 snap_packages:
 - auto-cpufreq      # https://github.com/AdnanHodzic/auto-cpufreq
-- duf-utility       # https://github.com/muesli/duf
+# - duf-utility       # https://github.com/muesli/duf
 - procs             # https://github.com/dalance/procs
 - superproductivity # https://github.com/johannesjo/super-productivity
 

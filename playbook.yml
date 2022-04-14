@@ -11,5 +11,5 @@
     - include_tasks: ansible/tasks/installs_snap.yaml
     - include_tasks: ansible/tasks/installs_vim_plugins.yaml
     - include_tasks: ansible/tasks/git_repos.yaml
-    # # - include_tasks: ansible/tasks/installs_mac.yaml
+    # - include_tasks: ansible/tasks/installs_mac.yaml
     - include_tasks: ansible/tasks/conda_env.yaml
