@@ -54,6 +54,16 @@ sha() {
     fi
 }
 
+dttz() {
+    # timezone helper
+    echo -n 'Los Angeles : ' && TZ=America/Los_Angeles date +%FT%T%z
+    echo -n 'Phoenix     : ' && TZ=America/Phoenix date +%FT%T%z
+    echo -n 'Chicago     : ' && TZ=America/Chicago date +%FT%T%z
+    echo -n 'New York    : ' && TZ=America/New_York date +%FT%T%z
+    echo -n 'UTC         : ' && TZ=UTC date +%FT%T%z
+    echo -n 'Bangalore   : ' && TZ=Asia/Kolkata date +%FT%T%z
+    echo -n 'local       : ' && date +%FT%T%z
+}
 
 # Create a new directory and enter it
 mkd() {
