@@ -34,6 +34,7 @@ base_directory_structure:
 
 homebrew_packages:
 - bat
+- fzf
 - jq
 - pipx
 - ripgrep
@@ -59,6 +60,7 @@ apt_packages:
 - curl
 - exfat-fuse
 - exfat-utils
+- fzf
 - jq
 - git
 - gnome-tweaks
