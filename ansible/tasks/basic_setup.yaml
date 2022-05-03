@@ -1,3 +1,8 @@
+- name: "print variables"
+  debug:
+    msg: 
+      - "dotfiles_dir is {{ dotfiles_dir }}"
+
 - name: Create dirs
   ansible.builtin.file:
     path: '~/{{ item }}'
@@ -7,18 +12,20 @@
 - name: Create symlinks in home ~
   ignore_errors: true
   ansible.builtin.file:
-    src: '{{ dotfiles_dir }}/{{ item }}'
+    src: "{{ dotfiles_dir }}/{{ item }}"
     dest: "~/{{ item }}"
     state: link
-    force: true
+    follow: no
+    force: false
   loop: "{{ dotfiles }}"
 
 - name: Create symlinks in ~/.config
   ignore_errors: true
   ansible.builtin.file:
-    src: '{{ dotfiles_dir }}/{{ item }}'
+    src: "{{ dotfiles_dir }}/{{ item }}"
     dest: "~/.config/{{ item }}"
     state: link
+    follow: no
     force: true
   loop: "{{ dotfiles }}"
 
