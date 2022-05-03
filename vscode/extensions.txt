@@ -1,4 +1,4 @@
-# cat vs_code_extensions_list.txt | xargs -n 1 code --install-extension
+# grep -v '^#' extensions.txt | xargs -n 1 code --install-extension
 
 hashicorp.terraform
 ms-python.python
