@@ -1,6 +1,6 @@
 - name: "print variables"
   debug:
-    msg: 
+    msg:
       - "dotfiles_dir is {{ dotfiles_dir }}"
 
 - name: Create dirs
@@ -28,4 +28,3 @@
     follow: no
     force: true
   loop: "{{ dotfiles }}"
-

@@ -1,7 +1,0 @@
-- name: Clone a github repository
-  ansible.builtin.git:
-    repo: "{{ item.repo }}"
-    dest: "{{ item.target_path }}"
-    clone: yes
-    #update: yes
-  loop: "{{ git_repos }}"
