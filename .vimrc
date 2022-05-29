@@ -16,10 +16,10 @@ set expandtab         " Convert tabs to spaces
 set hlsearch          " highlight search terms (:noh to turn off temporarily)
 set ignorecase        " Do case insensitive matching
 set incsearch         " Incremental search
-set laststatus=2     
+set laststatus=2
 set nobackup          " get rid of anoying ~file
 set nocompatible      " do not make vim compatible with vi.
-set noswapfile        " 
+set noswapfile        "
 set number            " number the lines.
 set ruler             " Always show current position
 set scrolloff=999     " keep cursor in the middle of the screen while scrolling up and down.

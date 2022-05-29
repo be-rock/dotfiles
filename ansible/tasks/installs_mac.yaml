@@ -5,7 +5,6 @@
     update_homebrew: yes
   tags:
     - brew
-  when: ansible_os_family | lower == 'darwin'
   loop: "{{ homebrew_packages }}"
 
 - name: Install homebrew cask packages
@@ -14,7 +13,6 @@
     state: installed
   tags:
   - brew
-  when: ansible_os_family | lower == 'darwin'
   loop: "{{ homebrew_cask_packages }}"
 
 - name: modify macOS user defaults
@@ -24,4 +22,3 @@
     type: bool
     value: false
     state: present
-  when: ansible_os_family | lower == 'darwin'

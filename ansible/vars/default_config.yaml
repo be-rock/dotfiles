@@ -54,11 +54,9 @@ homebrew_cask_packages:
 
 apt_packages:
 - bat
-# - code # vscode
 - curl
 - exfat-fuse
-#- exfat-utils
-- fzf             # https://github.com/junegunn/fzf
+- fzf             # https://github.com/junegunn/fzf (use apt-cache show fzf for info on how to fully enable)
 - jq
 - git
 - gnome-tweaks
@@ -75,7 +73,7 @@ apt_packages:
 - zsh
 
 snap_packages:
-- { package: auto-cpufreq, classic: no }  # https://github.com/AdnanHodzic/auto-cpufreq
+- { package: auto-cpufreq, classic: no }      # https://github.com/AdnanHodzic/auto-cpufreq
 - { package: code, classic: yes }             # vscode
 # - duf-utility                               # https://github.com/muesli/duf
 - { package: procs, classic: no }             # https://github.com/dalance/procs

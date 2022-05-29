@@ -1,3 +1,4 @@
 [pager]
     branch = false
-
+    diff = false
+    stash = false
