@@ -6,6 +6,8 @@
     state: present
   loop: "{{ apt_packages }}"
   ignore_errors: true
+  when: ansible_os_family | lower == 'debian'
+
 
 # - name: Change default bluetooth settings
 #   become: true
@@ -14,6 +16,7 @@
 #     line: 'ControllerMode = bredr'
 #     insertafter: '^#ControllerMode = dual'
 #     state: present
+# when: ansible_os_family | lower == 'debian'
 
 - name: Create symlink for bat
   ignore_errors: true
@@ -21,9 +24,12 @@
     src: /usr/bin/batcat
     dest: ~/.local/bin/bat
     state: link
+  when: ansible_os_family | lower == 'debian'
 
 - name: Enable firewall
   ansible.builtin.shell: sudo ufw enable
+  when: ansible_os_family | lower == 'debian'
 
 - name: Setup gnome terminal settings
   ansible.builtin.shell: cat ~/.gnome-terminal.conf | dconf load /org/gnome/terminal/legacy/profiles:/
+  when: ansible_os_family | lower == 'debian'

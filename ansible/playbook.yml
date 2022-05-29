@@ -1,0 +1,27 @@
+- name: apply common configuration
+  hosts: all
+  vars_files:
+   - vars/default_config.yaml
+  roles:
+    - base
+
+- name: linux setup
+  hosts: all
+  vars_files:
+   - vars/default_config.yaml
+  roles:
+    - linux
+
+- name: mac setup
+  hosts: all
+  vars_files:
+   - vars/default_config.yaml
+  roles:
+    - mac
+
+- name: misc setup
+  hosts: all
+  vars_files:
+   - vars/default_config.yaml
+  roles:
+    - misc

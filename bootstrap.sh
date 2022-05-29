@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-DOTFILES_DIR="${DOTFILES_DIR:-~/code/git/dotfiles}" 
+DOTFILES_DIR="${DOTFILES_DIR:-~/code/git/dotfiles}"
 
-ansible-playbook playbook.yml -i .hosts.ini --extra-vars dotfiles_dir=$DOTFILES_DIR
+ansible-playbook ansible/playbook.yml -i ansible/hosts.ini --extra-vars dotfiles_dir=$DOTFILES_DIR
