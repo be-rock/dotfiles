@@ -65,6 +65,19 @@ dttz() {
     echo -n 'local       : ' && date +%FT%T%z
 }
 
+tzinfo() {
+    # timezone helper
+    text=$(cat <<EOT
+from datetime import datetime
+import pytz
+tz_info = ('America/Phoenix', 'America/Denver', 'America/Chicago', 'America/New_York', 'UTC', 'Asia/Kolkata')
+for tz in tz_info:
+    print(f'{tz:>19} : {datetime.now(pytz.timezone(tz)).isoformat()}')
+EOT
+)
+    echo $text | python
+}
+
 # Create a new directory and enter it
 mkd() {
     mkdir -p "$@"
@@ -156,6 +169,15 @@ docker_python() {
     docker container run -it --rm $2
 }
 
+start_pyspark() {
+    PYSPARK_DRIVER_PYTHON=$(which ipython)
+    PYSPARK_PYTHON=$(which python)
+    PYSPARK_DRIVER_PYTHON_OPTIONS="--TerminalInteractiveShell.editing_mode=vi"
+    SPARK_LOCAL_IP="localhost"
+    SPARK_HOME="${SPARK_HOME:-$1}"
+    export PYSPARK_DRIVER_PYTHON PYSPARK_PYTHON PYSPARK_DRIVER_PYTHON_OPTIONS SPARK_LOCAL_IP SPARK_HOME
+    $SPARK_HOME/bin/pyspark
+}
 
 byte_convert () {
     #
