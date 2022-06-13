@@ -170,12 +170,15 @@ docker_python() {
 }
 
 start_pyspark() {
-    PYSPARK_DRIVER_PYTHON=$(which ipython)
-    PYSPARK_PYTHON=$(which python)
-    PYSPARK_DRIVER_PYTHON_OPTIONS="--TerminalInteractiveShell.editing_mode=vi"
-    SPARK_LOCAL_IP="localhost"
-    SPARK_HOME="${SPARK_HOME:-$1}"
-    export PYSPARK_DRIVER_PYTHON PYSPARK_PYTHON PYSPARK_DRIVER_PYTHON_OPTIONS SPARK_LOCAL_IP SPARK_HOME
+    # simple pyspark starter that ensures necessary environment variables are setup
+    # and ipython is the default shell
+    # example:
+    #   start_pyspark /path/to/sparkhome
+    export PYSPARK_DRIVER_PYTHON=$(command ipython)
+    export PYSPARK_DRIVER_PYTHON_OPTIONS="--TerminalInteractiveShell.editing_mode=vi"
+    export PYSPARK_PYTHON=$(which python)
+    export SPARK_LOCAL_IP="localhost"
+    export SPARK_HOME="${SPARK_HOME:-$1}"
     $SPARK_HOME/bin/pyspark
 }
 
@@ -188,11 +191,12 @@ byte_convert () {
     # example:
     #   byte_convert 123456 gb
     #
-    echo -e "def converter(kind: str, num: int):
-    l = ['b', 'kb', 'mb', 'gb', 'tb', 'pb', 'eb']
-    kind_pstn = l.index(kind)
-    for item in l:
-        pstn = l.index(item)
+    text=$(cat <<EOT
+def converter(kind: str, num: int):
+    sizes = ['b', 'kb', 'mb', 'gb', 'tb', 'pb', 'eb']
+    kind_pstn = sizes.index(kind)
+    for item in sizes:
+        pstn = sizes.index(item)
         offset = abs(kind_pstn - pstn)
         if pstn < kind_pstn:
             print(int(num * (1024 ** offset)), item)
@@ -201,9 +205,11 @@ byte_convert () {
         else:
             print(num, item)
 
-converter(kind='$2', num=int($1))" | python
+converter(kind='$2', num=int($1))
+EOT
+)
+    echo $text | python
 }
-
 
 abspath () {
     # retrieve absolute path of file - platform independent

@@ -55,7 +55,7 @@ homebrew_cask_packages:
 apt_packages:
 - bat
 - curl
-- exfat-fuse
+# - exfat-fuse
 - fzf             # https://github.com/junegunn/fzf (use apt-cache show fzf for info on how to fully enable)
 - jq
 - git
@@ -65,12 +65,21 @@ apt_packages:
 - powertop        # https://github.com/fenrus75/powertop
 - ripgrep
 - snapd
-#- tlp # https://github.com/linrunner/TLP
+#- tlp            # https://github.com/linrunner/TLP
 - tree
 - vim
 - wget
 - xclip
 - zsh
+
+pipx_packages:
+  - awscli
+  - black
+  - bpytop
+  - httpx[cli]
+  - 'maestral[gui]'
+  - parquet-tools
+  - tldr
 
 snap_packages:
 - { package: auto-cpufreq, classic: no }      # https://github.com/AdnanHodzic/auto-cpufreq
@@ -79,9 +88,12 @@ snap_packages:
 - { package: procs, classic: no }             # https://github.com/dalance/procs
 - { package: superproductivity, classic: no } # https://github.com/johannesjo/super-productivity
 
+go_versions:
+- 1.18.3
+
 python_versions:
-#- { env_name: py39, ver: "3.9" }
-- { env_name: py10, ver: "3.10" }
+- { env_name: py39, ver: "3.9" }
+- { env_name: py310, ver: "3.10" }
 
 vim_plugins:
 - { plugin_git_source: https://github.com/preservim/nerdtree.git, plugin_target_path: ~/.vim/pack/vendor/start/nerdtree }
