@@ -19,7 +19,7 @@
 
 - name: Setup gnome terminal settings
   ansible.builtin.shell:
-    gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ {{ item }}
+    "gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ {{ item }}"
   loop:
     - next-tab '<Primary>Tab'
     - prev-tab '<Primary><Shift>Tab'
