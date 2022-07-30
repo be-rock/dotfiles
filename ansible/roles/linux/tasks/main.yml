@@ -18,7 +18,9 @@
   ansible.builtin.shell: sudo ufw enable
 
 - name: Setup gnome terminal settings
-  ansible.builtin.shell: cat ~/.gnome-terminal.conf | dconf load /org/gnome/terminal/legacy/profiles:/
+  ansible.builtin.shell:
+    - gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Primary>Tab'
+    - gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'
 
 # - name: Change default bluetooth settings
 #   become: true

@@ -1,7 +1,12 @@
-- name: "print variables"
-  debug:
+- name: "show ansible config"
+  ansible.builtin.debug:
     msg:
-      - "dotfiles_dir is {{ dotfiles_dir }}"
+      - "os distribution    : {{ ansible_distribution }}"
+      - "dotfiles_dir       : {{ dotfiles_dir }}"
+      - "inventory hostname : {{ inventory_hostname }}"
+      - "hostname           : {{ ansible_hostname }}"
+      - "ansible python     : {{ ansible_playbook_python }}"
+      - "ansible version    : {{ ansible_version['full'] }}"
 
 - name: Create dirs
   ansible.builtin.file:

@@ -174,8 +174,9 @@ start_pyspark() {
     # and ipython is the default shell
     # example:
     #   start_pyspark /path/to/sparkhome
-    export PYSPARK_DRIVER_PYTHON=$(command ipython)
-    export PYSPARK_DRIVER_PYTHON_OPTIONS="--TerminalInteractiveShell.editing_mode=vi"
+    unalias ipython
+    export PYSPARK_DRIVER_PYTHON=$(which ipython)
+    export PYSPARK_DRIVER_PYTHON_OPTS="--TerminalInteractiveShell.editing_mode=vi"
     export PYSPARK_PYTHON=$(which python)
     export SPARK_LOCAL_IP="localhost"
     export SPARK_HOME="${SPARK_HOME:-$1}"
@@ -257,4 +258,15 @@ function source_env() {
     # <file> can be a relative or abs path
     #
     export $(grep -v '^#' $1 | xargs)
+}
+
+function wifi-connect() {
+    #
+    # purpose:
+    #   quickly connect to a wifi network
+    #
+    # usage:
+    #   wifi-connect networkName networkPass
+    #
+    sudo nmcli dev wifi connect $1 password $2
 }

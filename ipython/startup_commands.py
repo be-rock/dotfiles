@@ -10,4 +10,5 @@ def aws_ec2_format_dns_name(dns_name: str) -> str:
     return '.'.join(dns_name.split('.')[0].split('-')[1:])
 
 def now() -> str:
-    return datetime.datetime.now(datetime.timezone.utc).astimezone().isoformat()
+    """current timestamp in utc"""
+    return datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='microseconds')

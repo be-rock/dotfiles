@@ -20,7 +20,7 @@
         ".exports": "shellscript",
         ".functions": "shellscript",
         "*.tftpl": "json", // terraform template language
-        "*.toml": "conf"
+        "*.toml": "properties"
     },
     "files.trimTrailingWhitespace": true,
     "files.eol": "\n",
@@ -36,10 +36,11 @@
     "telemetry.enableTelemetry": false,
     "telemetry.telemetryLevel": "off",
     "terminal.integrated.copyOnSelection": true,
-    "terminal.integrated.fontSize": 14,
-    "terminal.integrated.inheritEnv": false,
     "terminal.integrated.defaultProfile.linux": "zsh",
     "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.inheritEnv": false,
+    "terminal.integrated.scrollback": 1000000,
     "vim.disableExtension": false,
     "vim.smartRelativeLine": true,
     "window.zoomLevel": 1.5,

@@ -35,6 +35,8 @@ base_directory_structure:
 
 homebrew_packages:
 - bat
+- duf      # https://github.com/muesli/duf
+- fd
 - jq
 - pipx
 - ripgrep
@@ -53,9 +55,12 @@ homebrew_cask_packages:
 - visual-studio-code
 
 apt_packages:
-- bat
+- bat             # https://github.com/sharkdp/bat
 - curl
 # - exfat-fuse
+- dconf-editor
+- duf             # https://github.com/muesli/duf
+- fd-find         # https://github.com/sharkdp/fd
 - fzf             # https://github.com/junegunn/fzf (use apt-cache show fzf for info on how to fully enable)
 - jq
 - git
@@ -73,23 +78,21 @@ apt_packages:
 - zsh
 
 pipx_packages:
-  - awscli
-  - black
-  - bpytop
-  - httpx[cli]
-  - 'maestral[gui]'
-  - parquet-tools
-  - tldr
+- awscli
+- black
+- bpytop
+# - httpx[cli]    # https://github.com/encode/httpx/
+- httpie     # https://github.com/httpie/httpie
+- 'maestral[gui]'
+- parquet-tools
+- tldr
 
 snap_packages:
 - { package: auto-cpufreq, classic: no }      # https://github.com/AdnanHodzic/auto-cpufreq
 - { package: code, classic: yes }             # vscode
-# - duf-utility                               # https://github.com/muesli/duf
+- { package: duf-utility, classic: no }       # https://github.com/muesli/duf
 - { package: procs, classic: no }             # https://github.com/dalance/procs
 - { package: superproductivity, classic: no } # https://github.com/johannesjo/super-productivity
-
-go_versions:
-- 1.18.3
 
 python_versions:
 - { env_name: py39, ver: "3.9" }
