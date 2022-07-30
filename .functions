@@ -209,7 +209,7 @@ def converter(kind: str, num: int):
 converter(kind='$2', num=int($1))
 EOT
 )
-    echo $text | python
+    echo $text | python3
 }
 
 abspath () {
@@ -255,7 +255,7 @@ function source_env() {
     #
     # usage:
     #   source_env <file>
-    # <file> can be a relative or abs path
+    #   <file> can be a relative or abs path
     #
     export $(grep -v '^#' $1 | xargs)
 }
@@ -269,4 +269,24 @@ function wifi-connect() {
     #   wifi-connect networkName networkPass
     #
     sudo nmcli dev wifi connect $1 password $2
+}
+
+function bluetooth-connect() {
+    #
+    # purpose:
+    #   quickly connect to a bluetooth device
+    # usage:
+    #  bluetooth-connect deviceName
+    #
+    bluetoothctl connect $(bluetoothctl devices | grep -i $1 | awk '{print $2}')
+}
+
+function bluetooth-disconnect() {
+    #
+    # purpose:
+    #   quickly disconnect from a bluetooth device
+    # usage:
+    #  bluetooth-disconnect deviceName
+    #
+    bluetoothctl disconnect $(bluetoothctl devices | grep -i $1 | awk '{print $2}')
 }

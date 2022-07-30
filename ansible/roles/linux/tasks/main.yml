@@ -23,6 +23,7 @@
   loop:
     - next-tab '<Primary>Tab'
     - prev-tab '<Primary><Shift>Tab'
+  when: ansible_distribution  == 'Pop!_OS'
 
 # - name: Change default bluetooth settings
 #   become: true
