@@ -19,8 +19,10 @@
 
 - name: Setup gnome terminal settings
   ansible.builtin.shell:
-    - gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Primary>Tab'
-    - gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'
+    gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ {{ item }}
+  loop:
+    - next-tab '<Primary>Tab'
+    - prev-tab '<Primary><Shift>Tab'
 
 # - name: Change default bluetooth settings
 #   become: true
