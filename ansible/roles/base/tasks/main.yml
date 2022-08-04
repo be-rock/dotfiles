@@ -7,6 +7,7 @@
       - "hostname           : {{ ansible_hostname }}"
       - "ansible python     : {{ ansible_playbook_python }}"
       - "ansible version    : {{ ansible_version['full'] }}"
+      # - "ansible facts      : {{ ansible_facts }}"
 
 - name: Create dirs
   ansible.builtin.file:

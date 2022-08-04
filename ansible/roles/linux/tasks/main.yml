@@ -23,7 +23,15 @@
   loop:
     - next-tab '<Primary>Tab'
     - prev-tab '<Primary><Shift>Tab'
-  when: ansible_distribution  == 'Pop!_OS'
+  when: "ansible_distribution  == {{ desktop_os_distribution }}"
+
+# - name: Setup dns addresses
+#   ansible.builtin.shell:
+#     "nmcli connection modify {{ item.connection_name }} {{ item.type }} '{{ item.addresses }}'"
+#   loop:
+#     - { connection_name: "{{ ansible_default_ipv4['interface'] }}", type: ipv4.dns, addresses: "{{ dns_addresses['ipv4'] | join(',') }}" }
+#     - { connection_name: "{{ ansible_default_ipv6['interface'] }}", type: ipv6.dns, addresses: "{{ dns_addresses['ipv6'] | join(',') }}" }
+#   when: "ansible_distribution  == {{ desktop_os_distribution }}"
 
 # - name: Change default bluetooth settings
 #   become: true
