@@ -10,7 +10,6 @@ dotfiles:
 - .exports
 # - .gitconfig
 - .gitignore.global
-- .gnome-terminal.conf
 - .functions
 - .inputrc
 - .misc

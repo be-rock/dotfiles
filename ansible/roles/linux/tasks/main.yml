@@ -31,7 +31,7 @@
 #   loop:
 #     - { connection_name: "{{ ansible_default_ipv4['interface'] }}", type: ipv4.dns, addresses: "{{ dns_addresses['ipv4'] | join(',') }}" }
 #     - { connection_name: "{{ ansible_default_ipv6['interface'] }}", type: ipv6.dns, addresses: "{{ dns_addresses['ipv6'] | join(',') }}" }
-#   when: "ansible_distribution  == {{ desktop_os_distribution }}"
+#   when: ansible_distribution | lower == 'pop!_os'
 
 # - name: Change default bluetooth settings
 #   become: true
