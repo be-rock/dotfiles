@@ -14,10 +14,10 @@
     - role: linux
       when: ansible_os_family | lower == 'debian'
 
-- name: mac setup
-  hosts: all
-  vars_files:
-   - vars/default_config.yaml
-  roles:
-    - role: mac
-      when: ansible_os_family | lower == 'darwin'
+# - name: mac setup
+#   hosts: all
+#   vars_files:
+#    - vars/default_config.yaml
+#   roles:
+#     - role: mac
+#       when: ansible_os_family | lower == 'darwin'
