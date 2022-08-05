@@ -23,7 +23,7 @@
   loop:
     - next-tab '<Primary>Tab'
     - prev-tab '<Primary><Shift>Tab'
-  when: ansible_os_family | lower == 'debian'
+  when: ansible_distribution | lower == 'pop!_os'
 
 # - name: Setup dns addresses
 #   ansible.builtin.shell:
