@@ -67,7 +67,7 @@ apt_packages:
 - neofetch
 - openjdk-11-jdk
 - powertop        # https://github.com/fenrus75/powertop
-- ripgrep
+# - ripgrep
 - snapd
 #- tlp            # https://github.com/linrunner/TLP
 - tree
