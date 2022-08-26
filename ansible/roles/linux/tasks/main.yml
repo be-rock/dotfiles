@@ -8,6 +8,7 @@
   ignore_errors: true
 
 - name: Install flatpak packages
+  ignore_errors: true
   community.general.flatpak:
     name: "{{ item }}"
     state: present
