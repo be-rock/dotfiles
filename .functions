@@ -269,7 +269,7 @@ function source_env() {
 function bluetooth-connect() {
     #
     # purpose:
-    #   quickly connect to a bluetooth device
+    #   connect to a bluetooth device
     # usage:
     #  bluetooth-connect deviceName
     #
@@ -279,18 +279,25 @@ function bluetooth-connect() {
 function bluetooth-disconnect() {
     #
     # purpose:
-    #   quickly disconnect from a bluetooth device
+    #   disconnect from a bluetooth device
     # usage:
     #  bluetooth-disconnect deviceName
     #
     bluetoothctl disconnect $(bluetoothctl devices | grep -i $1 | awk '{print $2}')
 }
 
+function bluetooth-off() {
+    bluetoothctl power off
+}
+
+function bluetooth-on() {
+    bluetoothctl power on
+}
+
 function wifi-connect() {
     #
     # purpose:
     #   quickly connect to a wifi network
-    #
     # usage:
     #   wifi-connect networkName networkPass
     #
@@ -304,5 +311,5 @@ function dns-show() {
     # usage:
     #  dns-show <connectionNameOrUUID>
     #
-    nmcli device show $1 | egrep -i 'ipv4.dns:|ipv6.dns:|IP4.ADDRESS|IP6.ADDRESS'
+    nmcli device show $1 | grep -i dns
 }

@@ -80,18 +80,23 @@ pipx_packages:
 - awscli
 - black
 - bpytop
-# - httpx[cli]    # https://github.com/encode/httpx/
 - httpie     # https://github.com/httpie/httpie
 - 'maestral[gui]'
 - parquet-tools
 - tldr
 
-snap_packages:
-- { package: auto-cpufreq, classic: no }      # https://github.com/AdnanHodzic/auto-cpufreq
-- { package: code, classic: yes }             # vscode
-- { package: duf-utility, classic: no }       # https://github.com/muesli/duf
-- { package: procs, classic: no }             # https://github.com/dalance/procs
-- { package: superproductivity, classic: no } # https://github.com/johannesjo/super-productivity
+# snap_packages:
+# - { package: auto-cpufreq, classic: no }      # https://github.com/AdnanHodzic/auto-cpufreq
+# - { package: procs, classic: no }             # https://github.com/dalance/procs
+# - { package: superproductivity, classic: no } # https://github.com/johannesjo/super-productivity
+
+flatpak_packages:
+- com.brave.Browser
+- com.visualstudio.code
+- io.freetubeapp.FreeTube
+- org.chromium.Chromium
+- org.gnome.Solanum
+- org.signal.Signal
 
 python_versions:
 - { env_name: py39, ver: "3.9" }

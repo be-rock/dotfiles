@@ -7,12 +7,22 @@
   loop: "{{ apt_packages }}"
   ignore_errors: true
 
-- name: Create symlink for bat
+- name: Install flatpak packages
+  community.general.flatpak:
+    name: "{{ item }}"
+    state: present
+    method: user
+  loop: "{{ flatpak_packages }}"
+
+- name: Create custom symlinks for bat and fd
   ignore_errors: true
   ansible.builtin.file:
-    src: /usr/bin/batcat
-    dest: ~/.local/bin/bat
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
     state: link
+  loop:
+    - { src: /usr/bin/batcat, dest: ~/.local/bin/bat }
+    - { src: /usr/bin/fdfind, dest: ~/.local/bin/fd }
 
 - name: Enable firewall
   ansible.builtin.shell: sudo ufw enable
