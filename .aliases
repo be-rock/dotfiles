@@ -63,6 +63,11 @@ elif [ $(uname -s) = 'Darwin' ]; then
     alias cbp='pbpaste'
 fi
 
+# vs code
+if [ $(uname -s) = 'Linux' ]; then
+    alias code="flatpak run com.visualstudio.code"
+fi
+
 # for when tree is not installed
 alias treea="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 alias treed="find . -type d -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
@@ -83,23 +88,22 @@ alias ga='git add'
 alias gb='git branch'
 alias gco='git checkout'
 alias gc='git commit'
-alias gcf='git config --list'
 alias gcm='git commit -m'
+alias gcf='git config --list'
+alias gig='git config --global core.excludesFile' # global .gitinore
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gdcw='git diff --cached --word-diff'
 alias gds='git diff --staged'
-alias gig='git config --global core.excludesFile' # global .gitinore
 alias gpl='git pull'
 alias gplo='git pull origin'
 alias gps='git push'
 alias gpso='git push origin'
+alias gpristine='git reset --hard && git clean -dfx'
 alias gs='git status'
-alias gst='git stash --all'
 alias gss='git status --short'
 alias gst='git stash'
-alias gsta='git stash --all'
-alias gpristine='git reset --hard && git clean -dfx'
+alias gstall='git stash --all'
 
 # docker
 alias di='docker image'

@@ -1,6 +1,7 @@
 {
     "editor.autoClosingBrackets": "always",
     "editor.bracketPairColorization.enabled": true,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
     },
@@ -25,7 +26,7 @@
     "files.trimTrailingWhitespace": true,
     "files.eol": "\n",
     "git.ignoreLegacyWarning": true,
-    "python.analysis.typeCheckingMode": "strict",
+    "python.analysis.typeCheckingMode": "basic",
     "python.formatting.blackPath": "~/.local/bin/black",
     "python.formatting.provider": "black",
     "python.testing.pytestEnabled": true,
@@ -36,14 +37,26 @@
     "telemetry.telemetryLevel": "off",
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.profiles.linux": {
+        "zsh": {
+            "path": "/usr/bin/flatpak-spawn",
+            "args": [
+                "--host",
+                "--env=TERM=xterm-256color",
+                "zsh"
+            ]
+        }
+    },
     "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.shellIntegration.enabled": false,
     "terminal.integrated.fontSize": 14,
     "terminal.integrated.inheritEnv": false,
     "terminal.integrated.scrollback": 1000000,
-    "terminal.integrated.shellIntegration.enabled": false,
     "vim.disableExtension": false,
     "vim.smartRelativeLine": false,
     "window.zoomLevel": 1.5,
+    "workbench.activityBar.visible": true,
     "workbench.colorTheme": "Monokai",
-    "workbench.iconTheme": "material-icon-theme"
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.tree.indent": 4
 }
