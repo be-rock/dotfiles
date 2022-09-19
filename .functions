@@ -292,6 +292,11 @@ function bluetooth-off() {
 
 function bluetooth-on() {
     bluetoothctl power on
+    if [ $? -ne 0 ]; then
+        rfkill block bluetooth
+        rfkill unblock bluetooth
+        bluetoothctl power on
+    fi
 }
 
 function wifi-connect() {

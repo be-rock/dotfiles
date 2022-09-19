@@ -20,9 +20,8 @@ alias ag='alias | grep'
 alias eg='env | sort | grep'
 alias hg='history | grep'
 alias h='history'
-#alias dt='date +%FT%T%z' # iso 8601-compliant/platform agnostic
-alias dt='date +%Y.%m.%dT%H:%M:%S%z' # iso 8601-compliant/platform agnostic
-# alias dttz='echo -e "local : $(date +%FT%T%z)\nutc   : $(date -u +%FT%T%z)"' # show current and utc timestamps
+alias dt='date +%FT%T%z' # iso 8601-compliant/platform agnostic
+alias dtu='echo -e "local : $(date +%FT%T%z)\nutc   : $(date -u +%FT%T%z)"' # show current and utc timestamps
 alias dns-flush='resolvectl flush-caches'
 alias dns-stats='resolvectl statistics'
 alias dud1='du -h -d 1 . 2>/dev/null | sort --human-numeric-sort'
@@ -38,6 +37,7 @@ alias mem='free -m -t'
 alias path='echo -e ${PATH//:/\\n}'
 alias dmesg='dmesg --color --ctime'
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+alias clear='clear -x' # Clear the screen but keep the terminal's scrollback buffer
 
 # network
 alias port='netstat -tulanp'

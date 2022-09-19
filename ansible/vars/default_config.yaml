@@ -95,7 +95,7 @@ flatpak_packages:
 - com.visualstudio.code
 - io.freetubeapp.FreeTube
 - org.chromium.Chromium
-- org.gnome.Solanum
+- org.gnome.Solanum       # https://flathub.org/apps/details/org.gnome.Solanum (pomodoro timer)
 - org.signal.Signal
 
 python_versions:
