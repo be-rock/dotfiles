@@ -56,26 +56,14 @@ sha() {
 
 dttz() {
     # timezone helper
-    echo -n 'Los Angeles : ' && TZ=America/Los_Angeles date +%FT%T%z
-    echo -n 'Phoenix     : ' && TZ=America/Phoenix date +%FT%T%z
-    echo -n 'Chicago     : ' && TZ=America/Chicago date +%FT%T%z
-    echo -n 'New York    : ' && TZ=America/New_York date +%FT%T%z
-    echo -n 'UTC         : ' && TZ=UTC date +%FT%T%z
-    echo -n 'Bangalore   : ' && TZ=Asia/Kolkata date +%FT%T%z
-    echo -n 'local       : ' && date +%FT%T%z
-}
-
-tzinfo() {
-    # timezone helper
-    text=$(cat <<EOT
-from datetime import datetime
-import pytz
-tz_info = ('America/Phoenix', 'America/Denver', 'America/Chicago', 'America/New_York', 'UTC', 'Asia/Kolkata')
-for tz in tz_info:
-    print(f'{tz:>19} : {datetime.now(pytz.timezone(tz)).isoformat()}')
-EOT
-)
-    echo $text | python
+    echo -n 'America/Los_Angeles      : ' && TZ=America/Los_Angeles date +%FT%T%z
+    echo -n 'America/Phoenix          : ' && TZ=America/Phoenix date +%FT%T%z
+    echo -n 'America/Denver           : ' && TZ=America/Denver date +%FT%T%z
+    echo -n 'America/Chicago          : ' && TZ=America/Chicago date +%FT%T%z
+    echo -n 'America/New_York         : ' && TZ=America/New_York date +%FT%T%z
+    echo -n 'UTC                      : ' && TZ=UTC date +%FT%T%z
+    echo -n 'Asia/Kolkata (Bangalore) : ' && TZ=Asia/Kolkata date +%FT%T%z
+    echo -n 'local                    : ' && date +%FT%T%z
 }
 
 # Create a new directory and enter it
@@ -170,10 +158,13 @@ docker_python() {
 }
 
 start_pyspark() {
-    # simple pyspark starter that ensures necessary environment variables are setup
-    # and ipython is the default shell
-    # example:
+    #
+    # purpose:
+    #   simple pyspark starter that ensures necessary environment variables are setup
+    #   and ipython is the default shell
+    # usage:
     #   start_pyspark /path/to/sparkhome
+    #
     unalias ipython
     export PYSPARK_DRIVER_PYTHON=$(which ipython)
     export PYSPARK_DRIVER_PYTHON_OPTS="--TerminalInteractiveShell.editing_mode=vi"
@@ -258,10 +249,10 @@ function source_env() {
     # purpose:
     #   source a .env (aka "dotenv") file containing key/value pairs
     #   so that each key is reflected as an environment variable
-    #
     # usage:
-    #   source_env <file>
-    #   <file> can be a relative or abs path
+    #   source_env <file> # <file> can be a relative or abs path
+    # example:
+    #   source_env ~/.env
     #
     export $(grep -v '^#' $1 | xargs)
 }

@@ -18,6 +18,9 @@ for file in $HOME/.{exports,aliases,functions,misc}; do
 done
 unset file
 
+# .env
+source_env ~/.env
+
 # zsh settings
 export KEYTIMEOUT=1
 bindkey -v

@@ -58,5 +58,6 @@
     "workbench.activityBar.visible": true,
     "workbench.colorTheme": "Monokai",
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.tree.indent": 4
+    "workbench.tree.indent": 10,
+    "workbench.tree.renderIndentGuides": "always"
 }
