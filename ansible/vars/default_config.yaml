@@ -64,6 +64,7 @@ apt_packages:
 - jq
 - git
 - gnome-tweaks
+- groovy
 - neofetch
 - openjdk-11-jdk
 - powertop        # https://github.com/fenrus75/powertop
@@ -82,7 +83,7 @@ pipx_packages:
 - bpytop
 - httpie     # https://github.com/httpie/httpie
 - 'maestral[gui]'
-- parquet-tools
+# - parquet-tools
 - tldr
 
 # snap_packages:
@@ -91,7 +92,7 @@ pipx_packages:
 # - { package: superproductivity, classic: no } # https://github.com/johannesjo/super-productivity
 
 flatpak_packages:
-- com.brave.Browser
+# - com.brave.Browser
 - com.visualstudio.code
 - io.freetubeapp.FreeTube
 - org.chromium.Chromium
@@ -105,10 +106,12 @@ python_versions:
 vim_plugins:
 - { plugin_git_source: https://github.com/preservim/nerdtree.git, plugin_target_path: ~/.vim/pack/vendor/start/nerdtree }
 - { plugin_git_source: https://github.com/itchyny/lightline.vim, plugin_target_path: ~/.vim/pack/plugins/start/lightline }
+- { plugin_git_source: https://github.com/flazz/vim-colorschemes.git, plugin_target_path: ~/.vim/pack/plugins/start/colorschemes }
 
 git_repos:
 - { repo: https://github.com/zsh-users/zsh-autosuggestions, target_path: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions }
 - { repo: https://github.com/zsh-users/zsh-syntax-highlighting.git, target_path: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting }
+- { repo: https://github.com/pyenv/pyenv.git, target_path: ~/.pipenv }
 
 dns_addresses:
   ipv4:

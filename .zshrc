@@ -2,7 +2,8 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # oh-my-zsh plugins
-plugins=(git
+plugins=(aws
+    git
     z
     zsh-autosuggestions
     zsh-syntax-highlighting
@@ -39,10 +40,6 @@ bindkey '^w' backward-kill-word
 # ctrl-r starts searching history backward
 bindkey '^r' history-incremental-search-backward
 
-# zsh auto suggestion
-#bindkey '\t' end-of-line
-#bindkey '\t' autosuggest-accept
-
 # k8s
 if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
 
@@ -55,8 +52,14 @@ eval "$(starship init zsh)"
 # fzf
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 
+# java
+export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
 
-export PATH="$HOME/.local/bin:$HOME/.local/lib:/usr/local/go/bin:$PATH"
+# pyenv
+export PYENV_ROOT=$HOME/.pyenv
+#eval "$(pyenv init -)"
+
+export PATH="$HOME/.local/bin:$HOME/.local/lib:/usr/local/go/bin:$JAVA_HOME/bin:$PYENV_ROOT/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

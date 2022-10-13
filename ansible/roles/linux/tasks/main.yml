@@ -6,6 +6,8 @@
     state: present
   loop: "{{ apt_packages }}"
   ignore_errors: true
+  tags:
+    - linux
 
 - name: Install flatpak packages
   ignore_errors: true
@@ -14,6 +16,8 @@
     state: present
     method: user
   loop: "{{ flatpak_packages }}"
+  tags:
+    - linux
 
 - name: Create custom symlinks for bat and fd
   ignore_errors: true
@@ -24,9 +28,13 @@
   loop:
     - { src: /usr/bin/batcat, dest: ~/.local/bin/bat }
     - { src: /usr/bin/fdfind, dest: ~/.local/bin/fd }
+  tags:
+    - linux
 
 - name: Enable firewall
   ansible.builtin.shell: sudo ufw enable
+  tags:
+    - linux
 
 - name: Setup gnome terminal settings
   ansible.builtin.shell:
@@ -35,6 +43,8 @@
     - next-tab '<Primary>Tab'
     - prev-tab '<Primary><Shift>Tab'
   when: ansible_distribution | lower == 'pop!_os'
+  tags:
+    - linux
 
 # - name: Setup dns addresses
 #   ansible.builtin.shell:
