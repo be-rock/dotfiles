@@ -8,6 +8,7 @@
   ignore_errors: true
   tags:
     - linux
+    - apt
 
 - name: Install flatpak packages
   ignore_errors: true
@@ -17,7 +18,7 @@
     method: user
   loop: "{{ flatpak_packages }}"
   tags:
-    - linux
+    - flatpak
 
 - name: Create custom symlinks for bat and fd
   ignore_errors: true
