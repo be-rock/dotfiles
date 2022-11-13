@@ -130,8 +130,10 @@ alias klf='kubectl logs -f' # follow
 alias ks='kubectl stop'
 
 # bat - https://github.com/sharkdp/bat
-alias b='bat -p'    # plain, no line numbers
-alias batn='bat -n' # show line numbers
+alias b='bat --style=plain'                 # plain, no line numbers
+alias bp='bat --style=plain --paging=never' # plain, no line numbers, no paging
+alias bn='bat --number'                     # show line numbers
+alias bnp='bat --number --paging=never'    # show line numbers, no paging
 
 # hadoop
 alias yal='yarn application -list'

@@ -54,6 +54,50 @@
     "terminal.integrated.scrollback": 1000000,
     "vim.disableExtension": false,
     "vim.smartRelativeLine": false,
+    "vim.useSystemClipboard": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "<leader>",
+                "m"
+            ],
+            "commands": [
+                "bookmarks.toggle"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b"
+            ],
+            "commands": [
+                "bookmarks.list"
+            ]
+        }
+    ],
+    "vim.operatorPendingModeKeyBindings": [
+        {
+            "before": [
+                "{"
+            ],
+            "after": [
+                "w"
+            ]
+        }
+    ],
+    "vim.vimrc.enable": true,
     "window.zoomLevel": 1.5,
     "workbench.activityBar.visible": true,
     "workbench.colorTheme": "Monokai",

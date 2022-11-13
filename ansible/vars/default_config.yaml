@@ -23,10 +23,10 @@ base_directory_structure:
 - .config
 - .local/bin
 - .local/lib
-- .local/share
-- code
+- .local/share/fonts
 - code/git
 - code/go
+- code/groovy
 - code/python
 - code/sql
 - tmp
@@ -56,7 +56,6 @@ homebrew_cask_packages:
 apt_packages:
 - bat             # https://github.com/sharkdp/bat
 - curl
-# - exfat-fuse
 - dconf-editor
 - duf             # https://github.com/muesli/duf
 - fd-find         # https://github.com/sharkdp/fd
@@ -64,7 +63,6 @@ apt_packages:
 - jq
 - git
 - gnome-tweaks
-- groovy
 - neofetch
 - openjdk-11-jdk
 - powertop        # https://github.com/fenrus75/powertop
@@ -94,10 +92,11 @@ pipx_packages:
 flatpak_packages:
 # - com.brave.Browser
 - com.visualstudio.code
-- io.freetubeapp.FreeTube
+# - io.freetubeapp.FreeTube
 - org.chromium.Chromium
 - org.gnome.Solanum       # https://flathub.org/apps/details/org.gnome.Solanum (pomodoro timer)
 - org.signal.Signal
+- org.videolan.VLC
 
 python_versions:
 - { env_name: py39, ver: "3.9" }
@@ -112,6 +111,10 @@ git_repos:
 - { repo: https://github.com/zsh-users/zsh-autosuggestions, target_path: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions }
 - { repo: https://github.com/zsh-users/zsh-syntax-highlighting.git, target_path: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting }
 - { repo: https://github.com/pyenv/pyenv.git, target_path: ~/.pipenv }
+
+neovim:
+  version: 0.8.0
+  sha256: 1af27471f76f1b4f7ad6563c863a4a78117f0515e3390ee4d911132970517fa7
 
 dns_addresses:
   ipv4:

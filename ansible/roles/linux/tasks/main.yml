@@ -18,7 +18,11 @@
     method: user
   loop: "{{ flatpak_packages }}"
   tags:
+    - linux
     - flatpak
+
+# - name: Flatpak customization
+  # ansible.builtin.command: flatpak override --user --filesystem=/run/docker.sock com.visualstudio.code
 
 - name: Create custom symlinks for bat and fd
   ignore_errors: true
@@ -46,6 +50,24 @@
   when: ansible_distribution | lower == 'pop!_os'
   tags:
     - linux
+
+- name: download neovim latest
+  ansible.builtin.get_url:
+    # url: https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.tar.gz
+    url: "https://github.com/neovim/neovim/releases/download/v{{ neovim['version'] }}/nvim-linux64.tar.gz"
+    dest: /tmp
+    checksum: "sha256: {{ neovim['sha256'] }}"
+  tags:
+    - linux
+
+- name: download nerd fonts
+  ansible.builtin.get_url:
+    url: "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf"
+    dest: ~/.local/share/fonts/Droid Sans Mono for Powerline Nerd Font Complete.otf
+  tags:
+    - linux
+    
+# After installing your font, you will have to refresh your font cache by doing fc-cache -f -v. Then you will have to change your terminal settings to use the font you just installed. Please refer to your terminal's documentation for changing the terminal font.
 
 # - name: Setup dns addresses
 #   ansible.builtin.shell:
