@@ -43,10 +43,36 @@
 
 - name: Setup gnome terminal settings
   ansible.builtin.shell:
-    "gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ {{ item }}"
+    "gsettings set {{ item.key }} {{ item.value }}"
   loop:
-    - next-tab '<Primary>Tab'
-    - prev-tab '<Primary><Shift>Tab'
+    - { key: "org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/", value: "next-tab '<Primary>Tab'" }
+    - { key: "org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/", value: "prev-tab '<Primary><Shift>Tab'" }
+    - { key: "org.gnome.mutter dynamic-workspaces", value: "false" } # disable dynamic workspaces
+    - { key: "org.gnome.desktop.wm.preferences", value: "num-workspaces 6" } # set static workspace value
+  when: ansible_distribution | lower == 'pop!_os'
+  tags:
+    - linux
+
+- name: popos unbind default keybindings for switching applications # https://github.com/pop-os/shell/issues/142
+  ansible.builtin.shell:
+    "gsettings set org.gnome.shell.keybindings switch-to-application-{{ item }} '[]'"
+  loop: "{{ range(1, 7) }}"
+  when: ansible_distribution | lower == 'pop!_os'
+  tags:
+    - linux
+
+- name: popos - rebind them to switch between workspaces # https://github.com/pop-os/shell/issues/142
+  ansible.builtin.shell:
+    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-{{ item }} "['<Super>{{ item }}']"
+  loop: "{{ range(1, 7) }}"
+  when: ansible_distribution | lower == 'pop!_os'
+  tags:
+    - linux
+
+- name: popos - assign an active window to a workspace # https://github.com/pop-os/shell/issues/142
+  ansible.builtin.shell:
+    gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-{{ item }} "['<Super><Shift>{{ item }}']"
+  loop: "{{ range(1, 7) }}"
   when: ansible_distribution | lower == 'pop!_os'
   tags:
     - linux
@@ -66,8 +92,15 @@
     dest: ~/.local/share/fonts/Droid Sans Mono for Powerline Nerd Font Complete.otf
   tags:
     - linux
-    
 # After installing your font, you will have to refresh your font cache by doing fc-cache -f -v. Then you will have to change your terminal settings to use the font you just installed. Please refer to your terminal's documentation for changing the terminal font.
+
+- name: change default settings work workspace keyboard shortcut settings
+  ansible.builtin.get_url:
+    url: "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf"
+    dest: ~/.local/share/fonts/Droid Sans Mono for Powerline Nerd Font Complete.otf
+  tags:
+    - linux
+
 
 # - name: Setup dns addresses
 #   ansible.builtin.shell:
