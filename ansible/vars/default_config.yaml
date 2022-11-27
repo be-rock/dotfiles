@@ -57,7 +57,7 @@ apt_packages:
 - bat             # https://github.com/sharkdp/bat
 - curl
 - dconf-editor
-- duf             # https://github.com/muesli/duf
+# - duf             # https://github.com/muesli/duf
 - fd-find         # https://github.com/sharkdp/fd
 - flatpak
 - fzf             # https://github.com/junegunn/fzf (use apt-cache show fzf for info on how to fully enable)
