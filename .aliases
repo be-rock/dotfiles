@@ -152,6 +152,13 @@ alias hdf='hadoop fs -df'
 alias hdu='hadoop fs -du'
 alias hmv='hadoop fs -mv'
 
+# pyenv
+alias pyei='pyenv install'  # install python version e.g. 3.10.1
+alias pyev='pyenv versions' # list python versions
+alias pyeg='pyenv global'   # select globally for your user account
+alias pyel='pyenv local'    # automatically select whenever you are in the current directory (or its subdirectories)
+alias pyes='pyenv shell'    # select just for current shell session
+
 # start spark shell
 alias start_ps='spark_version=3.1.2 && hadoop_version=3.2 && install_dir=~/tools && export SPARK_HOME=${install_dir}/spark-${spark_version}-bin-hadoop${hadoop_version} && $SPARK_HOME/bin/pyspark' # pyspark shell
 alias start_ss='spark_version=3.1.2 && hadoop_version=3.2 && install_dir=~/tools && export SPARK_HOME=${install_dir}/spark-${spark_version}-bin-hadoop${hadoop_version} && $SPARK_HOME/bin/spark-shell' # spark (scala) shell

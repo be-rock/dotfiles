@@ -35,6 +35,7 @@ imap jj <Esc>
 colorscheme slate     " colorscheme
 
 inoremap <special> jk <ESC>
+inoremap jk <ESC>
 
 let mapleader = " " " map leader to space
 

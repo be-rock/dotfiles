@@ -30,6 +30,12 @@ style = "#9966ff"
 style = "green-bright"
 symbol = "🐍 "
 
+[python]
+disabled = false
+symbol = "🐍 "
+pyenv_version_name = true
+pyenv_prefix = "pyenv"
+
 [docker_context]
 disabled = false
 
