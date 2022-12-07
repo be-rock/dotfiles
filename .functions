@@ -334,3 +334,12 @@ function aws-assume-role() {
     --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
     --output text))
 }
+
+function pyinfo() {
+    echo "python version : $(python --version)"
+    echo "which python   : $(which python)"
+    command -v pyenv > /dev/null
+    if [ $? -eq 0 ];
+        then echo "pyenv version  : $(pyenv version)"
+    fi
+}
