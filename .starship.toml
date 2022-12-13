@@ -6,7 +6,7 @@ add_newline = true
 format = """\
   $directory\
   $git_branch\
-  $conda\
+  $python\
   $time\
   $cmd_duration\
   $line_break\
@@ -26,9 +26,9 @@ min_time = 50
 format = "took ⏳ [$duration]($style) "
 style = "#9966ff"
 
-[conda]
-style = "green-bright"
-symbol = "🐍 "
+#[conda]
+#style = "green-bright"
+#symbol = "🐍 "
 
 [python]
 disabled = false
