@@ -32,7 +32,7 @@
     - flatpak
 
 # - name: Flatpak customization
-  # ansible.builtin.command: flatpak override --user --filesystem=/run/docker.sock com.visualstudio.code
+# ansible.builtin.command: flatpak override --user --filesystem=/run/docker.sock com.visualstudio.code
 
 - name: Create custom symlinks for bat and fd
   ignore_errors: true
@@ -87,29 +87,52 @@
   tags:
     - linux
 
-- name: download neovim latest
+- name: "download neovim version {{ neovim['version'] }}"
   ansible.builtin.get_url:
     # url: https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.tar.gz
     url: "https://github.com/neovim/neovim/releases/download/v{{ neovim['version'] }}/nvim-linux64.tar.gz"
-    dest: /tmp
+    dest: ~/.local/lib/
     checksum: "sha256: {{ neovim['sha256'] }}"
   tags:
     - linux
+    - test
 
+- name: create nvim symlink
+  ignore_errors: true
+  ansible.builtin.file:
+    src: ~/.local/lib/nvim-linux64/bin/nvim
+    dest: ~/.local/bin/nvim
+    state: link
+    follow: no
+    force: true
+  tags:
+    - linux
+    - test
+
+- name: extract nvim install
+  ansible.builtin.unarchive:
+    src: ~/.local/lib/nvim-linux64.tar.gz
+    dest: ~/.local/lib/
+  tags:
+    - linux
+    - test
+
+# After installing your font, you will have to refresh your font cache by doing fc-cache -f -v. Then you will have to change your terminal settings to use the font you just installed. Please refer to your terminal's documentation for changing the terminal font.
 - name: download nerd fonts
   ansible.builtin.get_url:
     url: "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf"
     dest: ~/.local/share/fonts/Droid Sans Mono for Powerline Nerd Font Complete.otf
   tags:
     - linux
-# After installing your font, you will have to refresh your font cache by doing fc-cache -f -v. Then you will have to change your terminal settings to use the font you just installed. Please refer to your terminal's documentation for changing the terminal font.
 
-- name: change default settings work workspace keyboard shortcut settings
+- name: download oh-my-zsh installer
   ansible.builtin.get_url:
-    url: "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf"
-    dest: ~/.local/share/fonts/Droid Sans Mono for Powerline Nerd Font Complete.otf
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    dest: /tmp
+    checksum: "sha256: {{ ohmyzsh['sha256'] }}"
   tags:
     - linux
+
 
 
 # - name: Setup dns addresses

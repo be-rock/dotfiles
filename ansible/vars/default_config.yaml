@@ -45,10 +45,10 @@ homebrew_packages:
 homebrew_cask_packages:
 - docker
 - firefox
-- intellij-idea
+# - intellij-idea
 - iterm2
 - postman
-- pycharm
+# - pycharm
 - rectangle
 - visual-studio-code
 
@@ -66,7 +66,7 @@ apt_packages:
 - neofetch
 - openjdk-11-jdk
 - powertop        # https://github.com/fenrus75/powertop
-# - ripgrep
+- ripgrep
 - snapd
 #- tlp            # https://github.com/linrunner/TLP
 - tree
@@ -80,7 +80,7 @@ pipx_packages:
 - black
 - bpytop
 - httpie     # https://github.com/httpie/httpie
-- 'maestral[gui]'
+#- 'maestral[gui]'
 # - parquet-tools
 - tldr
 
@@ -96,22 +96,20 @@ flatpak_packages:
 - org.chromium.Chromium
 - org.gnome.Solanum       # https://flathub.org/apps/details/org.gnome.Solanum (pomodoro timer)
 - org.signal.Signal
-- org.videolan.VLC
-
-python_versions:
-- { env_name: py39, ver: "3.9" }
-- { env_name: py310, ver: "3.10" }
+#- org.videolan.VLC
 
 vim_plugins:
-# - { plugin_git_source: https://github.com/preservim/nerdtree.git, plugin_target_path: ~/.vim/pack/vendor/start/nerdtree }
 - { plugin_git_source: https://github.com/itchyny/lightline.vim, plugin_target_path: ~/.vim/pack/plugins/start/lightline }
 - { plugin_git_source: https://github.com/flazz/vim-colorschemes.git, plugin_target_path: ~/.vim/pack/plugins/start/colorschemes }
 
 git_repos:
 - { repo: https://github.com/zsh-users/zsh-autosuggestions, target_path: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions }
 - { repo: https://github.com/zsh-users/zsh-syntax-highlighting.git, target_path: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting }
-- { repo: https://github.com/pyenv/pyenv.git, target_path: ~/.pipenv }
+# - { repo: https://github.com/pyenv/pyenv.git, target_path: ~/.pipenv }
 
 neovim:
   version: 0.8.0
   sha256: 1af27471f76f1b4f7ad6563c863a4a78117f0515e3390ee4d911132970517fa7
+
+ohmyzsh:
+  sha256: 73bc685bfac98e4d41c41d49b2d4d7bbcf55cbac7a3dbb4022073410ff15fd03

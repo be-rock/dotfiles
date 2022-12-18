@@ -54,7 +54,7 @@
     "terminal.integrated.scrollback": 1000000,
     "vim.disableExtension": false,
     "vim.smartRelativeLine": false,
-    "vim.useSystemClipboard": true,
+    "vim.useSystemClipboard": false,
     "vim.insertModeKeyBindings": [
         {
             "before": [

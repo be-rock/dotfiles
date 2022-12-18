@@ -1,8 +1,3 @@
-# - name: Create conda envs
-#   ansible.builtin.command:
-#     conda create --name {{ item.env_name }} python={{ item.ver }} --yes
-#   loop: "{{ python_versions }}"
-
 - name: Clone github repositories
   ansible.builtin.git:
     repo: "{{ item.repo }}"
@@ -10,6 +5,8 @@
     clone: yes
     update: yes
   loop: "{{ git_repos }}"
+  tags:
+    - misc
 
 - name: Pipx install
   ansible.builtin.command:
@@ -17,10 +14,13 @@
   tags:
   - pipx
   loop: "{{ pipx_packages }}"
+  tags:
+    - misc
 
 - name: Install vim plugins
   ansible.builtin.git:
     repo: "{{ item.plugin_git_source }}"
     dest: "{{ item.plugin_target_path }}"
   loop: "{{ vim_plugins }}"
-
+  tags:
+    - misc
