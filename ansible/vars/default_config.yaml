@@ -24,6 +24,7 @@ base_directory_structure:
 - .local/bin
 - .local/lib
 - .local/share/fonts
+- .zsh
 - code/git
 - code/go
 - code/groovy
@@ -65,6 +66,7 @@ apt_packages:
 - gnome-tweaks
 - neofetch
 - openjdk-11-jdk
+- podman
 - powertop        # https://github.com/fenrus75/powertop
 - ripgrep
 - snapd
@@ -103,13 +105,15 @@ vim_plugins:
 - { plugin_git_source: https://github.com/flazz/vim-colorschemes.git, plugin_target_path: ~/.vim/pack/plugins/start/colorschemes }
 
 git_repos:
-- { repo: https://github.com/zsh-users/zsh-autosuggestions, target_path: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions }
-- { repo: https://github.com/zsh-users/zsh-syntax-highlighting.git, target_path: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting }
+# - { repo: https://github.com/zsh-users/zsh-autosuggestions, target_path: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions }
+# - { repo: https://github.com/zsh-users/zsh-syntax-highlighting.git, target_path: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting }
+- { repo: https://github.com/zsh-users/zsh-autosuggestions, target_path: ~/.zsh/zsh-autosuggestions }
+- { repo: https://github.com/zsh-users/zsh-syntax-highlighting.git, target_path: ~/.zsh/zsh-syntax-highlighting }
 # - { repo: https://github.com/pyenv/pyenv.git, target_path: ~/.pipenv }
 
 neovim:
   version: 0.8.0
   sha256: 1af27471f76f1b4f7ad6563c863a4a78117f0515e3390ee4d911132970517fa7
 
-ohmyzsh:
-  sha256: 73bc685bfac98e4d41c41d49b2d4d7bbcf55cbac7a3dbb4022073410ff15fd03
+# ohmyzsh:
+#   sha256: 73bc685bfac98e4d41c41d49b2d4d7bbcf55cbac7a3dbb4022073410ff15fd03

@@ -24,3 +24,10 @@
   loop: "{{ vim_plugins }}"
   tags:
     - misc
+
+- name: zsh plugins
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/z/z.plugin.zsh
+    dest: ~/.zsh/zsh-z.plugin.zsh
+  tags:
+    - misc

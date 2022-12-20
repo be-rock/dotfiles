@@ -125,16 +125,6 @@
   tags:
     - linux
 
-- name: download oh-my-zsh installer
-  ansible.builtin.get_url:
-    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-    dest: /tmp
-    checksum: "sha256: {{ ohmyzsh['sha256'] }}"
-  tags:
-    - linux
-
-
-
 # - name: Setup dns addresses
 #   ansible.builtin.shell:
 #     "nmcli connection modify {{ item.connection_name }} {{ item.type }} '{{ item.addresses }}'"

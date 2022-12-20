@@ -104,6 +104,8 @@ alias gs='git status'
 alias gss='git status --short'
 alias gst='git stash'
 alias gstall='git stash --all'
+alias gsw='git switch'
+alias gsc='git switch -c'
 
 # docker
 alias di='docker image'

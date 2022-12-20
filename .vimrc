@@ -31,12 +31,11 @@ set tabstop=4         " <TAB> four spaces
 set wildmenu          " show auto complete menus.
 set wildmode=list:longest,full " Make wildmenu behave like bash completion. Finding commands are so easy now.
 
-imap jk <Esc>
 colorscheme slate     " colorscheme
+let mapleader = " "   " map leader to space
+imap jk <Esc>
 
-inoremap <special> jk <ESC>
-inoremap jk <ESC>
-
-let mapleader = " " " map leader to space
+"inoremap <special> jk <ESC> " commented out 2022-12
+"inoremap jk <ESC>           " commented out 2022-12
 
 " end
