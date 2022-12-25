@@ -48,7 +48,7 @@ homebrew_cask_packages:
 - firefox
 # - intellij-idea
 - iterm2
-- postman
+# - postman
 # - pycharm
 - rectangle
 - visual-studio-code
@@ -78,7 +78,6 @@ apt_packages:
 - zsh
 
 pipx_packages:
-- awscli
 - black
 - bpytop
 - httpie     # https://github.com/httpie/httpie
@@ -100,20 +99,20 @@ flatpak_packages:
 - org.signal.Signal
 #- org.videolan.VLC
 
+git_repos:
+- { repo: https://github.com/zsh-users/zsh-autosuggestions, target_path: ~/.zsh/zsh-autosuggestions }
+- { repo: https://github.com/zsh-users/zsh-syntax-highlighting.git, target_path: ~/.zsh/zsh-syntax-highlighting }
+
 vim_plugins:
 - { plugin_git_source: https://github.com/itchyny/lightline.vim, plugin_target_path: ~/.vim/pack/plugins/start/lightline }
 - { plugin_git_source: https://github.com/flazz/vim-colorschemes.git, plugin_target_path: ~/.vim/pack/plugins/start/colorschemes }
+- { plugin_git_source: https://github.com/preservim/nerdtree.git, plugin_target_path: ~/.vim/pack/vendor/start/nerdtree }
 
-git_repos:
-# - { repo: https://github.com/zsh-users/zsh-autosuggestions, target_path: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions }
-# - { repo: https://github.com/zsh-users/zsh-syntax-highlighting.git, target_path: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting }
-- { repo: https://github.com/zsh-users/zsh-autosuggestions, target_path: ~/.zsh/zsh-autosuggestions }
-- { repo: https://github.com/zsh-users/zsh-syntax-highlighting.git, target_path: ~/.zsh/zsh-syntax-highlighting }
-# - { repo: https://github.com/pyenv/pyenv.git, target_path: ~/.pipenv }
+zsh_plugins:
+- { plugin_git_source: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/z/z.plugin.zsh, plugin_target_path: ~/.zsh/zsh-z.plugin.zsh }
+- { plugin_git_source: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/lib/history.zsh, plugin_target_path:  ~/.zsh/history.zsh }
+- { plugin_git_source: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/lib/completion.zsh, plugin_target_path:  ~/.zsh/completion.zsh }
 
 neovim:
   version: 0.8.0
   sha256: 1af27471f76f1b4f7ad6563c863a4a78117f0515e3390ee4d911132970517fa7
-
-# ohmyzsh:
-#   sha256: 73bc685bfac98e4d41c41d49b2d4d7bbcf55cbac7a3dbb4022073410ff15fd03

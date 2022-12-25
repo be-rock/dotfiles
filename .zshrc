@@ -23,11 +23,26 @@ shell_settings_enable() {
 
   # ctrl-r starts searching history backward
   bindkey '^r' history-incremental-search-backward
+
+  ## History command configuration
+#   setopt extended_history       # record timestamp of command in HISTFILE
+#   setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+#   setopt hist_ignore_dups       # ignore duplicated commands history list
+#   setopt hist_ignore_space      # ignore commands that start with space
+#   setopt hist_verify            # show command with history expansion to user before running it
+#   setopt share_history          # share command history data
+
+#   # zsh completion
+#   # ref: https://thevaluable.dev/zsh-completion-guide-examples/
+#   fpath=(/usr/local/share/zsh-completions $fpath)
+#   autoload -U compinit && compinit
+#   zmodload -i zsh/complist
+#   zstyle ':completion:*' menu select
 }
 
 misc_settings_enable() {
   # .env
-  if [ -f ~/.env ]; then source_env ~/.env; fi
+  if [ -f ~/.env ]; then source ~/.env; fi
 
   # k8s
   if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
@@ -46,10 +61,11 @@ pyenv_settings_enable() {
   export PYENV_ROOT="$HOME/.pyenv"
   command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
-  #eval "$(pyenv virtualenv-init -)"
 }
 
 source_zsh_plugins() {
+  source ~/.zsh/completion.zsh
+  source ~/.zsh/history.zsh
   source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
   source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   source ~/.zsh/zsh-z.plugin.zsh

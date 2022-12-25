@@ -27,7 +27,8 @@
 
 - name: zsh plugins
   ansible.builtin.get_url:
-    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/z/z.plugin.zsh
-    dest: ~/.zsh/zsh-z.plugin.zsh
+    url: "{{ item.plugin_git_source }}"
+    dest:  "{{ item.plugin_target_path }}"
+  loop: "{{ zsh_plugins }}"
   tags:
     - misc

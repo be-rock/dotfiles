@@ -251,19 +251,6 @@ function log_msg() {
     echo $full_msg
 }
 
-function source_env() {
-    #
-    # purpose:
-    #   source a .env (aka "dotenv") file containing key/value pairs
-    #   so that each key is reflected as an environment variable
-    # usage:
-    #   source_env <file> # <file> can be a relative or abs path
-    # example:
-    #   source_env ~/.env
-    #
-    export $(grep -v '^#' $1 | xargs)
-}
-
 function bluetooth-connect() {
     #
     # purpose:
