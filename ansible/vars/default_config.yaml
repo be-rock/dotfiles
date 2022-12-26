@@ -62,6 +62,7 @@ apt_packages:
 - flatpak
 - fzf             # https://github.com/junegunn/fzf (use apt-cache show fzf for info on how to fully enable)
 - jq
+- gh              # github cli
 - git
 - gnome-tweaks
 - neofetch
@@ -109,10 +110,12 @@ vim_plugins:
 - { plugin_git_source: https://github.com/preservim/nerdtree.git, plugin_target_path: ~/.vim/pack/vendor/start/nerdtree }
 
 zsh_plugins:
-- { plugin_git_source: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/z/z.plugin.zsh, plugin_target_path: ~/.zsh/zsh-z.plugin.zsh }
-- { plugin_git_source: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/lib/history.zsh, plugin_target_path:  ~/.zsh/history.zsh }
-- { plugin_git_source: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/lib/completion.zsh, plugin_target_path:  ~/.zsh/completion.zsh }
+- { plugin_git_source: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/lib/completion.zsh, plugin_target_path: ~/.zsh/completion.zsh }
+- { plugin_git_source: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/gh/gh.plugin.zsh, plugin_target_path: ~/.zsh/gh.plugin.zsh }
+- { plugin_git_source: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/lib/history.zsh, plugin_target_path: ~/.zsh/history.zsh }
+- { plugin_git_source: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/z/z.plugin.zsh, plugin_target_path: ~/.zsh/z.plugin.zsh }
 
 neovim:
   version: 0.8.0
   sha256: 1af27471f76f1b4f7ad6563c863a4a78117f0515e3390ee4d911132970517fa7
+

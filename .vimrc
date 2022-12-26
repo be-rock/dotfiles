@@ -35,12 +35,13 @@ colorscheme slate     " colorscheme
 let mapleader = " "   " map leader to space
 imap jk <Esc>
 
+noremap <leader>n :NERDTreeFocus<CR>
+
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-"remap <leader>n :NERDTreeFocus<CR>
 
 "inoremap <special> jk <ESC> " commented out 2022-12
 "inoremap jk <ESC>           " commented out 2022-12

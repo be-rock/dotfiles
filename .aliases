@@ -125,11 +125,11 @@ alias pi='podman image'
 alias pc='podman container'
 
 # aws
-alias aws='podman run --rm -it amazon/aws-cli'
+alias aws='podman run --rm -it -v ~/.aws:/root/.aws amazon/aws-cli'
 # aws cli / non-interactive
 # alias aws='podman run --rm -it --volume ~/.aws:/root/.aws amazon/aws-cli'
 # aws cli / interactive
-alias awsint='sudo podman run --rm -it -v ~/.aws:/root/.aws amazon/aws-cli --cli-auto-prompt'
+alias awsint='podman run --rm -it -v ~/.aws:/root/.aws amazon/aws-cli --cli-auto-prompt'
 
 # k8s
 alias k='kubectl'

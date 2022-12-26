@@ -38,6 +38,8 @@ shell_settings_enable() {
 #   autoload -U compinit && compinit
 #   zmodload -i zsh/complist
 #   zstyle ':completion:*' menu select
+    autoload -U compinit
+    compinit -i
 }
 
 misc_settings_enable() {
@@ -65,10 +67,11 @@ pyenv_settings_enable() {
 
 source_zsh_plugins() {
   source ~/.zsh/completion.zsh
+  source ~/.zsh/gh-completion.zsh
   source ~/.zsh/history.zsh
   source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
   source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  source ~/.zsh/zsh-z.plugin.zsh
+  source ~/.zsh/z.plugin.zsh
 }
 
 shell_settings_enable
