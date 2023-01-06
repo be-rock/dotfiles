@@ -17,4 +17,3 @@
 3. `pip install ansible pipx`
 4. Add the current user to the sudoers file with `sudo visudo` and `username ALL=(ALL:ALL) NOPASSWD:ALL`. Note that the entry *must* be appended to the end of the file.
 5. Run the playbook via: `./bootstrap.sh`
-

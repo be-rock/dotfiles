@@ -11,8 +11,6 @@
 - name: Pipx install
   ansible.builtin.command:
     cmd: "pipx install {{ item }}"
-  tags:
-  - pipx
   loop: "{{ pipx_packages }}"
   tags:
     - misc

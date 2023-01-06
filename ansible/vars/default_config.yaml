@@ -120,4 +120,3 @@ zsh_plugins:
 neovim:
   version: 0.8.0
   sha256: 1af27471f76f1b4f7ad6563c863a4a78117f0515e3390ee4d911132970517fa7
-

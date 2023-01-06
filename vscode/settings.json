@@ -20,7 +20,7 @@
         ".aliases": "shellscript",
         ".exports": "shellscript",
         ".functions": "shellscript",
-        "*.tftpl": "json", // terraform template language
+        "*.tftpl": "json",
         "*.toml": "properties"
     },
     "files.trimTrailingWhitespace": true,
