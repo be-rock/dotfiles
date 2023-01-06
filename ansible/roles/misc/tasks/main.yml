@@ -16,6 +16,7 @@
   loop: "{{ pipx_packages }}"
   tags:
     - misc
+    - pipx
 
 - name: Install vim plugins
   ansible.builtin.git:

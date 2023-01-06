@@ -1,3 +1,17 @@
+- name: add apt repository - hashicorp
+  become: true
+  block:
+    - name: download hashicorp gpg key
+      ansible.builtin.get_url:
+        url: https://apt.releases.hashicorp.com/gpg
+        dest: /usr/share/keyrings/hashicorp-archive-keyring.gpg
+    - name: add hashicorp apt source
+      ansible.builtin.apt_repository:
+        repo: "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main"
+        state: present
+  tags:
+    - linux
+
 - name: Install apt packages
   become: true
   ansible.builtin.apt:
@@ -71,7 +85,7 @@
   tags:
     - linux
 
-- name: popos - rebind them to switch between workspaces # https://github.com/pop-os/shell/issues/142
+- name: popos - rebind keyboard shortcuts to switch between workspaces # https://github.com/pop-os/shell/issues/142
   ansible.builtin.shell:
     gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-{{ item }} "['<Super>{{ item }}']"
   loop: "{{ range(1, 7) }}"
@@ -87,35 +101,31 @@
   tags:
     - linux
 
-- name: "download neovim version {{ neovim['version'] }}"
-  ansible.builtin.get_url:
-    # url: https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.tar.gz
-    url: "https://github.com/neovim/neovim/releases/download/v{{ neovim['version'] }}/nvim-linux64.tar.gz"
-    dest: ~/.local/lib/
-    checksum: "sha256: {{ neovim['sha256'] }}"
-  tags:
-    - linux
-    - test
+- name: neovim setup
+  block:
+    - name: "download neovim version {{ neovim['version'] }}"
+      ansible.builtin.get_url:
+        url: "https://github.com/neovim/neovim/releases/download/v{{ neovim['version'] }}/nvim-linux64.tar.gz"
+        dest: ~/.local/lib/
+        checksum: "sha256: {{ neovim['sha256'] }}"
 
-- name: create nvim symlink
-  ignore_errors: true
-  ansible.builtin.file:
-    src: ~/.local/lib/nvim-linux64/bin/nvim
-    dest: ~/.local/bin/nvim
-    state: link
-    follow: no
-    force: true
-  tags:
-    - linux
-    - test
+    - name: create nvim symlink
+      ignore_errors: true
+      ansible.builtin.file:
+        src: ~/.local/lib/nvim-linux64/bin/nvim
+        dest: ~/.local/bin/nvim
+        state: link
+        follow: no
+        force: true
 
-- name: extract nvim install
-  ansible.builtin.unarchive:
-    src: ~/.local/lib/nvim-linux64.tar.gz
-    dest: ~/.local/lib/
+    - name: extract nvim install
+      ansible.builtin.unarchive:
+        src: ~/.local/lib/nvim-linux64.tar.gz
+        dest: ~/.local/lib/
   tags:
     - linux
-    - test
+    - neovim
+
 
 # After installing your font, you will have to refresh your font cache by doing fc-cache -f -v. Then you will have to change your terminal settings to use the font you just installed. Please refer to your terminal's documentation for changing the terminal font.
 - name: download nerd fonts
@@ -132,12 +142,3 @@
 #     - { connection_name: "{{ ansible_default_ipv4['interface'] }}", type: ipv4.dns, addresses: "{{ dns_addresses['ipv4'] | join(',') }}" }
 #     - { connection_name: "{{ ansible_default_ipv6['interface'] }}", type: ipv6.dns, addresses: "{{ dns_addresses['ipv6'] | join(',') }}" }
 #   when: ansible_distribution | lower == 'pop!_os'
-
-# - name: Change default bluetooth settings
-#   become: true
-#   ansible.builtin.lineinfile:
-#     dest: /etc/bluetooth/main.conf
-#     line: 'ControllerMode = bredr'
-#     insertafter: '^#ControllerMode = dual'
-#     state: present
-# when: ansible_os_family | lower == 'debian'

@@ -71,6 +71,7 @@ apt_packages:
 - powertop        # https://github.com/fenrus75/powertop
 - ripgrep
 - snapd
+- terraform
 #- tlp            # https://github.com/linrunner/TLP
 - tree
 - vim
@@ -82,6 +83,7 @@ pipx_packages:
 - black
 - bpytop
 - httpie     # https://github.com/httpie/httpie
+- pre-commit
 #- 'maestral[gui]'
 # - parquet-tools
 - tldr

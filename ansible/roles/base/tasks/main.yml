@@ -1,6 +1,7 @@
 - name: "show ansible config"
   ansible.builtin.debug:
     msg:
+      - "os architecture    : {{ ansible_architecture }}"
       - "os distribution    : {{ ansible_distribution }}"
       - "dotfiles_dir       : {{ dotfiles_dir }}"
       - "inventory hostname : {{ inventory_hostname }}"

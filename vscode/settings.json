@@ -34,6 +34,9 @@
         "--verbose",
         "-s"
     ],
+    "python.venvFolders": [
+        "~/.venv"
+    ],
     "telemetry.telemetryLevel": "off",
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.defaultProfile.linux": "zsh",
