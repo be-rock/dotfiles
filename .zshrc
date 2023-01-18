@@ -34,11 +34,14 @@ shell_settings_enable() {
 
 #   # zsh completion
 #   # ref: https://thevaluable.dev/zsh-completion-guide-examples/
-#   fpath=(/usr/local/share/zsh-completions $fpath)
-#   autoload -U compinit && compinit
+    # https://github.com/zsh-users/zsh-completions
+    fpath=(~/.zsh/completions/src $fpath)
+    autoload bashcompinit && bashcompinit
+    autoload -Uz compinit && compinit -i
+    #autoload -U compinit && compinit
 #   zmodload -i zsh/complist
 #   zstyle ':completion:*' menu select
-    autoload -U compinit
+    #autoload -U compinit
     compinit -i
 }
 
@@ -80,3 +83,6 @@ pyenv_settings_enable
 source_zsh_plugins
 
 export PATH="$HOME/.local/bin:$HOME/.local/lib:$JAVA_HOME/bin:$PATH"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform

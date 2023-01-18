@@ -94,7 +94,7 @@ pipx_packages:
 # - { package: superproductivity, classic: no } # https://github.com/johannesjo/super-productivity
 
 flatpak_packages:
-# - com.brave.Browser
+- com.brave.Browser
 - com.visualstudio.code
 # - io.freetubeapp.FreeTube
 - org.chromium.Chromium
@@ -105,6 +105,7 @@ flatpak_packages:
 git_repos:
 - { repo: https://github.com/zsh-users/zsh-autosuggestions, target_path: ~/.zsh/zsh-autosuggestions }
 - { repo: https://github.com/zsh-users/zsh-syntax-highlighting.git, target_path: ~/.zsh/zsh-syntax-highlighting }
+- { repo: https://github.com/zsh-users/zsh-completions.git, target_path: ~/.zsh/completions }
 
 vim_plugins:
 - { plugin_git_source: https://github.com/itchyny/lightline.vim, plugin_target_path: ~/.vim/pack/plugins/start/lightline }
@@ -112,7 +113,7 @@ vim_plugins:
 - { plugin_git_source: https://github.com/preservim/nerdtree.git, plugin_target_path: ~/.vim/pack/vendor/start/nerdtree }
 
 zsh_plugins:
-- { plugin_git_source: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/lib/completion.zsh, plugin_target_path: ~/.zsh/completion.zsh }
+# - { plugin_git_source: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/lib/completion.zsh, plugin_target_path: ~/.zsh/completion.zsh }
 - { plugin_git_source: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/gh/gh.plugin.zsh, plugin_target_path: ~/.zsh/gh.plugin.zsh }
 - { plugin_git_source: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/lib/history.zsh, plugin_target_path: ~/.zsh/history.zsh }
 - { plugin_git_source: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/z/z.plugin.zsh, plugin_target_path: ~/.zsh/z.plugin.zsh }
