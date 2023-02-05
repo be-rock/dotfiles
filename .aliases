@@ -19,8 +19,6 @@ alias grep='grep --color'
 alias ag='alias | grep'
 alias env='env | sort | grep -v ^__'
 alias eg='env | sort | grep'
-alias hg='history | grep'
-alias h='history'
 alias dns-flush='resolvectl flush-caches'
 alias dns-stats='resolvectl statistics'
 alias dt='date +%Y-%m-%dT%H:%M:%S.%3N%z' # iso 8601-compliant/platform agnostic
@@ -38,6 +36,10 @@ alias path='echo -e ${PATH//:/\\n}'
 alias dmesg='dmesg --color --ctime'
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 alias clear='clear -x' # Clear the screen but keep the terminal's scrollback buffer
+
+# history
+alias h='history'
+alias hg='history | grep'
 
 # network
 alias port='netstat -tulanp'
@@ -117,8 +119,6 @@ alias di='docker image'
 alias dc='docker container'
 alias ds='docker service'
 alias dinfo='docker info'
-alias sdi='sudo docker image'
-alias sdc='sudo docker container'
 
 # podman
 alias pi='podman image'

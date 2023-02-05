@@ -325,6 +325,7 @@ function aws-assume-role() {
 function pyinfo() {
     echo "python version : $(python --version)"
     echo "which python   : $(which python)"
+    echo "which pip      : $(which pip)"
     command -v pyenv > /dev/null
     if [ $? -eq 0 ];
         then echo "pyenv version  : $(pyenv version)"

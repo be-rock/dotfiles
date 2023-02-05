@@ -6,6 +6,7 @@
         "source.organizeImports": true
     },
     "editor.detectIndentation": false,
+    "editor.fontFamily": "'MesloLGS NF', monospace",
     "editor.formatOnSave": true,
     "editor.fontSize": 14,
     "editor.insertSpaces": true,
