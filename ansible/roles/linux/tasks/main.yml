@@ -127,13 +127,21 @@
     - neovim
 
 
-# After installing your font, you will have to refresh your font cache by doing fc-cache -f -v. Then you will have to change your terminal settings to use the font you just installed. Please refer to your terminal's documentation for changing the terminal font.
-- name: download nerd fonts
+# After installing your font, you will have to refresh your font cache by doing fc-cache -f -v.
+# Then you will have to change your terminal settings to use the font you just installed.
+# Please refer to your terminal's documentation for changing the terminal font.
+- name: download nerd fonts for powerlevel10k
   ansible.builtin.get_url:
-    url: "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf"
-    dest: ~/.local/share/fonts/Droid Sans Mono for Powerline Nerd Font Complete.otf
+    url: "{{ item.url }}"
+    dest: "~/.local/share/fonts/{{ item.name }}"
+  loop:
+    - { url: "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf",       name: "MesloLGS NF Regular.ttf"}
+    - { url: "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf",          name: "MesloLGS NF Bold.ttf"}
+    - { url: "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf",        name: "MesloLGS NF Italic.ttf"}
+    - { url: "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf", name: "MesloLGS NF Bold Italic.ttf" }
   tags:
     - linux
+    - fonts
 
 # - name: Setup dns addresses
 #   ansible.builtin.shell:
