@@ -1,0 +1,45 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  ECR_REPO_NAME: ecr-repository
+  AWS_CLI: docker run --network host --rm -it -v ~/.aws:/root/.aws amazon/aws-cli
+
+dotenv: ['.env', '{{.ENV}}/.env.', '{{.HOME}}/.env']
+
+tasks:
+  ecr-login:
+    desc: docker login to ecr
+    cmds:
+      - '{{.AWS_CLI}} ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com'
+    silent: false
+
+  docker-build:
+    desc: build docker image $ECR_REPO_NAME:lambda-py-$PYTHON_VERSION
+    cmds:
+      - docker build . --network host --tag $ECR_REPO_NAME:lambda-py-$PYTHON_VERSION --file docker/Dockerfile.$PYTHON_VERSION
+
+  docker-ecr-tag:
+    desc: docker tag local image with ecr repo
+    cmds:
+      - docker tag ${ECR_REPO_NAME}:lambda-py-$PYTHON_VERSION $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/${ECR_REPO_NAME}:lambda-py-${PYTHON_VERSION}
+
+  docker-ecr-push:
+    desc: docker push to ecr
+    cmds:
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPO_NAME:lambda-py-${PYTHON_VERSION}
+
+  lambda-zip:
+    cmds:
+      - python -m venv .venv
+      - .venv/bin/pip install --upgrade pip --requirement src/requirements.txt
+      - cd .venv/lib/python3.11/site-packages && zip -r '{{.BASE_DIR}}/my-deployment-package.zip' --exclude="pip*" .
+      - zip -g my-deployment-package.zip src/lambda_function.py
+
+  s3-sync:
+    cmds:
+      - mkdir -p /tmp/s3_sync_test
+      - echo "test" > /tmp/s3_sync_test/$(uuidgen).txt
+      - aws s3 sync /tmp/f.txt s3://my-tf-test-bucket-$AWS_ACCOUNT_ID/
+      - rm -rf /tmp/s3_sync_test

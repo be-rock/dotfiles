@@ -323,6 +323,12 @@ function aws-assume-role() {
 }
 
 function pyinfo() {
+    #
+    # purpose:
+    #   view environmental python info
+    # usage:
+    #   pyinfo
+    #
     echo "python version : $(python --version)"
     echo "which python   : $(which python)"
     echo "which pip      : $(which pip)"

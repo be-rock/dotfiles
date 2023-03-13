@@ -149,7 +149,10 @@
     "def(init)": {
         "prefix": "def__init__",
         "body": [
-            "def __init__(self) -> None:"
+            "def __init__(self) -> None:",
+            "\t\"\"\"",
+            "\t${1:docstring}",
+            "\t\"\"\""
         ],
         "description": "Code snippet for a function definition"
     },

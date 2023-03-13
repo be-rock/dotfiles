@@ -30,6 +30,9 @@ shell_settings_enable() {
   # ctrl-r starts searching history backward
   bindkey '^r' history-incremental-search-backward
 
+  # comments recognized on command line
+  setopt INTERACTIVE_COMMENTS
+
   # zsh completion
   # ref: https://thevaluable.dev/zsh-completion-guide-examples/
   # https://github.com/zsh-users/zsh-completions
