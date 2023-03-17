@@ -143,6 +143,13 @@
     - linux
     - fonts
 
+# - name: Install snaps
+#   community.general.snap:
+#     name: "{{ item.package }}"
+#     classic: "{{ item.classic }}"
+#   loop: "{{ snap_packages }}"
+#   become: yes
+
 # - name: Setup dns addresses
 #   ansible.builtin.shell:
 #     "nmcli connection modify {{ item.connection_name }} {{ item.type }} '{{ item.addresses }}'"

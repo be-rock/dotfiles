@@ -34,10 +34,3 @@
   tags:
     - misc
     - zsh-plugins
-
-- name: Install snaps
-  community.general.snap:
-    name: "{{ item.package }}"
-    classic: "{{ item.classic }}"
-  loop: "{{ snap_packages }}"
-  become: yes
