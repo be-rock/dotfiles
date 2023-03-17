@@ -90,7 +90,7 @@ pipx_packages:
 
 # snap_packages:
 # - { package: auto-cpufreq, classic: no }      # https://github.com/AdnanHodzic/auto-cpufreq
-- { package: docker, classic: no }
+# - { package: docker, classic: no }
 # - { package: procs, classic: no }             # https://github.com/dalance/procs
 # - { package: superproductivity, classic: no } # https://github.com/johannesjo/super-productivity
 
