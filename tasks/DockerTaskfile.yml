@@ -1,0 +1,19 @@
+version: '3'
+
+env:
+  image_name: fastapi
+  image_version: v0.0.1
+
+dotenv: ['.env', '{{.ENV}}/.env.', '{{.HOME}}/.env']
+
+tasks:
+  build:
+    desc: docker build
+    cmds:
+      - docker build . --network host --tag ${image_name}:${image_version}
+    silent: false
+
+  run:
+    desc: docker run
+    cmds:
+      - docker run --network host --rm -it ${image_name}:${image_version}
