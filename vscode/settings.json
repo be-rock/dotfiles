@@ -57,6 +57,8 @@
     "terminal.integrated.inheritEnv": false,
     "terminal.integrated.scrollback": 1000000,
     "vim.disableExtension": false,
+    "vim.easydisableExtension": false,
+    "vim.easymotion": true,
     "vim.smartRelativeLine": false,
     "vim.useSystemClipboard": false,
     "vim.insertModeKeyBindings": [
@@ -101,7 +103,10 @@
             ]
         }
     ],
+    "vim.sneak": true,
+    "vim.surround": true,
     "vim.vimrc.enable": true,
+    "vim.vimrc.path": "~/.vimrc",
     "window.zoomLevel": 1.5,
     "workbench.activityBar.visible": true,
     "workbench.colorTheme": "Monokai",

@@ -68,8 +68,10 @@ dttz() {
     echo -n 'America/Denver           : ' && TZ=America/Denver date +%FT%T%z
     echo -n 'America/Chicago          : ' && TZ=America/Chicago date +%FT%T%z
     echo -n 'America/New_York         : ' && TZ=America/New_York date +%FT%T%z
-    echo -n 'UTC                      : ' && TZ=UTC date +%FT%T%z
     echo -n 'Asia/Kolkata (Bangalore) : ' && TZ=Asia/Kolkata date +%FT%T%z
+    echo -n 'UTC                      : ' && TZ=UTC date +%FT%T%z
+    echo -n 'Epoch(sec)               : ' && echo $EPOCHSECONDS
+    echo -n 'Epoch(ms)                : ' && echo $(( ${EPOCHSECONDS} * 1000))
     echo -n 'local                    : ' && date +%FT%T%z
 }
 
@@ -172,8 +174,9 @@ start_pyspark() {
     # usage:
     #   start_pyspark /path/to/sparkhome
     #
-    unalias ipython
-    export PYSPARK_DRIVER_PYTHON=$(which ipython)
+    unalias ipython jupyter-lab
+    #export PYSPARK_DRIVER_PYTHON=$(which ipython)
+    export PYSPARK_DRIVER_PYTHON=$(which jupyter-lab)
     export PYSPARK_DRIVER_PYTHON_OPTS="--TerminalInteractiveShell.editing_mode=vi"
     export PYSPARK_PYTHON=$(which python)
     export SPARK_LOCAL_IP="localhost"

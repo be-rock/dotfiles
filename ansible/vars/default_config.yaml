@@ -113,6 +113,8 @@ vim_plugins:
 - { plugin_git_source: https://github.com/itchyny/lightline.vim, plugin_target_path: ~/.vim/pack/plugins/start/lightline }
 - { plugin_git_source: https://github.com/flazz/vim-colorschemes.git, plugin_target_path: ~/.vim/pack/plugins/start/colorschemes }
 - { plugin_git_source: https://github.com/preservim/nerdtree.git, plugin_target_path: ~/.vim/pack/vendor/start/nerdtree }
+- { plugin_git_source: https://github.com/justinmk/vim-sneak.git, plugin_target_path: ~/.vim/pack/plugins/start/vim-sneak }
+- { plugin_git_source: https://github.com/easymotion/vim-easymotion.git, plugin_target_path: ~/.vim/pack/plugins/start/vim-easymotion }
 
 zsh_plugins:
 - { plugin_git_source: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/gh/gh.plugin.zsh, plugin_target_path: ~/.zsh/gh.plugin.zsh }
