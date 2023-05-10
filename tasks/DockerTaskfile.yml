@@ -1,7 +1,7 @@
 version: '3'
 
 env:
-  image_name: fastapi
+  image_name: ubuntu
   image_version: v0.0.1
 
 dotenv: ['.env', '{{.ENV}}/.env.', '{{.HOME}}/.env']
@@ -17,3 +17,10 @@ tasks:
     desc: docker run
     cmds:
       - docker run --network host --rm -it ${image_name}:${image_version}
+    silent: false
+
+  run-shell:
+    desc: docker run shell (bash)
+    cmds:
+      - docker run --network host --rm -it ${image_name}:${image_version} bash
+    silent: false

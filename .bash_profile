@@ -8,3 +8,4 @@ done
 unset file
 
 # end
+. "$HOME/.cargo/env"

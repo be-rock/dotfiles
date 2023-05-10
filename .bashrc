@@ -16,3 +16,4 @@ export PS1="\[\033[01;32m\]\t:\[\033[1;34m\]\u@\h\[\033[00m\][\[\033[01;32m\]\w\
 # end
 
 complete -C /usr/bin/terraform terraform
+. "$HOME/.cargo/env"
