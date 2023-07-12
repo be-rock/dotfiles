@@ -6,8 +6,9 @@ dotenv: ['.env', '{{.ENV}}/.env.', '{{.HOME}}/.env']
 
 env:
   PACKAGE: python_template
-  VERSION: v0.0.1
+  PYTHON_VERSION: 3.11.3
   DOCKER_IMAGE: $PACKAGE:$VERSION
+  DOCKER_IMAGE_VERSION: v0.0.1
 
 vars:
   VENV_DIR: "{{.HOME}}/.venv/$PACKAGE"
@@ -17,7 +18,9 @@ tasks:
   black:
     desc: run the python black formatter
     cmds:
-      - "{{.VENV_DIR}}/bin/black src/$PACKAGE/ tests/"
+      #- "{{.VENV_DIR}}/bin/black src/$PACKAGE/ tests/"
+      - "black src/$PACKAGE/ tests/"
+    aliases: [b]
 
   checklist:
     desc: run python toolkit
@@ -44,54 +47,75 @@ tasks:
   dbuild:
     desc: docker build $DOCKER_IMAGE
     cmds:
-      - docker build . --network host --tag ${DOCKER_IMAGE}:${VERSION}
+      - docker build . --network host --tag ${DOCKER_IMAGE}:${DOCKER_IMAGE_VERSION}
     silent: false
 
-  install:
-    deps: [venv]
-    desc: pip install
+  # install:
+  #   deps: [venv]
+  #   desc: pip install (for environments without rye)
+  #   cmds:
+  #     - "{{.VENV_DIR}}/bin/pip install --upgrade pip --requirement requirements.txt"
+  #   silent: false
+  #   aliases: [i]
+
+  install-globals:
+    desc: install global tools with rye
     cmds:
-      - "{{.VENV_DIR}}/bin/pip install --upgrade pip --requirement requirements-dev.txt"
+      - rye install black
+      - rye install ipython
+      - rye install ruff
     silent: false
 
-  pc-install:
+  precommit-install:
     desc: pre-commit install
     cmds:
       - "{{.VENV_DIR}}/bin/pre-commit install"
+    aliases: [pci]
 
-  # radon:
-  #   desc: run radon
-  #   cmds:
-  #   - "{{.VENV_DIR}}/bin/radon cc --average -nc src/$PACKAGE/ tests/"
-  #   - "{{.VENV_DIR}}/bin/radon mi src/$PACKAGE/ tests/"
-  #  silent: false
+  radon:
+    desc: run radon
+    cmds:
+      - "{{.VENV_DIR}}/bin/radon cc --average -nc src/$PACKAGE/ tests/"
+      - "{{.VENV_DIR}}/bin/radon mi src/$PACKAGE/ tests/"
+    silent: false
 
   ruff:
-    desc: ruff linter
+    desc: run the ruff linter
     silent: false
     cmds:
-      - "{{.VENV_DIR}}/bin/ruff --show-files src/$PACKAGE/ tests/"
+      - "ruff --show-files src/$PACKAGE/ tests/"
+
+  # setup:
+  #   desc: setup dev environment
+  #   deps: [install]
+  #   silent: false
+  #   cmds:
+  #     - task: pc-install
 
   setup:
     desc: setup dev environment
-    deps: [install]
-    silent: false
     cmds:
-      - task: pc-install
+      - rye init --name $PACKAGE
+      - rye pin $PYTHON_VERSION
+      - mkdir -p tests/
+      - touch tests/__init__.py
+    deps: [installs-global]
+
 
   test:
     desc: run tests with pytest
     cmds:
-      - "{{.VENV_DIR}}/bin/pytest -s --verbose tests/"
+      - "{{.VENV_DIR}}/bin/python -m pytest -s --verbose tests/"
+    aliases: [t]
 
   venv:
     desc: create python virtual environment with venv
     cmds:
       - python -m venv {{.VENV_DIR}}
-      - "{{.VENV_DIR}}/bin/python -m pip install --upgrade pip"
     silent: false
     status:
       - test -d {{.VENV_DIR}}
+    aliases: [v]
 
   venv-remove:
     desc: remove python virtual environment

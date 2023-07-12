@@ -277,6 +277,11 @@ function bluetooth-disconnect() {
 
 function bluetooth-off() {
     bluetoothctl power off
+    if [ $? -ne 0 ]; then
+        rfkill block bluetooth
+        rfkill unblock bluetooth
+    fi
+    bluetoothctl power off
 }
 
 function bluetooth-on() {

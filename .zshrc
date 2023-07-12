@@ -63,10 +63,14 @@ misc_settings_enable() {
   export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
 }
 
-pyenv_settings_enable() {
-  export PYENV_ROOT="$HOME/.pyenv"
-  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"
+#pyenv_settings_enable() {
+#  export PYENV_ROOT="$HOME/.pyenv"
+#  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+#  eval "$(pyenv init -)"
+#}
+
+rye_env_setup() {
+    source "$HOME/.rye/env"
 }
 
 source_zsh_plugins() {
@@ -79,7 +83,8 @@ source_zsh_plugins() {
 }
 
 shell_settings_enable
-pyenv_settings_enable
+#pyenv_settings_enable
+rye_env_setup
 source_zsh_plugins
 misc_settings_enable
 

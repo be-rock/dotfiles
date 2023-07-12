@@ -38,6 +38,12 @@
     "python.venvFolders": [
         "~/.venv"
     ],
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": true
+        }
+    },
     "telemetry.telemetryLevel": "off",
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.defaultProfile.linux": "zsh",
