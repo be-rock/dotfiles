@@ -95,31 +95,28 @@ pipx_packages:
 # - { package: superproductivity, classic: no } # https://github.com/johannesjo/super-productivity
 
 flatpak_packages:
-- com.brave.Browser
 - com.visualstudio.code
-# - io.freetubeapp.FreeTube
 - org.chromium.Chromium
 - org.gnome.Solanum       # https://flathub.org/apps/details/org.gnome.Solanum (pomodoro timer)
 - org.signal.Signal
-#- org.videolan.VLC
 
 git_repos:
-- { repo: https://github.com/zsh-users/zsh-autosuggestions, target_path: ~/.zsh/zsh-autosuggestions }
-- { repo: https://github.com/zsh-users/zsh-syntax-highlighting.git, target_path: ~/.zsh/zsh-syntax-highlighting }
-- { repo: https://github.com/zsh-users/zsh-completions.git, target_path: ~/.zsh/completions }
-- { repo: https://github.com/romkatv/powerlevel10k.git, target_path: ~/.config/powerlevel10k}
+- { repo: "https://github.com/zsh-users/zsh-autosuggestions", target_path: ~/.zsh/zsh-autosuggestions }
+- { repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git", target_path: ~/.zsh/zsh-syntax-highlighting }
+- { repo: "https://github.com/zsh-users/zsh-completions.git", target_path: ~/.zsh/completions }
+- { repo: "https://github.com/romkatv/powerlevel10k.git", target_path: ~/.config/powerlevel10k}
 
 vim_plugins:
-- { plugin_git_source: https://github.com/itchyny/lightline.vim, plugin_target_path: ~/.vim/pack/plugins/start/lightline }
-- { plugin_git_source: https://github.com/flazz/vim-colorschemes.git, plugin_target_path: ~/.vim/pack/plugins/start/colorschemes }
-- { plugin_git_source: https://github.com/preservim/nerdtree.git, plugin_target_path: ~/.vim/pack/vendor/start/nerdtree }
-- { plugin_git_source: https://github.com/justinmk/vim-sneak.git, plugin_target_path: ~/.vim/pack/plugins/start/vim-sneak }
-- { plugin_git_source: https://github.com/easymotion/vim-easymotion.git, plugin_target_path: ~/.vim/pack/plugins/start/vim-easymotion }
+- { plugin_git_source: "https://github.com/itchyny/lightline.vim", plugin_target_path: ~/.vim/pack/plugins/start/lightline }
+- { plugin_git_source: "https://github.com/flazz/vim-colorschemes.git", plugin_target_path: ~/.vim/pack/plugins/start/colorschemes }
+- { plugin_git_source: "https://github.com/preservim/nerdtree.git", plugin_target_path: ~/.vim/pack/vendor/start/nerdtree }
+- { plugin_git_source: "https://github.com/justinmk/vim-sneak.git", plugin_target_path: ~/.vim/pack/plugins/start/vim-sneak }
+- { plugin_git_source: "https://github.com/easymotion/vim-easymotion.git", plugin_target_path: ~/.vim/pack/plugins/start/vim-easymotion }
 
 zsh_plugins:
-- { plugin_git_source: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/gh/gh.plugin.zsh, plugin_target_path: ~/.zsh/gh.plugin.zsh }
-- { plugin_git_source: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/lib/history.zsh, plugin_target_path: ~/.zsh/history.zsh }
-- { plugin_git_source: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/z/z.plugin.zsh, plugin_target_path: ~/.zsh/z.plugin.zsh }
+- { plugin_git_source: "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/gh/gh.plugin.zsh", plugin_target_path: ~/.zsh/gh.plugin.zsh }
+- { plugin_git_source: "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/lib/history.zsh", plugin_target_path: ~/.zsh/history.zsh }
+- { plugin_git_source: "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/z/z.plugin.zsh", plugin_target_path: ~/.zsh/z.plugin.zsh }
 
 neovim:
   version: 0.8.0
