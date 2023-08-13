@@ -1,9 +1,9 @@
 .DEFAULT_GOAL := help
 
 help: ## Show this help message.
-    @echo -e 'Usage: make [target] ...\n'
-    @echo 'targets:'
-    @egrep '^(.+)\:\ ##\ (.+)' ${MAKEFILE_LIST} | column -t -c 2 -s ':#'
+	@echo -e 'Usage: make [target] ...\n'
+	@echo 'targets:'
+	@egrep '^(.+)\:\ ##\ (.+)' ${MAKEFILE_LIST} | column -t -c 2 -s ':#'
 
 .PHONY: ecr-login
 ecr-login: ## ecr login
@@ -15,5 +15,3 @@ lambda-zip: ## create a lambda zip file
 	.venv/bin/pip install --upgrade pip --requirement src/requirements.txt
 	cd .venv/lib/python*/site-packages && zip -r ${CURDIR}/my-deployment-package.zip --exclude="pip*" .
 	zip -g my-deployment-package.zip src/lambda_function.py
-
-ZZ

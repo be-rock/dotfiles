@@ -9,13 +9,13 @@
     - misc
     - git-repos
 
-- name: Pipx install
-  ansible.builtin.command:
-    cmd: "pipx install {{ item }}"
-  loop: "{{ pipx_packages }}"
-  tags:
-    - misc
-    - pipx
+# - name: Pipx install
+#   ansible.builtin.command:
+#     cmd: "pipx install {{ item }}"
+#   loop: "{{ pipx_packages }}"
+#   tags:
+#     - misc
+#     - pipx
 
 - name: Install vim plugins
   ansible.builtin.git:

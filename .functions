@@ -71,9 +71,10 @@ dttz() {
     echo -n 'Asia/Kolkata (Bangalore) : ' && TZ=Asia/Kolkata date +%FT%T%z
     echo -n 'UTC                      : ' && TZ=UTC date +%FT%T%z
     echo -n 'Europe/London            : ' && TZ=Europe/London date +%FT%T%z
+    echo
+    echo -n 'Local                    : ' && date +%FT%T%z
     echo -n 'Epoch(sec)               : ' && echo $EPOCHSECONDS
     echo -n 'Epoch(ms)                : ' && echo $(( ${EPOCHSECONDS} * 1000))
-    echo -n 'local                    : ' && date +%FT%T%z
 }
 
 # Create a new directory and enter it
