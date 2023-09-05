@@ -17,7 +17,7 @@ export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 # system type
 if [ $(uname -s) = 'Darwin' ]; then
     export LSCOLORS="Gxfxcxdxbxegedabagacad"
-    export SYSTEM_TYPE="macOS"
+    export SYSTEM_TYPE="MacOS"
 elif [ $(uname -s) = 'Linux' ] && [ -f /etc/debian_version ]; then
     export SYSTEM_TYPE="Linux (Debian)"
 elif [ $(uname -s) = 'Linux' ] && [ -f /etc/redhat-release ]; then

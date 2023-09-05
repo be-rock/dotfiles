@@ -38,20 +38,22 @@ homebrew_packages:
 - duf      # https://github.com/muesli/duf
 - fd
 - jq
-- pipx
+- fzf      # https://github.com/junegunn/fzf
+# - pipx
 - ripgrep
-- starship
+- romkatv/powerlevel10k/powerlevel10k
+# - starship
 - tree
 
 homebrew_cask_packages:
-- docker
-- firefox
+# - docker
+# - firefox
 # - intellij-idea
 - iterm2
 # - postman
 # - pycharm
 - rectangle
-- visual-studio-code
+# - visual-studio-code
 
 apt_packages:
 - bat             # https://github.com/sharkdp/bat
@@ -80,13 +82,13 @@ apt_packages:
 - zsh
 
 pipx_packages:
-- black
-- bpytop
-- httpie     # https://github.com/httpie/httpie
-- pre-commit
+# - black
+# - bpytop
+# - httpie     # https://github.com/httpie/httpie
+# - pre-commit
 #- 'maestral[gui]'
 # - parquet-tools
-- tldr
+# - tldr
 
 # snap_packages:
 # - { package: auto-cpufreq, classic: no }      # https://github.com/AdnanHodzic/auto-cpufreq
@@ -96,8 +98,9 @@ pipx_packages:
 
 flatpak_packages:
 - com.visualstudio.code
+- io.gitlab.news_flash.NewsFlash # https://flathub.org/apps/io.gitlab.news_flash.NewsFlash (rss reader)
 - org.chromium.Chromium
-- org.gnome.Solanum       # https://flathub.org/apps/details/org.gnome.Solanum (pomodoro timer)
+- org.gnome.Solanum              # https://flathub.org/apps/details/org.gnome.Solanum (pomodoro timer)
 - org.signal.Signal
 
 git_repos:

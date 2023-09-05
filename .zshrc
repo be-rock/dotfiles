@@ -57,7 +57,9 @@ misc_settings_enable() {
   source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 
   # fzf
-  source /usr/share/doc/fzf/examples/key-bindings.zsh
+  if [ $(uname -s) = 'Linux' ]; then
+    source /usr/share/doc/fzf/examples/key-bindings.zsh
+  fi
 
   # java
   export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
