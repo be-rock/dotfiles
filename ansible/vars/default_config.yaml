@@ -106,7 +106,7 @@ flatpak_packages:
 git_repos:
 - { repo: "https://github.com/zsh-users/zsh-autosuggestions", target_path: ~/.zsh/zsh-autosuggestions }
 - { repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git", target_path: ~/.zsh/zsh-syntax-highlighting }
-- { repo: "https://github.com/zsh-users/zsh-completions.git", target_path: ~/.zsh/completions }
+- { repo: "https://github.com/zsh-users/zsh-completions.git", target_path: ~/.zsh/zsh-completions }
 - { repo: "https://github.com/romkatv/powerlevel10k.git", target_path: ~/.config/powerlevel10k}
 
 vim_plugins:

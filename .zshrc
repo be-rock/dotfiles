@@ -36,7 +36,7 @@ shell_settings_enable() {
   # zsh completion
   # ref: https://thevaluable.dev/zsh-completion-guide-examples/
   # https://github.com/zsh-users/zsh-completions
-  fpath=(~/.zsh/completions/src $fpath)
+  fpath=(~/.zsh/zsh-completions/src $fpath)
   autoload bashcompinit && bashcompinit
   autoload -Uz compinit && compinit -i
   compinit -i
@@ -77,7 +77,7 @@ rye_env_setup() {
 
 source_zsh_plugins() {
   source ~/.zsh/completion.zsh
-  source ~/.zsh/gh-completion.zsh
+  #source ~/.zsh/gh.plugin.zsh
   source ~/.zsh/history.zsh
   source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
   source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
