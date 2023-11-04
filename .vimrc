@@ -31,7 +31,8 @@ set tabstop=4         " <TAB> four spaces
 set wildmenu          " show auto complete menus.
 set wildmode=list:longest,full " Make wildmenu behave like bash completion. Finding commands are so easy now.
 
-colorscheme slate     " colorscheme
+"colorscheme slate     " colorscheme
+colorscheme monokai-chris     " colorscheme
 let mapleader = " "   " map leader to space
 imap jk <Esc>
 

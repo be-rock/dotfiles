@@ -63,6 +63,8 @@ sha() {
 
 dttz() {
     # timezone helper
+    TZ='US/Pacific' && echo -n "$TZ      : " && date +%FT%T%z
+
     echo -n 'America/Los_Angeles      : ' && TZ=America/Los_Angeles date +%FT%T%z
     echo -n 'America/Phoenix          : ' && TZ=America/Phoenix date +%FT%T%z
     echo -n 'America/Denver           : ' && TZ=America/Denver date +%FT%T%z
@@ -75,6 +77,26 @@ dttz() {
     echo -n 'Local                    : ' && date +%FT%T%z
     echo -n 'Epoch(sec)               : ' && echo $EPOCHSECONDS
     echo -n 'Epoch(ms)                : ' && echo $(( ${EPOCHSECONDS} * 1000))
+}
+
+dttz_new() {
+    timezones=(
+        "US/Pacific"
+        "US/Mountain"
+        "US/Central"
+        "UTC"
+        "Europe/London"
+        "Asia/Kolkota"
+    )
+
+    for tz in "${timezones[@]}"; do
+        export TZ=$tz && printf "%-24s" "$tz" && echo " : $(date +%FT%Tz)"
+    done
+
+    unset TZ && echo
+    printf "%-24s" "Local" && echo " : $(date +%FT%Tz)"
+    printf "%-24s" "Epoch(sec)" && echo " : $(echo $EPOCHSECONDS)"
+    printf "%-24s" "Epoch(ms)" && echo " : $(echo $(( ${EPOCHSECONDS} * 1000)))"
 }
 
 # Create a new directory and enter it
@@ -174,13 +196,14 @@ start_pyspark() {
     #   simple pyspark starter that ensures necessary environment variables are setup
     #   and ipython is the default shell
     # usage:
-    #   start_pyspark /path/to/sparkhome
+    #   start_pyspark mode /path/to/sparkhome
+    # mode:
+    #   can be [ps|ss|jl], that is pyspark shell, scala shell, jupyter lab
     #
-    unalias ipython jupyter-lab
-    #export PYSPARK_DRIVER_PYTHON=$(which ipython)
-    export PYSPARK_DRIVER_PYTHON=$(which jupyter-lab)
+    #unalias ipython jupyter-lab
+    export PYSPARK_DRIVER_PYTHON=$(which $(command jupyter-lab))
     export PYSPARK_DRIVER_PYTHON_OPTS="--TerminalInteractiveShell.editing_mode=vi"
-    export PYSPARK_PYTHON=$(which python)
+    export PYSPARK_PYTHON=$(which $(command python))
     export SPARK_LOCAL_IP="localhost"
     export SPARK_HOME="${SPARK_HOME:-$1}"
     $SPARK_HOME/bin/pyspark

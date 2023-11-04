@@ -37,20 +37,23 @@ homebrew_packages:
 - bat
 - duf      # https://github.com/muesli/duf
 - fd
+- gh       # https://cli.github.com
 - jq
 - fzf      # https://github.com/junegunn/fzf
 # - pipx
 - ripgrep
 - romkatv/powerlevel10k/powerlevel10k
 # - starship
+- tldr
 - tree
+- wget
 
 homebrew_cask_packages:
 # - docker
 # - firefox
-# - intellij-idea
+# - intellij-idea-ce
 - iterm2
-# - postman
+- postman
 # - pycharm
 - rectangle
 # - visual-studio-code
