@@ -40,6 +40,8 @@ shell_settings_enable() {
   autoload bashcompinit && bashcompinit
   autoload -Uz compinit && compinit -i
   compinit -i
+
+  export HIST_STAMPS="yyyy-mm-dd"
 }
 
 misc_settings_enable() {
