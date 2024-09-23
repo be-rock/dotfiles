@@ -1,6 +1,4 @@
 ---
-dotfiles_dir: ~/code/git/dotfiles
-
 dotfiles:
 - .aliases
 - .ansible.cfg
@@ -101,6 +99,7 @@ pipx_packages:
 
 flatpak_packages:
 - com.visualstudio.code
+# - com.vscodium.codium
 - io.gitlab.news_flash.NewsFlash # https://flathub.org/apps/io.gitlab.news_flash.NewsFlash (rss reader)
 - org.chromium.Chromium
 - org.gnome.Solanum              # https://flathub.org/apps/details/org.gnome.Solanum (pomodoro timer)

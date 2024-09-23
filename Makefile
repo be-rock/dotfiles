@@ -1,17 +1,18 @@
 .DEFAULT_GOAL := help
+DOTFILES_DIR=~/code/git/dotfiles
+VENV_DIR=~/.venv/dotfiles
 
 help: ## Show this help message.
 	@echo -e 'Usage: make [target] ...\n'
 	@echo 'targets:'
 	@egrep '^(.+)\:\ ##\ (.+)' ${MAKEFILE_LIST} | column -t -c 2 -s ':#'
 
-.PHONY: ecr-login
-ecr-login: ## ecr login
-	aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com
+.PHONY: setup
+setup: ## setup dotfiles
+	${VENV_DIR}/bin/ansible-playbook ansible/playbook.yml \
+	  --inventory ansible/hosts.ini \
+	  --extra-vars dotfiles_dir=${DOTFILES_DIR} #--tags testtag
 
-.PHONY: lambda-zip
-lambda-zip: ## create a lambda zip file
-	python -m venv .venv
-	.venv/bin/pip install --upgrade pip --requirement src/requirements.txt
-	cd .venv/lib/python*/site-packages && zip -r ${CURDIR}/my-deployment-package.zip --exclude="pip*" .
-	zip -g my-deployment-package.zip src/lambda_function.py
+.PHONY: brew-install
+setup: ## install brew
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
