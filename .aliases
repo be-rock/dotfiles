@@ -17,6 +17,9 @@ alias ld='ls -ldh */'
 # misc
 alias grep='grep --color'
 alias ag='alias | grep'
+alias clear='clear -x' # Clear the screen but keep the terminal's scrollback buffer
+alias cp='cp -i'
+alias dmesg='dmesg --color --ctime' # use `journalctl --dmesg` instead
 alias env='env | sort | grep -v ^__'
 alias eg='env | sort | grep'
 alias dns-flush='resolvectl flush-caches'
@@ -27,16 +30,13 @@ alias dud1='du -h -d 1 . 2>/dev/null | sort --human-numeric-sort'
 alias jobs='jobs -l'
 alias less='less -I'
 alias llast='less $(ls -1rt|tail -n1)'
-alias rm='rm -i'
-alias cp='cp -i'
 alias mv='mv -i'
-alias rc='echo $?'
 alias mem='free -m -t'
+alias nv='nvim'
 alias path='echo -e ${PATH//:/\\n}'
-alias dmesg='dmesg --color --ctime' # use `journalctl --dmesg` instead
+alias rc='echo $?'
+alias rm='rm -i'
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
-alias clear='clear -x' # Clear the screen but keep the terminal's scrollback buffer
-alias tg='task --global' # https://taskfile.dev/
 
 # history
 alias h='history'

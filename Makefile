@@ -7,12 +7,14 @@ help: ## Show this help message.
 	@echo 'targets:'
 	@egrep '^(.+)\:\ ##\ (.+)' ${MAKEFILE_LIST} | column -t -c 2 -s ':#'
 
+
+.PHONY: prereq
+prereq: ## ensure prereqs are in place
+	python -m ${VENV_DIR}
+	${VENV_DIR}/bin/pip install ansible
+
 .PHONY: setup
 setup: ## setup dotfiles
 	${VENV_DIR}/bin/ansible-playbook ansible/playbook.yml \
 	  --inventory ansible/hosts.ini \
 	  --extra-vars dotfiles_dir=${DOTFILES_DIR} #--tags testtag
-
-.PHONY: brew-install
-setup: ## install brew
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
