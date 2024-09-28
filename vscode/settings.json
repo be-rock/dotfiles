@@ -6,8 +6,8 @@
         "source.organizeImports": true
     },
     "editor.detectIndentation": false,
-    "editor.fontFamily": "'MesloLGS NF', monospace",
     "editor.formatOnSave": true,
+    "editor.fontFamily": "'MesloLGS NF', monospace",
     "editor.fontSize": 14,
     "editor.insertSpaces": true,
     "editor.matchBrackets": "always",
@@ -16,7 +16,6 @@
     "editor.renderWhitespace": "all",
     "editor.tabSize": 4,
     "extensions.ignoreRecommendations": true,
-    "files.autoSave": "afterDelay",
     "files.associations": {
         ".aliases": "shellscript",
         ".exports": "shellscript",
@@ -24,12 +23,11 @@
         "*.tftpl": "json",
         "*.toml": "properties"
     },
-    "files.trimTrailingWhitespace": true,
+    "files.autoSave": "afterDelay",
     "files.eol": "\n",
+    "files.trimTrailingWhitespace": true,
     "git.ignoreLegacyWarning": true,
     "python.analysis.typeCheckingMode": "basic",
-    "python.formatting.blackPath": "~/.local/bin/black",
-    "python.formatting.provider": "black",
     "python.testing.pytestEnabled": true,
     "python.testing.pytestArgs": [
         "--verbose",
@@ -38,12 +36,6 @@
     "python.venvFolders": [
         "~/.venv"
     ],
-    "[python]": {
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-            "source.fixAll": true
-        }
-    },
     "telemetry.telemetryLevel": "off",
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.defaultProfile.linux": "zsh",
@@ -58,15 +50,13 @@
         }
     },
     "terminal.integrated.defaultProfile.osx": "zsh",
-    "terminal.integrated.shellIntegration.enabled": false,
     "terminal.integrated.fontSize": 14,
     "terminal.integrated.inheritEnv": false,
     "terminal.integrated.scrollback": 1000000,
+    "terminal.integrated.shellIntegration.enabled": false,
     "vim.disableExtension": false,
     "vim.easydisableExtension": false,
     "vim.easymotion": true,
-    "vim.smartRelativeLine": false,
-    "vim.useSystemClipboard": false,
     "vim.insertModeKeyBindings": [
         {
             "before": [
@@ -109,15 +99,17 @@
             ]
         }
     ],
+    "vim.smartRelativeLine": false,
     "vim.sneak": true,
     "vim.surround": true,
+    "vim.useSystemClipboard": false,
     "vim.vimrc.enable": true,
     "vim.vimrc.path": "~/.vimrc",
     "window.zoomLevel": 1.5,
     "workbench.activityBar.visible": true,
     "workbench.colorTheme": "Monokai",
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.tree.indent": 10,
+    "workbench.tree.indent": 12,
     "workbench.tree.renderIndentGuides": "always",
     "[json]": {
         "editor.formatOnPaste": true,
@@ -126,6 +118,12 @@
             "strings": true
         },
         "editor.suggest.insertMode": "replace"
+    },
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": true
+        }
     },
     "[terraform]": {
         "editor.defaultFormatter": "hashicorp.terraform",
