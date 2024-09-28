@@ -7,10 +7,9 @@ help: ## Show this help message.
 	@echo 'targets:'
 	@egrep '^(.+)\:\ ##\ (.+)' ${MAKEFILE_LIST} | column -t -c 2 -s ':#'
 
-
 .PHONY: prereq
 prereq: ## ensure prereqs are in place
-	python -m ${VENV_DIR}
+	python -m venv ${VENV_DIR}
 	${VENV_DIR}/bin/pip install ansible
 
 .PHONY: setup
