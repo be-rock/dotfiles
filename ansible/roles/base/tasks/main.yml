@@ -1,4 +1,4 @@
-- name: "show ansible config"
+- name: "show ansible config 🛈️"
   ansible.builtin.debug:
     msg:
       - "os architecture    : {{ ansible_architecture }}"
@@ -9,14 +9,18 @@
       - "ansible python     : {{ ansible_playbook_python }}"
       - "ansible version    : {{ ansible_version['full'] }}"
       # - "ansible facts      : {{ ansible_facts }}"
+  tags:
+    - base
 
-- name: Create dirs
+- name: "Create dirs 📂"
   ansible.builtin.file:
     path: '~/{{ item }}'
     state: directory
   loop: "{{ base_directory_structure }}"
+  tags:
+    - base
 
-- name: Create symlinks in home ~
+- name: "Create symlinks in home ~ 🔗"
   ignore_errors: true
   ansible.builtin.file:
     src: "{{ dotfiles_dir }}/{{ item }}"
@@ -25,8 +29,10 @@
     follow: no
     force: false
   loop: "{{ dotfiles }}"
+  tags:
+    - base
 
-- name: Create symlinks in ~/.config
+- name: "Create symlinks in ~/.config 🔗"
   ignore_errors: true
   ansible.builtin.file:
     src: "{{ dotfiles_dir }}/{{ item }}"
@@ -35,3 +41,5 @@
     follow: no
     force: true
   loop: "{{ dotfiles }}"
+  tags:
+    - base

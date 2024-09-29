@@ -48,7 +48,7 @@
 # - name: Flatpak customization
 # ansible.builtin.command: flatpak override --user --filesystem=/run/docker.sock com.visualstudio.code
 
-- name: Create custom symlinks for bat and fd
+- name: "Create custom symlinks for bat and fd 🔗"
   ignore_errors: true
   ansible.builtin.file:
     src: "{{ item.src }}"
@@ -60,7 +60,7 @@
   tags:
     - linux
 
-- name: Enable firewall
+- name: "Enable firewall 🔥"
   ansible.builtin.shell: sudo ufw enable
   tags:
     - linux
@@ -109,7 +109,7 @@
         dest: ~/.local/lib/
         checksum: "sha256: {{ neovim['sha256'] }}"
 
-    - name: create nvim symlink
+    - name: "create nvim symlink 🔗"
       ignore_errors: true
       ansible.builtin.file:
         src: ~/.local/lib/nvim-linux64/bin/nvim
@@ -125,7 +125,6 @@
   tags:
     - linux
     - neovim
-
 
 # After installing your font, you will have to refresh your font cache by doing fc-cache -f -v.
 # Then you will have to change your terminal settings to use the font you just installed.
