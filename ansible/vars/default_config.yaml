@@ -51,7 +51,7 @@ homebrew_cask_packages:
 # - firefox
 # - intellij-idea-ce
 - iterm2
-- postman
+# - postman
 # - pycharm
 - rectangle
 # - visual-studio-code
@@ -69,7 +69,7 @@ apt_packages:
 - git
 - gnome-tweaks
 - neofetch
-- openjdk-11-jdk
+# - openjdk-11-jdk
 - podman
 - powertop        # https://github.com/fenrus75/powertop
 - ripgrep
@@ -99,7 +99,6 @@ pipx_packages:
 
 flatpak_packages:
 - com.visualstudio.code
-# - com.vscodium.codium
 - io.gitlab.news_flash.NewsFlash # https://flathub.org/apps/io.gitlab.news_flash.NewsFlash (rss reader)
 - org.chromium.Chromium
 - org.gnome.Solanum              # https://flathub.org/apps/details/org.gnome.Solanum (pomodoro timer)
@@ -124,5 +123,7 @@ zsh_plugins:
 - { plugin_git_source: "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/z/z.plugin.zsh", plugin_target_path: ~/.zsh/z.plugin.zsh }
 
 neovim:
-  version: 0.8.0
-  sha256: 1af27471f76f1b4f7ad6563c863a4a78117f0515e3390ee4d911132970517fa7
+  # version: 0.8.0
+  # sha256: 1af27471f76f1b4f7ad6563c863a4a78117f0515e3390ee4d911132970517fa7
+  version: 0.10.1
+  sha256: 4867de01a17f6083f902f8aa5215b40b0ed3a36e83cc0293de3f11708f1f9793
