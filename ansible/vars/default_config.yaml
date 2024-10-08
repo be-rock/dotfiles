@@ -39,6 +39,7 @@ homebrew_packages:
 - jq
 - fzf      # https://github.com/junegunn/fzf
 # - pipx
+- podman   # https://podman.io/docs/installation
 - ripgrep
 - romkatv/powerlevel10k/powerlevel10k
 # - starship
@@ -73,7 +74,7 @@ apt_packages:
 - podman
 - powertop        # https://github.com/fenrus75/powertop
 - ripgrep
-- snapd
+# - snapd
 - terraform
 #- tlp            # https://github.com/linrunner/TLP
 - tree
