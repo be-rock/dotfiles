@@ -37,6 +37,7 @@ let mapleader = " "   " map leader to space
 imap jk <Esc>
 
 noremap <leader>n :NERDTreeFocus<CR>
+noremap <leader>fn :let @" = expand("%:t")<CR> " get current filename
 
 map <C-h> <C-w>h
 map <C-j> <C-w>j

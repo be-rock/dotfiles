@@ -78,13 +78,6 @@ alias treea="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 alias treed="find . -type d -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 
 # python
-alias ccn='conda create --name'
-alias cea='conda activate'
-alias ced='conda deactivate'
-alias cie='conda info --envs'
-alias cl='conda list'
-alias ci='conda install'
-alias crn='conda remove --force --all --yes --name'
 alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi --colors="Linux"'
 alias jupyter-lab='jupyter-lab --ip=localhost'
 
@@ -116,19 +109,18 @@ alias gsw='git switch'
 alias gsc='git switch -c'
 
 # docker
-alias di='docker image'
+alias docker='podman'
 alias dc='docker container'
-alias ds='docker service'
+alias di='docker image'
 alias dinfo='docker info'
-
-# podman
-alias pi='podman image'
-alias pc='podman container'
+alias dp='docker pull'
+alias dri='docker run -it --rm'
+alias ds='docker service'
 
 # aws
 alias aws='docker run --network host --rm -it -v ~/.aws:/root/.aws amazon/aws-cli'
 # aws cli / non-interactive
-# alias aws='podman run --rm -it --volume ~/.aws:/root/.aws amazon/aws-cli'
+alias awsnint='docker run --rm -it --volume ~/.aws:/root/.aws amazon/aws-cli'
 # aws cli / interactive
 alias awsint='docker run --network host --rm -it -v ~/.aws:/root/.aws amazon/aws-cli --cli-auto-prompt'
 
@@ -143,17 +135,19 @@ alias klf='kubectl logs -f' # follow
 alias ks='kubectl stop'
 
 # bat - https://github.com/sharkdp/bat
-alias b='bat --style=plain'                 # plain, no line numbers
-alias bp='bat --style=plain --paging=never' # plain, no line numbers, no paging
+alias b='bat --style=plain'                 # no line numbers
+alias bp='bat --style=plain --paging=never' # no line numbers, no paging
 alias bn='bat --number'                     # show line numbers
 alias bnp='bat --number --paging=never'     # show line numbers, no paging
 
 # pyenv
-alias pyei='pyenv install'  # install python version e.g. 3.10.1
-alias pyev='pyenv versions' # list python versions
-alias pyeg='pyenv global'   # select globally for your user account
-alias pyel='pyenv local'    # automatically select whenever you are in the current directory (or its subdirectories)
-alias pyes='pyenv shell'    # select just for current shell session
+alias pyei='pyenv install'          # install python version e.g. 3.10.1
+alias pyeil='pyenv install --list'  # list all available installable versions
+alias pyeg='pyenv global'           # select globally for your user account
+alias pyel='pyenv local'            # automatically select whenever you are in the current directory (or its subdirectories)
+alias pyes='pyenv shell'            # select just for current shell session
+alias pyeu='pyenv update'           # update pyenv versions
+alias pyev='pyenv versions'         # list installed python versions
 
 # start spark shell
 alias start_ps='spark_version=3.1.2 && hadoop_version=3.2 && install_dir=~/tools && export SPARK_HOME=${install_dir}/spark-${spark_version}-bin-hadoop${hadoop_version} && $SPARK_HOME/bin/pyspark' # pyspark shell
