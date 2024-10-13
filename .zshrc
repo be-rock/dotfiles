@@ -87,7 +87,7 @@ source_zsh_plugins() {
 }
 
 shell_settings_enable
-pyenv_settings_enable
+#pyenv_settings_enable
 rye_env_setup
 source_zsh_plugins
 misc_settings_enable

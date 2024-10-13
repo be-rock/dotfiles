@@ -80,6 +80,7 @@ alias treed="find . -type d -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 # python
 alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi --colors="Linux"'
 alias jupyter-lab='jupyter-lab --ip=localhost'
+alias mkvenv='python -m venv .venv && source .venv/bin/activate'
 
 # git
 alias ga='git add'
@@ -148,6 +149,13 @@ alias pyel='pyenv local'            # automatically select whenever you are in t
 alias pyes='pyenv shell'            # select just for current shell session
 alias pyeu='pyenv update'           # update pyenv versions
 alias pyev='pyenv versions'         # list installed python versions
+
+# rye
+alias rf='rye fetch'             # install a specific python version
+alias rp='rye pin'               # pin a specific version
+alias rtl='rye toolchain list'   # list all installed python versions
+alias rtld='rye toolchain list --include-downloadable'  # list all available python versions
+alias rtr='rye toolchain remove' # remove an installed rye toolchain
 
 # start spark shell
 alias start_ps='spark_version=3.1.2 && hadoop_version=3.2 && install_dir=~/tools && export SPARK_HOME=${install_dir}/spark-${spark_version}-bin-hadoop${hadoop_version} && $SPARK_HOME/bin/pyspark' # pyspark shell
