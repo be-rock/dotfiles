@@ -1,4 +1,4 @@
-- name: Install homebrew packages
+- name: Install homebrew 🍎 packages
   community.general.homebrew:
     name: "{{ item }}"
     state: installed
@@ -7,7 +7,7 @@
     - brew
   loop: "{{ homebrew_packages }}"
 
-- name: Install homebrew cask packages
+- name: Install homebrew cask 🍎 packages
   community.general.homebrew_cask:
     name: '{{ item }}'
     state: installed
@@ -15,7 +15,7 @@
   - brew
   loop: "{{ homebrew_cask_packages }}"
 
-- name: modify macOS user defaults
+- name: modify macOS 🍎 user defaults
   community.general.osx_defaults:
     domain: com.microsoft.VSCode
     key: ApplePressAndHoldEnabled

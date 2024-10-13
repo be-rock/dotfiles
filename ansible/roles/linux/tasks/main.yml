@@ -12,7 +12,7 @@
 #   tags:
 #     - linux
 
-- name: Install apt packages
+- name: Install apt 🐧 packages
   become: true
   ansible.builtin.apt:
     update_cache: yes
@@ -24,7 +24,7 @@
     - linux
     - apt
 
-- name: Add the flathub flatpak repository remote to the user installation
+- name: Add the flathub 🐧 repository remote to the user installation
   community.general.flatpak_remote:
     name: flathub
     state: present
@@ -34,7 +34,7 @@
     - linux
     - flatpak
 
-- name: Install flatpak packages
+- name: Install flatpak 🐧 packages
   ignore_errors: true
   community.general.flatpak:
     name: "{{ item }}"
@@ -45,10 +45,19 @@
     - linux
     - flatpak
 
+- name: Disable Bluetooth 🔵🦷 auto-enable on boot
+  lineinfile:
+    path: /etc/bluetooth/main.conf
+    regexp: '^#?AutoEnable\s*='
+    line: 'AutoEnable=false'
+  become: yes
+  tags:
+    - linux
+
 # - name: Flatpak customization
 # ansible.builtin.command: flatpak override --user --filesystem=/run/docker.sock com.visualstudio.code
 
-- name: "Create custom symlinks for bat and fd 🔗"
+- name: "Create custom symlinks 🔗 for bat and fd"
   ignore_errors: true
   ansible.builtin.file:
     src: "{{ item.src }}"

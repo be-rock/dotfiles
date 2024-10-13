@@ -1,20 +1,22 @@
 - name: "show ansible config 🛈️"
   ansible.builtin.debug:
     msg:
-      - "os architecture    : {{ ansible_architecture }}"
-      - "os distribution    : {{ ansible_distribution }}"
-      - "dotfiles_dir       : {{ dotfiles_dir }}"
-      - "inventory hostname : {{ inventory_hostname }}"
-      - "hostname           : {{ ansible_hostname }}"
-      - "ansible python     : {{ ansible_playbook_python }}"
-      - "ansible version    : {{ ansible_version['full'] }}"
-      # - "ansible facts      : {{ ansible_facts }}"
+      - "os architecture          : {{ ansible_architecture }}"
+      - "os distribution          : {{ ansible_distribution }}"
+      - "dotfiles_dir             : {{ dotfiles_dir }}"
+      - "inventory hostname       : {{ inventory_hostname }}"
+      - "hostname                 : {{ ansible_hostname }}"
+      - "ansible python           : {{ ansible_playbook_python }}"
+      - "ansible version          : {{ ansible_version['full'] }}"
+      - "ansible running user     : {{ ansible_user_id }}"
+      - "ansible running user dir : {{ ansible_user_dir }}"
+      # more availble vars documented here: https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_vars_facts.html
   tags:
     - base
 
 - name: "Create dirs 📂"
   ansible.builtin.file:
-    path: '~/{{ item }}'
+    path: '{{ ansible_user_dir }}/{{ item }}'
     state: directory
   loop: "{{ base_directory_structure }}"
   tags:
@@ -24,7 +26,7 @@
   ignore_errors: true
   ansible.builtin.file:
     src: "{{ dotfiles_dir }}/{{ item }}"
-    dest: "~/{{ item }}"
+    dest: "{{ ansible_user_dir }}/{{ item }}"
     state: link
     follow: no
     force: false
@@ -36,7 +38,7 @@
   ignore_errors: true
   ansible.builtin.file:
     src: "{{ dotfiles_dir }}/{{ item }}"
-    dest: "~/.config/{{ item }}"
+    dest: "{{ ansible_user_dir }}/.config/{{ item }}"
     state: link
     follow: no
     force: true

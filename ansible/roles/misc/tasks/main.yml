@@ -1,4 +1,4 @@
-- name: Clone github repositories
+- name: Clone github repositories 👨‍💻
   ansible.builtin.git:
     repo: "{{ item.repo }}"
     dest: "{{ item.target_path }}"
@@ -17,7 +17,7 @@
 #     - misc
 #     - pipx
 
-- name: Install vim plugins
+- name: Install vim plugins 🔌
   ansible.builtin.git:
     repo: "{{ item.plugin_git_source }}"
     dest: "{{ item.plugin_target_path }}"
@@ -26,7 +26,7 @@
     - misc
     - vim-plugins
 
-- name: zsh plugins
+- name: zsh plugins 🔌
   ansible.builtin.get_url:
     url: "{{ item.plugin_git_source }}"
     dest:  "{{ item.plugin_target_path }}"
