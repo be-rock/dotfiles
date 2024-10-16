@@ -17,11 +17,11 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         run: |
           sudo apt update
-          sudo apt install -y justfile
+          sudo apt install -y just
       - name: Install package on macOS
         if: matrix.os == 'macos-latest'
         run: |
           brew update
-          brew install justfile
+          brew install just
       - run: |
           just setup
