@@ -17,14 +17,15 @@ RESET := "\\u001b[0m"
 [no-cd]
 _setup_venv:
     @echo -e "{{GREEN}}$(date +%Y-%m-%dT%H:%M:%S.%3N%z){{RESET}} | {{YELLOW}}INFO{{RESET}} | {{CYAN}}create new python venv and pip install - start{{RESET}}"
-    python -m venv {{ VENV_DIR }} && source {{ VENV_DIR }}/bin/activate && pip install --upgrade pip ansible
+    python -m venv {{ VENV_DIR }} && source {{ VENV_DIR }}/bin/activate && pip install --upgrade pip && pip install ansible
     @echo -e "{{GREEN}}$(date +%Y-%m-%dT%H:%M:%S.%3N%z){{RESET}} | {{YELLOW}}INFO{{RESET}} | {{CYAN}}create new python venv and pip install - finish{{RESET}}"
 
 # setup dotfiles ⚪🗃️
 setup: _setup_venv
     @echo -e "{{GREEN}}$(date +%Y-%m-%dT%H:%M:%S.%3N%z){{RESET}} | {{YELLOW}}INFO{{RESET}} | {{CYAN}}running ansible playbook - start{{RESET}}"
     {{ VENV_DIR }}/bin/ansible-playbook ansible/playbook.yml \
-    --inventory ansible/hosts.ini \
-    --extra-vars dotfiles_dir={{ DOTFILES_DIR }} \
-    --tags all # --skip-tags apt
+        --inventory ansible/hosts.ini \
+        --extra-vars dotfiles_dir={{ DOTFILES_DIR }} \
+        --extra-vars callbacks_enabled=ansible.posix.profile_tasks \
+        --tags all # --skip-tags apt
     @echo -e "{{GREEN}}$(date +%Y-%m-%dT%H:%M:%S.%3N%z){{RESET}} | {{YELLOW}}INFO{{RESET}} | {{CYAN}}running ansible playbook - finish{{RESET}}"
