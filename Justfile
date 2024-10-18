@@ -13,7 +13,7 @@ RESET := "\\u001b[0m"
 @default:
   just --list
 
-# make a new python 🐍 venv using an installed rye toolchain
+# make a new python 🐍 venv using an installed python
 [no-cd]
 _setup_venv:
     @echo -e "{{GREEN}}$(date +%Y-%m-%dT%H:%M:%S.%3N%z){{RESET}} | {{YELLOW}}INFO{{RESET}} | {{CYAN}}create new python venv and pip install - start{{RESET}}"

@@ -20,6 +20,7 @@
         ".aliases": "shellscript",
         ".exports": "shellscript",
         ".functions": "shellscript",
+        "Justfile": "Makefile",
         "*.tftpl": "json",
         "*.toml": "properties"
     },
