@@ -33,15 +33,15 @@ base_directory_structure:
 
 homebrew_packages:
 - bat
-- duf      # https://github.com/muesli/duf
+- duf           # https://github.com/muesli/duf
 - fd
-- gh       # https://cli.github.com
+- gh            # https://cli.github.com
 - jq
-- fzf      # https://github.com/junegunn/fzf
+- fzf           # https://github.com/junegunn/fzf
 # - pipx
-- podman   # https://podman.io/docs/installation
+- podman        # https://podman.io/docs/installation
 - ripgrep
-- romkatv/powerlevel10k/powerlevel10k
+- powerlevel10k # https://github.com/romkatv/powerlevel10k
 # - starship
 - tldr
 - tree
@@ -75,7 +75,7 @@ apt_packages:
 - powertop        # https://github.com/fenrus75/powertop
 - ripgrep
 # - snapd
-- terraform
+#- terraform
 #- tlp            # https://github.com/linrunner/TLP
 - tree
 - vim

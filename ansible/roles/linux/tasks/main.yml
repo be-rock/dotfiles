@@ -45,15 +45,6 @@
     - linux
     - flatpak
 
-- name: Disable Bluetooth 🔵🦷 auto-enable on boot
-  lineinfile:
-    path: /etc/bluetooth/main.conf
-    regexp: '^#?AutoEnable\s*='
-    line: 'AutoEnable=false'
-  become: yes
-  tags:
-    - linux
-
 # - name: Flatpak customization
 # ansible.builtin.command: flatpak override --user --filesystem=/run/docker.sock com.visualstudio.code
 
