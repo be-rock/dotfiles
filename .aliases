@@ -157,6 +157,13 @@ alias rtl='rye toolchain list'   # list all installed python versions
 alias rtld='rye toolchain list --include-downloadable'  # list all available python versions
 alias rtr='rye toolchain remove' # remove an installed rye toolchain
 
+# uv
+alias upi='uv python install'                # install a specific python version
+alias upl='uv python list'                   # list installed and available python versions
+alias upli='uv python list --only-installed' # list installed python versions
+alias uip='uv init --python'
+alias upi='uv pip install'
+
 # start spark shell
 alias start_ps='spark_version=3.1.2 && hadoop_version=3.2 && install_dir=~/tools && export SPARK_HOME=${install_dir}/spark-${spark_version}-bin-hadoop${hadoop_version} && $SPARK_HOME/bin/pyspark' # pyspark shell
 alias start_ss='spark_version=3.1.2 && hadoop_version=3.2 && install_dir=~/tools && export SPARK_HOME=${install_dir}/spark-${spark_version}-bin-hadoop${hadoop_version} && $SPARK_HOME/bin/spark-shell' # spark (scala) shell
