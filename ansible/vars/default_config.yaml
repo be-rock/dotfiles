@@ -58,25 +58,26 @@ homebrew_cask_packages:
 # - visual-studio-code
 
 apt_packages:
-- bat             # https://github.com/sharkdp/bat
+- bat              # https://github.com/sharkdp/bat
 - curl
 - dconf-editor
-- duf             # https://github.com/muesli/duf
-- fd-find         # https://github.com/sharkdp/fd
+- duf              # https://github.com/muesli/duf
+- fd-find          # https://github.com/sharkdp/fd
 - flatpak
-- fzf             # https://github.com/junegunn/fzf (use apt-cache show fzf for info on how to fully enable)
+- fzf              # https://github.com/junegunn/fzf (use apt-cache show fzf for info on how to fully enable)
 - jq
-- gh              # github cli
+- gh               # github cli
 - git
+- gnome-screenshot # https://gitlab.gnome.org/GNOME/gnome-screenshot
 - gnome-tweaks
 - neofetch
 # - openjdk-11-jdk
 - podman
-- powertop        # https://github.com/fenrus75/powertop
+- powertop         # https://github.com/fenrus75/powertop
 - ripgrep
 # - snapd
 #- terraform
-#- tlp            # https://github.com/linrunner/TLP
+#- tlp             # https://github.com/linrunner/TLP
 - tree
 - vim
 - wget
