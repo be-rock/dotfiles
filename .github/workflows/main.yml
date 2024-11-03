@@ -17,11 +17,12 @@ jobs:
         if: matrix.os == 'ubuntu-24.04'
         run: |
           sudo apt update
-          sudo apt install -y just
+          # sudo apt install -y just
       - name: Install package on macOS
         if: matrix.os == 'macos-latest'
         run: |
           brew update
-          brew install just
+          # brew install just
       - run: |
-          just setup
+          # just setup
+          make setup
