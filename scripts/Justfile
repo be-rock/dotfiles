@@ -1,0 +1,28 @@
+set shell := ["bash", "-c"]
+
+# Define color variables
+GREEN := "\\u001b[32m"
+CYAN := "\\u001b[36m"
+YELLOW := "\\u001b[33m"
+RESET := "\\u001b[0m"
+
+# print this help 📋
+@default:
+  just --list
+
+# make a new python 🐍 venv using an installed uv version
+[no-cd]
+mkvenv python_version:
+    @echo -e "{{GREEN}}$(date +%Y-%m-%dT%H:%M:%S.%3N%z){{RESET}} | {{YELLOW}}INFO{{RESET}} | {{CYAN}}create new python venv - start{{RESET}}"
+    #rye pin {{ python_version }} && python -m venv .venv && source .venv/bin/activate
+    uv python pin {{ python_version }} && uv venv .venv && source .venv/bin/activate
+    @echo -e "{{GREEN}}$(date +%Y-%m-%dT%H:%M:%S.%3N%z){{RESET}} | {{YELLOW}}INFO{{RESET}} | {{CYAN}}create new python venv - end{{RESET}}"
+
+# aws ☁️  ecr login (AWS* environment variables need to be preset)
+ecr-login:
+    aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com
+
+# start and background the maestral client
+maestral:
+    @echo -e "{{GREEN}}$(date +%Y-%m-%dT%H:%M:%S.%3N%z){{RESET}} | {{YELLOW}}INFO{{RESET}} | {{CYAN}}starting maestral{{RESET}}"
+    source $HOME/.venv/default/bin/activate && maestral gui &
