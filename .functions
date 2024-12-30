@@ -23,16 +23,6 @@ yellow() {
     echo -e "\e[33m${1}\e[0m"
 }
 
-# check if uri is up
-isup() {
-    local uri=$1
-    if curl -s --head  --request GET "$uri" | grep "200 OK" > /dev/null ; then
-        echo "$uri is $(red down)"
-    else
-        echo "$uri is $(green up)"
-   fi
-}
-
 # backup a file: bkp [file]
 # will create [file].[CurrentDateTime].bak in the directory that the file resides in
 bkp () {
@@ -40,7 +30,6 @@ bkp () {
     echo "copying $1 to $1.$dt.bak"
     cp "$1"{,.$dt.bak}
 }
-
 
 # compute an md5sum and compare it with grep: md5check [file] [key]
 md5check() {
@@ -63,20 +52,19 @@ sha() {
 
 dttz() {
     # timezone helper
-    TZ='US/Pacific' && echo -n "$TZ      : " && date +%FT%T%z
-
-    echo -n 'America/Los_Angeles      : ' && TZ=America/Los_Angeles date +%FT%T%z
-    echo -n 'America/Phoenix          : ' && TZ=America/Phoenix date +%FT%T%z
-    echo -n 'America/Denver           : ' && TZ=America/Denver date +%FT%T%z
-    echo -n 'America/Chicago          : ' && TZ=America/Chicago date +%FT%T%z
-    echo -n 'America/New_York         : ' && TZ=America/New_York date +%FT%T%z
-    echo -n 'Asia/Kolkata (Bangalore) : ' && TZ=Asia/Kolkata date +%FT%T%z
-    echo -n 'UTC                      : ' && TZ=UTC date +%FT%T%z
-    echo -n 'Europe/London            : ' && TZ=Europe/London date +%FT%T%z
+    echo -n 'America/Los_Angeles : ' && TZ=America/Los_Angeles date +%FT%T%z
+    echo -n 'America/Phoenix     : ' && TZ=America/Phoenix date +%FT%T%z
+    echo -n 'America/Denver      : ' && TZ=America/Denver date +%FT%T%z
+    echo -n 'America/Chicago     : ' && TZ=America/Chicago date +%FT%T%z
+    echo -n 'America/New_York    : ' && TZ=America/New_York date +%FT%T%z
+    echo -n 'UTC                 : ' && TZ=UTC date +%FT%T%z
+    echo -n 'Europe/London       : ' && TZ=Europe/London date +%FT%T%z
+    echo -n 'Asia/Kolkata (IST)  : ' && TZ=Asia/Kolkata date +%FT%T%z
     echo
-    echo -n 'Local                    : ' && date +%FT%T%z
-    echo -n 'Epoch(sec)               : ' && echo $EPOCHSECONDS
-    echo -n 'Epoch(ms)                : ' && echo $(( ${EPOCHSECONDS} * 1000))
+    echo -n 'Local               : ' && date +%FT%T%z
+    echo -n 'Epoch(sec)          : ' && echo $EPOCHSECONDS
+    echo -n 'Epoch(milliseconds) : ' && echo $(( ${EPOCHSECONDS} * 1000))
+    echo -n 'Epoch(microseconds) : ' && echo $(( ${EPOCHSECONDS} * 1000 * 1000))
 }
 
 dttz_new() {
@@ -249,19 +237,6 @@ abspath () {
     echo "$(cd $(dirname "$1");pwd)/$(basename "$1")"
 }
 
-pyproject_setup_template () {
-    #
-    # purpose:
-    #   create files and directories to quickly setup python project starter template in the current directory
-    # usage:
-    #   project_setup_template_python
-    #
-    mkdir -p app tests/{integration,unit} && \
-    touch app/{__init__.py,main.py} tests/__init__.py tests/integration/__init__.py tests/unit/__init__.py \
-        tests/integration/__init__.py tests/unit/__init__.py tests/conftest.py
-}
-
-
 function log_msg() {
     #
     # purpose:
@@ -324,8 +299,11 @@ function wifi-connect() {
     # usage:
     #   wifi-connect networkName networkPass
     #
-    nmcli dev wifi rescan
-    nmcli dev wifi connect $1 password $2
+    if [[ "${OS_FAMILY}" == "MacOS" ]]; then
+      networksetup -setairportnetwork en0 $1 $2
+    elif [[ "${OS_FAMILY}" == Linux* ]]; then
+      nmcli dev wifi rescan
+      nmcli dev wifi connect $1 password $2
 }
 
 function dns-show() {

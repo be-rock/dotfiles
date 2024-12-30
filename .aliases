@@ -54,8 +54,9 @@ alias tfo='terraform output'
 alias tfd='terraform destroy'
 
 # shortcuts
-alias cmt='cd $HOME/tmp'
+alias cmt='cd ~/tmp'
 alias cst='cd /tmp'
+alias cdl='cd ~/Downloads'
 alias ..='cd ..'
 alias ...='cd ../..'
 
@@ -81,6 +82,7 @@ alias treed="find . -type d -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi --colors="Linux"'
 alias jupyter-lab='jupyter-lab --ip=localhost'
 alias mkvenv='python -m venv .venv && source .venv/bin/activate'
+alias sva='source .venv/bin/activate'
 
 # git
 alias ga='git add'
@@ -136,33 +138,34 @@ alias klf='kubectl logs -f' # follow
 alias ks='kubectl stop'
 
 # bat - https://github.com/sharkdp/bat
-alias b='bat --style=plain'                 # no line numbers
-alias bp='bat --style=plain --paging=never' # no line numbers, no paging
-alias bn='bat --number'                     # show line numbers
-alias bnp='bat --number --paging=never'     # show line numbers, no paging
+alias b='bat --style=plain'                             # no line numbers
+alias bp='bat --style=plain --paging=never'             # no line numbers, no paging
+alias bn='bat --number'                                 # show line numbers
+alias bnp='bat --number --paging=never'                 # show line numbers, no paging
+alias blp='bat --number --language=log --paging=never'  # show line numbers, no paging, logs
 
 # pyenv
-alias pyei='pyenv install'          # install python version e.g. 3.10.1
-alias pyeil='pyenv install --list'  # list all available installable versions
-alias pyeg='pyenv global'           # select globally for your user account
-alias pyel='pyenv local'            # automatically select whenever you are in the current directory (or its subdirectories)
-alias pyes='pyenv shell'            # select just for current shell session
-alias pyeu='pyenv update'           # update pyenv versions
-alias pyev='pyenv versions'         # list installed python versions
+#alias pyei='pyenv install'          # install python version e.g. 3.10.1
+#alias pyeil='pyenv install --list'  # list all available installable versions
+#alias pyeg='pyenv global'           # select globally for your user account
+#alias pyel='pyenv local'            # automatically select whenever you are in the current directory (or its subdirectories)
+#alias pyes='pyenv shell'            # select just for current shell session
+#alias pyeu='pyenv update'           # update pyenv versions
+#alias pyev='pyenv versions'         # list installed python versions
 
 # rye
-alias rf='rye fetch'             # install a specific python version
-alias rp='rye pin'               # pin a specific version
-alias rtl='rye toolchain list'   # list all installed python versions
-alias rtld='rye toolchain list --include-downloadable'  # list all available python versions
-alias rtr='rye toolchain remove' # remove an installed rye toolchain
+#alias rf='rye fetch'             # install a specific python version
+#alias rp='rye pin'               # pin a specific version
+#alias rtl='rye toolchain list'   # list all installed python versions
+#alias rtld='rye toolchain list --include-downloadable'  # list all available python versions
+#alias rtr='rye toolchain remove' # remove an installed rye toolchain
 
 # uv
-alias upi='uv python install'                # install a specific python version
-alias upl='uv python list'                   # list installed and available python versions
-alias upli='uv python list --only-installed' # list installed python versions
-alias uip='uv init --python'
-alias upi='uv pip install'
+alias uvip='uv init --python'
+alias uvpi='uv python install'                # install a specific python version
+alias uvpl='uv python list'                   # list installed and available python versions
+alias uvpli='uv python list --only-installed' # list installed python versions
+alias uvpipi='uv pip install'
 
 # start spark shell
 alias start_ps='spark_version=3.1.2 && hadoop_version=3.2 && install_dir=~/tools && export SPARK_HOME=${install_dir}/spark-${spark_version}-bin-hadoop${hadoop_version} && $SPARK_HOME/bin/pyspark' # pyspark shell

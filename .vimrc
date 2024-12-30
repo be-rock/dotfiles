@@ -44,7 +44,6 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-
 "inoremap <special> jk <ESC> " commented out 2022-12
 "inoremap jk <ESC>           " commented out 2022-12
 

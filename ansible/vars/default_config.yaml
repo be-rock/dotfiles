@@ -19,6 +19,7 @@ dotfiles:
 base_directory_structure:
 - .cache
 - .config
+- .hammerspoon
 - .local/bin
 - .local/lib
 - .local/share/fonts
@@ -51,6 +52,7 @@ homebrew_cask_packages:
 # - docker
 # - firefox
 # - intellij-idea-ce
+- hammerspoon      # https://github.com/Hammerspoon/hammerspoon
 - iterm2
 # - postman
 # - pycharm
