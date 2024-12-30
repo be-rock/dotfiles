@@ -14,7 +14,7 @@ prereq: ## ensure prereqs are in place
 
 .PHONY: setup
 setup: ## setup dotfiles
-setup: prereq ## setup dotfiles
+setup: prereq
 	${VENV_DIR}/bin/ansible-playbook ansible/playbook.yml \
 	  --inventory ansible/hosts.ini \
 	  --extra-vars dotfiles_dir=${DOTFILES_DIR} \
