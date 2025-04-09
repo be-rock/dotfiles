@@ -34,6 +34,7 @@ base_directory_structure:
 
 homebrew_packages:
 - bat
+- bruno         # https://github.com/usebruno/bruno
 - duf           # https://github.com/muesli/duf
 - fd
 - gh            # https://cli.github.com

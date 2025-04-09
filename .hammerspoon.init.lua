@@ -52,6 +52,7 @@ function toggleMute()
   local teams = hs.application.find("com.microsoft.teams2")
   local zoom = hs.application.find("us.zoom.xos")
   local googleMeet = hs.application.find("Google Meet") -- assumes that a chrome web app is saved of this name
+  local slack = hs.application.find("Slack")
   if zoom then
     --hs.alert.show("found zoom")
     hs.eventtap.keyStroke({"cmd","shift"}, "a", 0, zoom)
@@ -64,14 +65,34 @@ function toggleMute()
     --hs.alert.show("found google meet")
     hs.eventtap.keyStroke({"cmd"}, "d", 0, googleMeet)
   end
+  if slack then
+    --hs.alert.show("found slack")
+    hs.eventtap.keyStroke({"cmd", "shift"}, "space", 0, slack)
+  end
 end
 
 -- Bind the hotkey to the toggleMute function
 hs.hotkey.bind(mehKey, "m", toggleMute)
 
 --------------------------------------------------
---
+-- print key strokes where the cursor is
 --------------------------------------------------
+-- print date
+hs.hotkey.bind(mehKey, "d", function()
+    local dateString = os.date("%Y-%m-%d")
+    hs.eventtap.keyStrokes(dateString)
+end)
+
+-- print date and time
+hs.hotkey.bind(mehKey, "t", function()
+    local dateString = os.date("%Y-%m-%dT%H:%M:%S")
+    hs.eventtap.keyStrokes(dateString)
+end)
+
+--------------------------------------------------
+-- misc
+--------------------------------------------------
+
 hs.hotkey.bind(hyperKey, "w", function()
   hs.alert.show("Hello World!")
 end)
