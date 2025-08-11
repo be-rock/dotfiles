@@ -5,13 +5,15 @@ local appShortcutMap = {
     e = "Google Meet",
     f = "Salesforce",
     g = "Glean",
+    k = "Google Tasks",
     m = "Gmail",
     n = "Noteszzz",
     o = "Emojis",
     p = "Perplexity",
     r = "reload",
     s = "Slack",
-    t = "iTerm",
+    t = "Ghostty",
+    u = "Music",
     v = "Visual Studio Code",
     z = "Zoom.us"
 }

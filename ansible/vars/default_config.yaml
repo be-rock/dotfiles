@@ -34,16 +34,20 @@ base_directory_structure:
 
 homebrew_packages:
 - bat
-- bruno         # https://github.com/usebruno/bruno
-- duf           # https://github.com/muesli/duf
+- bruno           # https://github.com/usebruno/bruno
+- duckdb
+- duf             # https://github.com/muesli/duf
+- fastfetch
 - fd
-- gh            # https://cli.github.com
+- gh              # https://cli.github.com
+- http
 - jq
-- fzf           # https://github.com/junegunn/fzf
+- fzf             # https://github.com/junegunn/fzf
 # - pipx
-- podman        # https://podman.io/docs/installation
+- podman          # https://podman.io/docs/installation
+- podman-compose  # https://podman.io/docs/installation
 - ripgrep
-- powerlevel10k # https://github.com/romkatv/powerlevel10k
+- powerlevel10k   # https://github.com/romkatv/powerlevel10k
 # - starship
 - tldr
 - tree
@@ -53,9 +57,11 @@ homebrew_cask_packages:
 # - docker
 # - firefox
 # - intellij-idea-ce
+- bruno
+- dbeaver-community
+- ghostty
 - hammerspoon      # https://github.com/Hammerspoon/hammerspoon
-- iterm2
-# - postman
+# - iterm2
 # - pycharm
 - rectangle
 # - visual-studio-code
@@ -73,8 +79,8 @@ apt_packages:
 - git
 - gnome-screenshot # https://gitlab.gnome.org/GNOME/gnome-screenshot
 - gnome-tweaks
-- neofetch
-# - openjdk-11-jdk
+# - neofetch       # use fastfetch instead
+- openjdk-17-jdk
 - podman
 - powertop         # https://github.com/fenrus75/powertop
 - ripgrep
@@ -87,7 +93,7 @@ apt_packages:
 - xclip
 - zsh
 
-pipx_packages:
+# pipx_packages:
 # - black
 # - bpytop
 # - httpie     # https://github.com/httpie/httpie

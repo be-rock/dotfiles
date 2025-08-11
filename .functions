@@ -373,9 +373,9 @@ function notification() {
     # purpose:
     #   send a simple notification via osascript
     # usage:
-    #   notifcation "hello world"
+    #   notification "hello world"
     #
     if [ SYSTEM_TYPE=="macOS" ]; then
-        X="$1" /usr/bin/osascript -e 'display notification "X" with title "my notification" sound name "Submarine"'
+        X="$1" /usr/bin/osascript -e "display notification \"$1\" with title \"my notification\" sound name \"Submarine\""
     fi
 }
