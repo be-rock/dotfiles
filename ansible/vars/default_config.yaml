@@ -25,8 +25,6 @@ base_directory_structure:
 - .local/share/fonts
 - .zsh
 - code/git
-- code/go
-- code/groovy
 - code/python
 - code/sql
 - tmp
@@ -34,37 +32,35 @@ base_directory_structure:
 
 homebrew_packages:
 - bat
-- bruno           # https://github.com/usebruno/bruno
-- duckdb
+# - duckdb
 - duf             # https://github.com/muesli/duf
 - fastfetch
 - fd
 - gh              # https://cli.github.com
-- http
 - jq
 - fzf             # https://github.com/junegunn/fzf
+- just
 # - pipx
 - podman          # https://podman.io/docs/installation
 - podman-compose  # https://podman.io/docs/installation
 - ripgrep
 - powerlevel10k   # https://github.com/romkatv/powerlevel10k
 # - starship
-- tldr
+- tealdeer        # https://github.com/tealdeer-rs/tealdeer
 - tree
 - wget
 
 homebrew_cask_packages:
-# - docker
 # - firefox
 # - intellij-idea-ce
-- bruno
-- dbeaver-community
+# - bruno           # https://github.com/usebruno/bruno
+# - dbeaver-community
 - ghostty
 - hammerspoon      # https://github.com/Hammerspoon/hammerspoon
 # - iterm2
 # - pycharm
 - rectangle
-# - visual-studio-code
+- visual-studio-code
 
 apt_packages:
 - bat              # https://github.com/sharkdp/bat
