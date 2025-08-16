@@ -4,7 +4,6 @@ dotfiles:
 - .ansible.cfg
 - .bash_profile
 - .bashrc
-- .condarc
 - .exports
 # - .gitconfig
 - .gitignore.global
@@ -19,6 +18,7 @@ dotfiles:
 base_directory_structure:
 - .cache
 - .config
+- .config/ghostty
 - .hammerspoon
 - .local/bin
 - .local/lib
@@ -63,6 +63,17 @@ homebrew_cask_packages:
 - rectangle
 - visual-studio-code
 
+macos_defaults:
+# Makes the cpu history monitor the default
+- { domain: com.apple.activitymonitor, key: IconType, type: int, value: 6, state: present }
+- { domain: com.apple.dock, key: show-recents, type: bool, value: false, state: present }
+- { domain: com.apple.dock, key: tilesize, type: float, value: 48, state: present }
+- { domain: com.apple.finder, key: FXDefaultSearchScope, type: string, value: SCcf, state: present }
+- { domain: com.apple.menuextra.clock, key: DateFormat, type: string, value: "\"EEE HH:mm:ss\"", state: present }
+- { domain: com.microsoft.VSCode, key: ApplePressAndHoldEnabled, type: bool, value: false, state: present }
+- { domain: NSGlobalDomain, key: ApplePressAndHoldEnabled, type: bool, value: false, state: present }
+- { domain: NSGlobalDomain, key: AppleShowAllExtensions, type: bool, value: true, state: present }
+
 apt_packages:
 - bat              # https://github.com/sharkdp/bat
 - curl
@@ -90,15 +101,6 @@ apt_packages:
 - xclip
 - zsh
 
-# pipx_packages:
-# - black
-# - bpytop
-# - httpie     # https://github.com/httpie/httpie
-# - pre-commit
-#- 'maestral[gui]'
-# - parquet-tools
-# - tldr
-
 # snap_packages:
 # - { package: auto-cpufreq, classic: no }      # https://github.com/AdnanHodzic/auto-cpufreq
 # - { package: docker, classic: no }
@@ -117,10 +119,10 @@ git_repos:
 - { repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git", target_path: ~/.zsh/zsh-syntax-highlighting }
 - { repo: "https://github.com/zsh-users/zsh-completions.git", target_path: ~/.zsh/zsh-completions }
 - { repo: "https://github.com/romkatv/powerlevel10k.git", target_path: ~/.config/powerlevel10k }
+- { repo: "https://github.com/nvim-lua/kickstart.nvim.git", target_path: ~/.config/.nvim }
 
 vim_plugins:
 - { plugin_git_source: "https://github.com/itchyny/lightline.vim", plugin_target_path: ~/.vim/pack/plugins/start/lightline }
-- { plugin_git_source: "https://github.com/flazz/vim-colorschemes.git", plugin_target_path: ~/.vim/pack/plugins/start/colorschemes }
 - { plugin_git_source: "https://github.com/preservim/nerdtree.git", plugin_target_path: ~/.vim/pack/vendor/start/nerdtree }
 - { plugin_git_source: "https://github.com/justinmk/vim-sneak.git", plugin_target_path: ~/.vim/pack/plugins/start/vim-sneak }
 - { plugin_git_source: "https://github.com/easymotion/vim-easymotion.git", plugin_target_path: ~/.vim/pack/plugins/start/vim-easymotion }
@@ -131,6 +133,6 @@ zsh_plugins:
 - { plugin_git_source: "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/lib/history.zsh", plugin_target_path: ~/.zsh/history.zsh }
 - { plugin_git_source: "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/z/z.plugin.zsh", plugin_target_path: ~/.zsh/z.plugin.zsh }
 
-neovim:
-  version: 0.10.2
-  sha256: 9f696e635d503b844e4e78e88a22bcf512a78f288bf471379afc3d0004e15217
+# neovim:
+#   version: 0.10.2
+#   sha256: 9f696e635d503b844e4e78e88a22bcf512a78f288bf471379afc3d0004e15217

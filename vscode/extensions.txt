@@ -1,10 +1,10 @@
 # grep -v '^#' extensions.txt | xargs -n 1 code --install-extension
 
-hashicorp.terraform
+#hashicorp.terraform
 ms-python.python
-ms-toolsai.jupyter
-ms-toolsai.jupyter-keymap
-ms-toolsai.jupyter-renderers
+#ms-toolsai.jupyter
+#ms-toolsai.jupyter-keymap
+#ms-toolsai.jupyter-renderers
 PKief.material-icon-theme
 vscodevim.vim
 yzhang.markdown-all-in-one

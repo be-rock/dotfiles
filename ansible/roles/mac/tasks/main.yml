@@ -12,13 +12,16 @@
     name: '{{ item }}'
     state: installed
   tags:
+
   - brew
   loop: "{{ homebrew_cask_packages }}"
-
 - name: modify macOS 🍎 user defaults
   community.general.osx_defaults:
-    domain: com.microsoft.VSCode
-    key: ApplePressAndHoldEnabled
-    type: bool
-    value: false
-    state: present
+    domain: "{{ item.domain }}"
+    key: "{{ item.key }}"
+    type: "{{ item.type }}"
+    value: "{{ item.value }}"
+    state: "{{ item.state }}"
+  loop: "{{ macos_defaults }}"
+  tags:
+    - macos_defaults

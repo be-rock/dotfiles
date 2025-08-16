@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-DOTFILES_DIR=~/code/git/dotfiles
+DOTFILES_DIR ?= ~/code/git/dotfiles
 VENV_DIR=/tmp/venv
 
 help: ## Show this help message.

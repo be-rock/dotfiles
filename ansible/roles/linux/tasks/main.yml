@@ -101,13 +101,13 @@
   tags:
     - linux
 
-- name: neovim setup
-  block:
-    - name: "download neovim version {{ neovim['version'] }}"
-      ansible.builtin.get_url:
-        url: "https://github.com/neovim/neovim/releases/download/v{{ neovim['version'] }}/nvim-linux64.tar.gz"
-        dest: ~/.local/lib/
-        checksum: "sha256: {{ neovim['sha256'] }}"
+# - name: neovim setup
+#   block:
+#     - name: "download neovim version {{ neovim['version'] }}"
+#       ansible.builtin.get_url:
+#         url: "https://github.com/neovim/neovim/releases/download/v{{ neovim['version'] }}/nvim-linux64.tar.gz"
+#         dest: ~/.local/lib/
+#         checksum: "sha256: {{ neovim['sha256'] }}"
 
     - name: "create nvim symlink 🔗"
       ignore_errors: true
