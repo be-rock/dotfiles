@@ -1,28 +1,88 @@
-set shell := ["bash", "-c"]
+#
+# reference
+# - contstants: https://just.systems/man/en/constants.html
+# - logging template example:
+#    - @echo "{{YELLOW}}{{datetime('%Y-%m-%dT%H:%M:%S%z')}}{{NORMAL}} | {{GREEN}}INFO{{NORMAL}} | {{CYAN}}thing to log{{NORMAL}}"
+#
 
-# Define color variables
-GREEN := "\\u001b[32m"
-CYAN := "\\u001b[36m"
-YELLOW := "\\u001b[33m"
-RESET := "\\u001b[0m"
+#set shell := ["bash", "-c"]
+CONTAINER_CLI := "podman"
 
 # print this help 📋
 @default:
   just --list
 
-# make a new python 🐍 venv using an installed uv version
-[no-cd]
-mkvenv python_version:
-    @echo -e "{{GREEN}}$(date +%Y-%m-%dT%H:%M:%S.%3N%z){{RESET}} | {{YELLOW}}INFO{{RESET}} | {{CYAN}}create new python venv - start{{RESET}}"
-    #rye pin {{ python_version }} && python -m venv .venv && source .venv/bin/activate
-    uv python pin {{ python_version }} && uv venv .venv && source .venv/bin/activate
-    @echo -e "{{GREEN}}$(date +%Y-%m-%dT%H:%M:%S.%3N%z){{RESET}} | {{YELLOW}}INFO{{RESET}} | {{CYAN}}create new python venv - end{{RESET}}"
+# build a container image
+[group('container')]
+image-build image tag context_path:
+    {{CONTAINER_CLI}} build --tag {{image}}:{{tag}} {{context_path}}
 
-# aws ☁️  ecr login (AWS* environment variables need to be preset)
-ecr-login:
-    aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com
+# start 🚦 podman
+[group('container')]
+podman-start:
+    @echo "{{YELLOW}}{{datetime('%Y-%m-%dT%H:%M:%S%z')}}{{NORMAL}} | {{GREEN}}INFO{{NORMAL}} | {{CYAN}}starting 🚦 podman machine{{NORMAL}}"
+    {{CONTAINER_CLI}} machine start >/dev/null 2>/dev/null || true
+    @echo "{{YELLOW}}{{datetime('%Y-%m-%dT%H:%M:%S%z')}}{{NORMAL}} | {{GREEN}}INFO{{NORMAL}} | {{CYAN}}listing podman machine{{NORMAL}}"
+    {{CONTAINER_CLI}} machine list
+
+# stop 🛑 podman
+[group('container')]
+podman-stop:
+    echo "{{GREEN}}{{ datetime('%Y-%m-%d %H:%M:%S') }}{{NORMAL}} | {{ YELLOW }}INFO{{NORMAL}} | {{ CYAN }}listing podman machine{{NORMAL}}"
+    {{CONTAINER_CLI}} machine list
+    @echo "{{GREEN}}{{ datetime('%Y-%m-%d %H:%M:%S') }}{{NORMAL}} | {{ YELLOW }}INFO{{NORMAL}} | {{ CYAN }}stopping podman machine{{NORMAL}}"
+    {{CONTAINER_CLI}} machine stop
+
+# start 🚦 a spark ✨ container locally. `version` should be a spark version like 3.5.0
+[group('container')]
+[group('spark')]
+spark-container-start version:
+    @echo "{{GREEN}}{{ datetime('%Y-%m-%d %H:%M:%S') }}{{NORMAL}} | {{ YELLOW }}INFO{{NORMAL}} | {{ CYAN }}attempting to start localhost/spark-ipython:{{version}}{{NORMAL}}"
+    {{CONTAINER_CLI}} run -it localhost/spark-ipython:{{version}}
+
+# build 👷‍♂️ a container 🐳 locally. Equivalent to `[docker|podman|container] build --file containerfile_path tag`
+[group('container')]
+container-image-build containerfile_path tag:
+    echo "{{GREEN}}{{ datetime('%Y-%m-%d %H:%M:%S') }}{{NORMAL}} | {{ YELLOW }}INFO{{NORMAL}} | {{ CYAN }}attempting to build image {{tag}} from {{containerfile_path}}"
+    {{CONTAINER_CLI}} build --file {{containerfile_path}} --tag {{tag}}
+
+# list installed python versions
+[group('python')]
+uv-list:
+    python list --only-installed
+
+# start 🚦 a postgres psql shell
+#psql-start
+#    @echo -e "{{GREEN}}$(date +%Y-%m-%dT%H:%M:%S.%3N%z){{NORMAL}} | {{YELLOW}}INFO{{NORMAL}} | {{CYAN}}postgres db starting ...{{NORMAL}}"
+#    {{CONTAINER_CLI}} run --name postgres-test -v pgdata:/var/lib/postgresql/data -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d docker.io/library/postgres:17.0-bookworm
+#    {{CONTAINER_CLI}} exec -it postgres-test psql -U postgres
+
+# start pyspark using a specific version of spark. Ex: `start-pyspark 1.2.3` 🐍🎇
+[group('spark')]
+start-pyspark version:
+    local/bin/start_pyspark.sh ~/tools/spark-{{version}}-bin-hadoop3 ipython
 
 # start and background the maestral client
+[group('misc')]
 maestral:
-    @echo -e "{{GREEN}}$(date +%Y-%m-%dT%H:%M:%S.%3N%z){{RESET}} | {{YELLOW}}INFO{{RESET}} | {{CYAN}}starting maestral{{RESET}}"
+    @echo -e "{{GREEN}}$(date +%Y-%m-%dT%H:%M:%S.%3N%z){{NORMAL}} | {{YELLOW}}INFO{{NORMAL}} | {{CYAN}}starting maestral{{NORMAL}}"
     source $HOME/.venv/default/bin/activate && maestral gui &
+
+# start ollama 🦙
+#[group('ollama')]
+#ollama-start:
+#    make --file ~/Makefile podman-start >/dev/null 2>/dev/null || true
+#    podman run -d --name ollama docker.io/ollama/ollama:0.5.4 || true
+#    podman start 83c19e017fcc
+#    #podman exec -it ollama ollama run llama3.2:3b
+
+# stop ollama 🦙
+[group('ollama')]
+ollama-stop:
+    {{CONTAINER_CLI}} container stop 15056aede2bf
+
+# restart 🔁 chrome
+[group('misc')]
+restart-chrome:
+    open -a "Google Chrome" "chrome://restart"
+
