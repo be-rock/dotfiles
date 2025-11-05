@@ -3,7 +3,7 @@ DOTFILES_DIR ?= ~/code/git/dotfiles
 VENV_DIR=/tmp/venv
 
 help: ## Show this help message.
-	@echo -e 'Usage: make [target] ...\n'
+	@echo 'Usage: make [target] ...'
 	@echo 'targets:'
 	@egrep '^(.+)\:\ ##\ (.+)' ${MAKEFILE_LIST} | column -t -c 2 -s ':#'
 
@@ -18,4 +18,5 @@ setup: prereq
 	${VENV_DIR}/bin/ansible-playbook ansible/playbook.yml \
 	  --inventory ansible/hosts.ini \
 	  --extra-vars dotfiles_dir=${DOTFILES_DIR} \
-	  --tags all # --skip-tags apt
+	  --tags brew # --skip-tags apt
+# 	  --tags all # --skip-tags apt

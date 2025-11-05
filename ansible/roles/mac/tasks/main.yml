@@ -12,9 +12,9 @@
     name: '{{ item }}'
     state: installed
   tags:
-
-  - brew
+    brew
   loop: "{{ homebrew_cask_packages }}"
+
 - name: modify macOS 🍎 user defaults
   community.general.osx_defaults:
     domain: "{{ item.domain }}"

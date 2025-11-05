@@ -37,8 +37,8 @@ podman-stop:
 [group('container')]
 [group('spark')]
 spark-container-start version:
-    @echo "{{GREEN}}{{ datetime('%Y-%m-%d %H:%M:%S') }}{{NORMAL}} | {{ YELLOW }}INFO{{NORMAL}} | {{ CYAN }}attempting to start localhost/spark-ipython:{{version}}{{NORMAL}}"
-    {{CONTAINER_CLI}} run -it localhost/spark-ipython:{{version}}
+    @echo "{{GREEN}}{{ datetime('%Y-%m-%d %H:%M:%S') }}{{NORMAL}} | {{ YELLOW }}INFO{{NORMAL}} | {{ CYAN }}attempting to start localhost/spark-test:{{version}}{{NORMAL}}"
+    {{CONTAINER_CLI}} run -it --mount type=bind,src=/$HOME/.ipython/profile_default/history.sqlite,dst=/root/.ipython/profile_default/history.sqlite localhost/spark-ipython:{{version}}
 
 # build 👷‍♂️ a container 🐳 locally. Equivalent to `[docker|podman|container] build --file containerfile_path tag`
 [group('container')]

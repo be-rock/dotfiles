@@ -32,13 +32,14 @@ base_directory_structure:
 
 homebrew_packages:
 - bat
-# - duckdb
+- duckdb
 - duf             # https://github.com/muesli/duf
 - fastfetch
 - fd
 - gh              # https://cli.github.com
 - jq
 - fzf             # https://github.com/junegunn/fzf
+# - hugo
 - just
 # - pipx
 - pre-commit
@@ -49,19 +50,23 @@ homebrew_packages:
 # - starship
 - tealdeer        # https://github.com/tealdeer-rs/tealdeer
 - tree
+- uv
 - wget
 
 homebrew_cask_packages:
-# - firefox
-# - intellij-idea-ce
 # - bruno           # https://github.com/usebruno/bruno
 # - dbeaver-community
+# - duckduckgo
+# - firefox
 - ghostty
 - hammerspoon      # https://github.com/Hammerspoon/hammerspoon
+- netnewswire
+# - intellij-idea-ce
 # - iterm2
 # - pycharm
 - rectangle
 - visual-studio-code
+# - zen             # https://zen-browser.app/
 
 macos_defaults:
 # Makes the cpu history monitor the default

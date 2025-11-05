@@ -1,0 +1,21 @@
+FROM python:3.13-slim-trixie
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+# Java is required for PySpark
+RUN apt-get update && \
+    apt-get install -y openjdk-21-jdk && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+ENV SPARK_VERSION=4.0.1
+ENV PYSPARK_PYTHON=.venv/bin/python
+ENV PYSPARK_DRIVER_PYTHON=.venv/bin/ipython
+
+RUN uv init && \
+    uv add pyspark==${SPARK_VERSION} ipython && \
+    uv sync
+
+CMD [".venv/bin/pyspark"]
+
