@@ -112,6 +112,9 @@ alias gst='git stash'
 alias gstall='git stash --all'
 alias gsw='git switch'
 alias gsc='git switch -c'
+alias gwa='git worktree add' # git worktree add ../feature-branch-1 feature-1
+alias gwl='git worktree list' # git worktree add ../feature-branch-2 feature-2
+alias gwr='git worktree remove' # git worktree add ../hotfix hotfix/urgent-bug
 
 # docker
 alias docker='podman'

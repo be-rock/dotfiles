@@ -17,6 +17,6 @@ setup: ## setup dotfiles
 setup: prereq
 	${VENV_DIR}/bin/ansible-playbook ansible/playbook.yml \
 	  --inventory ansible/hosts.ini \
-	  --extra-vars dotfiles_dir=${DOTFILES_DIR} \
-	  --tags brew # --skip-tags apt
+	  --extra-vars dotfiles_dir=${DOTFILES_DIR}
+# 	  --tags brew # --skip-tags apt
 # 	  --tags all # --skip-tags apt

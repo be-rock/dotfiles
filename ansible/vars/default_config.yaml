@@ -49,6 +49,7 @@ homebrew_packages:
 - powerlevel10k   # https://github.com/romkatv/powerlevel10k
 # - starship
 - tealdeer        # https://github.com/tealdeer-rs/tealdeer
+- terraform
 - tree
 - uv
 - wget
