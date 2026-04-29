@@ -34,20 +34,21 @@ homebrew_packages:
 - bat
 - duckdb
 - duf             # https://github.com/muesli/duf
+- espanso
 - fastfetch
 - fd
 - gh              # https://cli.github.com
 - jq
 - fzf             # https://github.com/junegunn/fzf
+- glow
 # - hugo
 - just
-# - pipx
-- pre-commit
+# - pre-commit
+- neovim
 - podman          # https://podman.io/docs/installation
 - podman-compose  # https://podman.io/docs/installation
 - ripgrep
 - powerlevel10k   # https://github.com/romkatv/powerlevel10k
-# - starship
 - tealdeer        # https://github.com/tealdeer-rs/tealdeer
 - terraform
 - tree
@@ -56,16 +57,19 @@ homebrew_packages:
 
 homebrew_cask_packages:
 # - bruno           # https://github.com/usebruno/bruno
-# - dbeaver-community
+- dbeaver-community
 # - duckduckgo
 # - firefox
 - ghostty
 - hammerspoon      # https://github.com/Hammerspoon/hammerspoon
+- maccy
 - netnewswire
+- obsidian
 # - intellij-idea-ce
 # - iterm2
 # - pycharm
 - rectangle
+- shottr
 - visual-studio-code
 # - zen             # https://zen-browser.app/
 
