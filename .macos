@@ -36,3 +36,6 @@ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool "false"
 defaults write com.apple.menuextra.clock "DateFormat" -string "\"EEE HH:mm:ss\""
 # Makes the cpu history monitor the default
 defaults write com.apple.activitymonitor IconType 6
+# kills smart quotes
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+

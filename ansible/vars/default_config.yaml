@@ -40,7 +40,7 @@ homebrew_packages:
 - gh              # https://cli.github.com
 - jq
 - fzf             # https://github.com/junegunn/fzf
-- glow
+- glow            # https://github.com/charmbracelet/glow
 # - hugo
 - just
 # - pre-commit
@@ -57,7 +57,7 @@ homebrew_packages:
 
 homebrew_cask_packages:
 # - bruno           # https://github.com/usebruno/bruno
-- dbeaver-community
+# - dbeaver-community
 # - duckduckgo
 # - firefox
 - ghostty
@@ -65,9 +65,6 @@ homebrew_cask_packages:
 - maccy
 - netnewswire
 - obsidian
-# - intellij-idea-ce
-# - iterm2
-# - pycharm
 - rectangle
 - shottr
 - visual-studio-code

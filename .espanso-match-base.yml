@@ -1,0 +1,67 @@
+# espanso match file
+
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+
+# You can use this file to define the base matches (aka snippets)
+# that will be available in every application when using espanso.
+
+# Matches are substitution rules: when you type the "trigger" string
+# it gets replaced by the "replace" string.
+
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+
+matches:
+  ############
+  # personal
+  ############
+  - trigger: ";myemail"
+    replace: "@gmail.com"
+
+  # personal
+  - trigger: ";;"
+    replace: "\\"
+  - trigger: ";ssf"
+    replace: "select * from "
+  - trigger: ";100w"
+    replace: "Describe this in 100 words or less"
+  - trigger: ";3w"
+    replace: "Give me 3 different ways and their trade-offs"
+
+  # Print the current date
+  - trigger: ";dt"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+  - trigger: ";tm"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d %H:%M:%S"
+
+  # Print the output of a shell command
+  - trigger: ";shell"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "echo 'Hello from your shell'"
+
+  - trigger: ";pyscript"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: script
+        params:
+          args:
+            - python3
+            - -c
+            - |
+              import datetime
+              now = datetime.datetime.now()
+              print("Current date and time is:", now.strftime("%Y-%m-%d %H:%M:%S"))

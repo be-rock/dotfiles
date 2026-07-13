@@ -23,6 +23,7 @@ alias dmesg='dmesg --color --ctime' # use `journalctl --dmesg` instead
 alias env='env | sort | grep -v ^__'
 alias eg='env | sort | grep'
 alias ff='fastfetch'
+alias ffu='fastfetch -s uptime'
 alias db='databricks'
 alias dns-flush='resolvectl flush-caches'
 alias dns-stats='resolvectl statistics'
@@ -117,6 +118,7 @@ alias gwl='git worktree list' # git worktree add ../feature-branch-2 feature-2
 alias gwr='git worktree remove' # git worktree add ../hotfix hotfix/urgent-bug
 
 # docker
+alias c='container'
 alias docker='podman'
 alias dc='docker container'
 alias di='docker image'
@@ -124,6 +126,11 @@ alias dinfo='docker info'
 alias dp='docker pull'
 alias dri='docker run -it --rm'
 alias ds='docker service'
+
+# postgres
+alias pstart='container start postgres'
+alias pstop='container stop postgres'
+alias psql='container exec -it postgres psql -U postgres'
 
 # aws
 alias aws='docker run --network host --rm -it -v ~/.aws:/root/.aws amazon/aws-cli'
@@ -148,6 +155,9 @@ alias bp='bat --style=plain --paging=never'             # no line numbers, no pa
 alias bn='bat --number'                                 # show line numbers
 alias bnp='bat --number --paging=never'                 # show line numbers, no paging
 alias blp='bat --number --language=log --paging=never'  # show line numbers, no paging, logs
+
+# glow
+alias g='glow'
 
 # pyenv
 #alias pyei='pyenv install'          # install python version e.g. 3.10.1
