@@ -77,29 +77,29 @@
   tags:
     - linux
 
-- name: popos unbind default keybindings for switching applications # https://github.com/pop-os/shell/issues/142
-  ansible.builtin.shell:
-    "gsettings set org.gnome.shell.keybindings switch-to-application-{{ item }} '[]'"
-  loop: "{{ range(1, 7) }}"
-  when: ansible_distribution | lower == 'pop!_os'
-  tags:
-    - linux
-
-- name: popos - rebind keyboard shortcuts to switch between workspaces # https://github.com/pop-os/shell/issues/142
-  ansible.builtin.shell:
-    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-{{ item }} "['<Super>{{ item }}']"
-  loop: "{{ range(1, 7) }}"
-  when: ansible_distribution | lower == 'pop!_os'
-  tags:
-    - linux
-
-- name: popos - assign an active window to a workspace # https://github.com/pop-os/shell/issues/142
-  ansible.builtin.shell:
-    gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-{{ item }} "['<Super><Shift>{{ item }}']"
-  loop: "{{ range(1, 7) }}"
-  when: ansible_distribution | lower == 'pop!_os'
-  tags:
-    - linux
+#- name: popos unbind default keybindings for switching applications # https://github.com/pop-os/shell/issues/142
+#  ansible.builtin.shell:
+#    "gsettings set org.gnome.shell.keybindings switch-to-application-{{ item }} '[]'"
+#  loop: "{{ range(1, 7) }}"
+#  when: ansible_distribution | lower == 'pop!_os'
+#  tags:
+#    - linux
+#
+#- name: popos - rebind keyboard shortcuts to switch between workspaces # https://github.com/pop-os/shell/issues/142
+#  ansible.builtin.shell:
+#    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-{{ item }} "['<Super>{{ item }}']"
+#  loop: "{{ range(1, 7) }}"
+#  when: ansible_distribution | lower == 'pop!_os'
+#  tags:
+#    - linux
+#
+#- name: popos - assign an active window to a workspace # https://github.com/pop-os/shell/issues/142
+#  ansible.builtin.shell:
+#    gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-{{ item }} "['<Super><Shift>{{ item }}']"
+#  loop: "{{ range(1, 7) }}"
+#  when: ansible_distribution | lower == 'pop!_os'
+#  tags:
+#    - linux
 
 # - name: neovim setup
 #   block:
